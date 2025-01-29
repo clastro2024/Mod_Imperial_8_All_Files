@@ -1,0 +1,1524 @@
+{
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+    
+// ------------------------------------------------------------------------
+// Panel de carga de ficheros
+// ------------------------------------------------------------------------  
+	*PANTALLA "PanelFicheros" "-"
+	{
+    *NOMBRE "PanelFicheros"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "ListBox" "EstiloListBoxRellenaPeq"
+    {
+    	*RECT	15 120 %50 >140
+    	*NOMBRE "ListaFicheros"
+    	*GFLAGS { ST_NORMAL F_TABSTOP }
+    } 
+   	*CONTROL "Static" "EstiloRotuloArial"
+   	{
+   		*NOMBRE "BarraPath"
+   		*RECT 	25 >120 %50 20
+   		*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+   	}
+		*CONTROL "EditBox" "ChatEdit"						// Habrá que crear un estilo de editbox como el de chatedit
+    {      
+      *RECT   25 >90 %50 30
+      *NOMBRE "EditBox"
+      *GFLAGS { ST_NORMAL F_TABSTOP }
+      *PARAMS "Max: 45"
+    }
+	}
+
+// ------------------------------------------------------------------------
+// Panel de carga de ficheros
+// ------------------------------------------------------------------------  
+	*PANTALLA "PanelPartida" "-"
+	{
+    *NOMBRE "PanelPartida"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+		*INSTANCIA "PanelFicheros"
+
+/*
+    *CONTROL "Static" "EstiloMarcoFino"
+    {
+      *RECT   545 100 180 340  // ************* ??
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloMarcoFino"
+    {
+      *RECT   >55 110 300 440
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+*/
+    *CONTROL "Static" "RT_EstiloMinimapaSombra"
+    {
+      *RECT   >53 92 160 120
+      *NOMBRE "ScreenshotSombra"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "RT_EstiloMinimapa"
+    {
+      *RECT   >55 90 160 120
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      *NOMBRE "Screenshot"
+    }
+    *CONTROL "MapaEstructuras" "RT_EstiloMinimapa"
+    {
+      *RECT 	>55 90 180 112
+      *NOMBRE "MiniMapa"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+    }
+
+    *CONTROL "Static" "EstiloDialogo"
+    {
+    	*RECT		>55 210 160 30
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*NOMBRE "NombreMision"
+    }
+    
+     *CONTROL "Static" "EstiloDialogo"
+    {
+    	*RECT		>55 230 160 30
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*NOMBRE "Dificultad"
+    }
+
+    *CONTROL "Static" "EstiloDialogo"
+    {
+    	*RECT		>55 250 160 30
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*NOMBRE "TiempoMision"
+    }    
+    *CONTROL "ListBox" "EstiloLBListaPlayers"
+    {
+    	*RECT		>15 270 270 140
+    	*NOMBRE "ListaJugadores"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    } 
+    *CONTROL "Static" "EstiloDialogo"
+    {
+    	*RECT 	>55 400 160 30
+    	*NOMBRE "Fecha"
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloDialogo"
+    {
+    	*RECT 	>55 420 160 30
+    	*NOMBRE	"Hora"
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+	}
+
+// ------------------------------------------------------------------------
+// Submenu de cargar partida
+// ------------------------------------------------------------------------  
+	*PANTALLA "SubMenuCargarPartida" "EstiloMarcoBrillante"
+	{
+    *NOMBRE "SubMenuCargarPartida"
+    *RECT   ^0 ^0 630 470
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 25 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_LOAD_GAME_TITLE'"
+    }
+
+    *CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   25 91 250 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_CHOOSE_GAME'"
+		}
+		
+		*INSTANCIA "PanelPartida"
+			
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT  5 >15 140 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'" }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 150 >15 140 35 *NOMBRE "Aceptar" *GFLAGS { ST_NORMAL F_USEENTER F_TABSTOP } *PARAMS "Text='LTEXT_GUI_LOAD'" }
+    
+    // Botón de borrar partida
+		*CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 295 >15 140 35 *NOMBRE "Borrar" *GFLAGS	{ ST_NORMAL F_TABSTOP } *PARAMS "Text='LTEXT_GUI_DELETE'" }
+	}
+	
+// ------------------------------------------------------------------------
+// SubMenu de cargar secuencia
+// ------------------------------------------------------------------------  
+	*PANTALLA "SubMenuCargarSecuencia" "EstiloMarcoBrillante"
+	{
+		*RECT   ^0 ^0 630 470
+    *NOMBRE "SubMenuCargarSecuencia"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 25 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_LOAD_SEQUENCE'"
+    }
+
+    *CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   25 91 250 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_CHOOSE_SEQUENCE'"
+		}
+
+		*INSTANCIA "PanelPartida"
+
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT  5 >15 140 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'" }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 150 >15 140 35 *NOMBRE "Aceptar" *GFLAGS { ST_NORMAL F_USEENTER F_TABSTOP } *PARAMS "Text='LTEXT_GUI_LOAD'" }
+    
+    // Botón de borrar partida
+		*CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 295 >15 140 35 *NOMBRE "Borrar" *GFLAGS	{ ST_NORMAL F_TABSTOP } *PARAMS "Text='LTEXT_GUI_DELETE'" }
+	}
+
+// ------------------------------------------------------------------------
+// SubMenu de grabar partida
+// ------------------------------------------------------------------------
+	*PANTALLA "SubMenuGrabarPartida" "EstiloMarcoBrillante"
+	{
+		*RECT   ^0 ^0 630 470
+    *NOMBRE "SubMenuGrabarPartida"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+     
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 25 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text:'LTEXT_GUI_SAVE_GAME'"
+    }
+    *CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   25 91 250 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_CHOOSE_GAME'"
+		}
+
+		*INSTANCIA "PanelPartida"
+	
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT  5 >15 140 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'" }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 150 >15 140 35 *NOMBRE "Aceptar" *GFLAGS { ST_NORMAL F_USEENTER F_TABSTOP } *PARAMS "Text='LTEXT_GUI_SAVE'" }
+    
+    // Botón de borrar partida
+		*CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 295 >15 140 35 *NOMBRE "Borrar" *GFLAGS	{ ST_NORMAL F_TABSTOP } *PARAMS "Text='LTEXT_GUI_DELETE'" }
+	}
+  
+// ------------------------------------------------------------------------
+// Pantalla de grabar secuencia
+// ------------------------------------------------------------------------
+	*PANTALLA "SubMenuGrabarSecuencia" "EstiloMarcoBrillante"
+	{
+		*RECT   ^0 ^0 630 470
+    *NOMBRE "SubMenuGrabarSecuencia"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+     
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 25 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text:'LTEXT_GUI_SAVE_SEQUENCE'"
+    }
+    *CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   25 91 250 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_CHOOSE_SEQUENCE'"
+		}
+
+		*INSTANCIA "PanelPartida"
+
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT  5 >15 140 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'" }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 150 >15 140 35 *NOMBRE "Aceptar" *GFLAGS { ST_NORMAL F_USEENTER F_TABSTOP } *PARAMS "Text='LTEXT_GUI_SAVE'" }
+    
+    // Botón de borrar partida
+		*CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 295 >15 140 35 *NOMBRE "Borrar" *GFLAGS	{ ST_NORMAL F_TABSTOP } *PARAMS "Text='LTEXT_GUI_DELETE'" }
+	}
+	
+// ------------------------------------------------------------------------
+// Submenu Opciones de Video
+// ------------------------------------------------------------------------
+
+  *PANTALLA "SubMenuOpcionesVideo" "EstiloMarcoBrillante"
+  {
+    *NOMBRE "SubMenuOpcionesVideo"
+    *RECT   ^0 ^0 400 470
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 20 %100 30
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_VIDEO_OPTIONS'"
+    }
+
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 70 %45 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_RESOLUTION'"
+    }
+  	*CONTROL "Slider" "EstiloSliderPequeno"
+  	{
+			*RECT		>25 70 100 10
+  		*NOMBRE "SlResolucion"
+  		*GFLAGS { ST_NORMAL F_AUTOFOCUS F_TABSTOP }
+  		*PARAMS	"arg: 2 0 true 0"
+  	}
+  	*CONTROL "Static" "EstiloRotuloPequeno"
+  	{
+  		*RECT   200 72 100 16
+  		*NOMBRE "STResolucion"
+  		*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+  	}
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 100 >150 20
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_HIGH_DETAIL_VISUAL_EFFECTS'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 94 24 24
+      *NOMBRE "CHKFX"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 130 >150 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_HIGH_QUALITY_WATER'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 124 24 24
+      *NOMBRE "CHKHQAgua"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 160 >150 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_HIGH_DETAIL_TERRAIN'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 154 24 24
+      *NOMBRE "CHKLowQualityMesh"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+  	*CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 190 >150 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_ANIMATION_BLENDING'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 184 24 24
+      *NOMBRE "CHKBlending"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 220 >150 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_FULL_ALPHA_BLENDING'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 214 24 24
+      *NOMBRE "CHKAlfaTest"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 250 >150 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_WEATHER_EFFECTS'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 244 24 24
+      *NOMBRE "CHKFXAtm"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 280 >150 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_CLOUD_SHADOWS'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 274 24 24
+      *NOMBRE "CHKNubes"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 310 >150 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_32BITCOLOR'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 304 24 24
+      *NOMBRE "CHK32Bit"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+      *RECT   >25 >65 150 30
+      *NOMBRE "Default" 
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    	*PARAMS "Text:'LTEXT_GUI_DEFAULT'" 
+    }
+    
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+    	*RECT 	25 >65 150 30
+    	*NOMBRE "AdvancedOptions"
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    	*PARAMS "Text:'LTEXT_GUI_ADVANCED_OPTIONS'" 
+    }    
+
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   5 >35 %45 20
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_DEVELOPER }
+	    *PARAMS "Text='LTEXT_GUI_FULL_SCREEN'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   5 >5 24 24
+      *NOMBRE "CHKFullscreen"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS F_DEVELOPER }
+    }
+
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^-80 >15 150 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEENTER F_TABSTOP F_AUTOFOCUS } *PARAMS "Text:'LTEXT_GUI_APPLY'" }
+    *CONTROL "PushButton" "EStiloBotonPiedra" { *RECT		^80 >15 150 35 	*NOMBRE "Atras" *GFLAGS { ST_NORMAL F_USEESC	 F_TABSTOP F_AUTOFOCUS } *PARAMS "Text:'LTEXT_GUI_BACK'" } 
+  }
+
+// ------------------------------------------------------------------------
+// Submenu de Opciones avanzadas de video
+// ------------------------------------------------------------------------
+	*PANTALLA "SubMenuOpcionesAvanzadasVideo" "EstiloMarcoBrillante"
+	{
+    *NOMBRE "SubMenuOpcionesAvanzadasVideo"
+    *RECT   ^0 ^0 400 400
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloTituloSecundario"
+    {
+      *RECT   ^0 20 %100 30
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_ADVANCED_VIDEO_OPTIONS'"
+    }
+        
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 100 >200 20
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_HWCURSOR'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 94 24 24
+      *NOMBRE "CHK_HWCURSOR"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 130 >200 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_COLOR_CURSOR'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 124 24 24
+      *NOMBRE "CHK_COLORCURSOR"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 160 >200 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_HIGH_QUALITY_TEXTURES'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 154 24 24
+      *NOMBRE "CHK_HQTEXTURES"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 190 >200 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_FLIP_FULLSCREEN'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 184 24 24
+      *NOMBRE "CHK_FLIPFULLSCREEN"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    
+    // ---------
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+      *RECT   >25 >65 150 30
+    	*NOMBRE "Default"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    	*PARAMS "Text:'LTEXT_GUI_DEFAULT'" 
+    }
+
+    
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^-80 >15 150 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEENTER F_TABSTOP F_AUTOFOCUS } *PARAMS "Text:'LTEXT_GUI_APPLY'" }
+    *CONTROL "PushButton" "EStiloBotonPiedra" { *RECT		^80 >15 150 35 	*NOMBRE "Atras" *GFLAGS { ST_NORMAL F_USEESC	 F_TABSTOP F_AUTOFOCUS } *PARAMS "Text:'LTEXT_GUI_BACK'" } 
+  }
+
+// ------------------------------------------------------------------------
+// Submenu de Opciones de Sonido
+// ------------------------------------------------------------------------
+  *PANTALLA "SubMenuOpcionesSonido" "EstiloMarcoBrillante"
+  {
+    *RECT   ^0 ^0 400 495
+    *NOMBRE "SubMenuOpcionesSonido"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 20 %90 30
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_SOUND_OPTIONS'"
+    }
+
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 70 >275 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_SOUNDCARD'"
+    }
+    *CONTROL "ListBox" "EstiloListBoxRellena"
+    {
+      *RECT   >25 60 250 65 
+    	*NOMBRE "ListaSoundCards"
+    	*GFLAGS { ST_NORMAL F_TABSTOP }
+    } 
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 125 >200 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_MASTER_VOLUME'"
+    }
+		*CONTROL "Slider" "EstiloSliderPequeno"
+		{
+			*RECT	>25 125 170 10
+			*NOMBRE "SlMasterVol"
+			*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+			*PARAMS	"arg: 100 0 true 0"
+		}
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 150 >200 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_MUSIC_VOLUME'"
+    }
+		*CONTROL "Slider" "EstiloSliderPequeno"
+		{
+			*RECT	>25 150 170 10
+			*NOMBRE "SlMusicVol"
+			*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+			*PARAMS	"arg: 100 0 true 0"
+		}
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 175 >200 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_EFFECTS_VOLUME'"
+    }
+		*CONTROL "Slider" "EstiloSliderPequeno"
+		{
+			*RECT	>25 175 170 10
+			*NOMBRE "SlEfectosVol"
+			*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+			*PARAMS	"arg: 100 0 true 0"
+		}
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 200 >200 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_AMBIENT_VOLUME'"
+    }
+		*CONTROL "Slider" "EstiloSliderPequeno"
+		{
+			*RECT	>25 200 170 10
+			*NOMBRE "SlAmbienteVol"
+			*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+			*PARAMS	"arg: 100 0 true 0"
+		}
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 225 >200 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_VOICE_VOLUME'"
+    }
+		*CONTROL "Slider" "EstiloSliderPequeno"
+		{
+			*RECT	>25 225 170 10
+			*NOMBRE "SlVozVol"
+			*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+			*PARAMS	"arg: 100 0 true 0"
+		}
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 250 >200 32
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_INTERFACE_VOLUME'"
+    }
+		*CONTROL "Slider" "EstiloSliderPequeno"
+		{
+			*RECT	>25 250 170 20
+			*NOMBRE "SlInterfazVol"
+			*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+			*PARAMS	"arg: 100 0 true 0"
+		}
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 275 >200 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_SWITCH_STEREO'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 269 24 24
+      *NOMBRE "CHKSwitchChannels"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 305 >200 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_UNIT_ACKS'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 299 24 24
+      *NOMBRE "CHKAckEnabled"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 335 >200 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_MUTE'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 329 24 24
+      *NOMBRE "CHKMute"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT	25 365 >200 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='LTEXT_GUI_SOUND_HQ'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 359 24 24
+      *NOMBRE "CHKSoundHQ"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+
+    *CONTROL "PushButton" "EstiloBotonPiedraPeq"
+    { 
+      *RECT   >25 >65 140 30
+      *NOMBRE "Default" 
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS } 
+      *PARAMS "Text:'LTEXT_GUI_DEFAULT'" 
+    }
+
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^-80 >15 150 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEENTER F_TABSTOP F_AUTOFOCUS } *PARAMS "Text:'LTEXT_GUI_APPLY'" }
+    *CONTROL "PushButton" "EStiloBotonPiedra" { *RECT		^80 >15 150 35 	*NOMBRE "Atras" *GFLAGS { ST_NORMAL F_USEESC	 F_TABSTOP F_AUTOFOCUS } *PARAMS "Text:'LTEXT_GUI_BACK'" } 
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Opciones de Juego
+// ------------------------------------------------------------------------
+
+  *PANTALLA "SubMenuOpcionesJuego" "EstiloMarcoBrillante"
+  {
+    *RECT   ^0 ^0 400 430
+    *NOMBRE "SubMenuOpcionesJuego"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 20 %90 30
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_GAME_OPTIONS'"
+    }
+
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 70 >150 20
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_SCROLL_SPEED'"
+    } 
+		*CONTROL "Slider" "EstiloSliderPequeno"
+		{
+			*RECT		>25 70 100 10
+			*NOMBRE "SlVelocidadScroll"
+			*GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+			*PARAMS	"arg: 4 3 true 0"
+		}
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+      *RECT   25 100 >150 20
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_CONTINUOUS_MOUSE_SCROLL'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+      *RECT   >25 94 24 24
+      *NOMBRE "CHKMouseExplorer"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+    	*RECT 	25 130 >150 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*PARAMS	"Text='LTEXT_GUI_SHOW_SELECTION_PANEL'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+    	*RECT 	>25 124 24 24
+    	*NOMBRE "CHKGroupbar"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+    	*RECT 	25 160 >150 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*PARAMS "Text='LTEXT_GUI_DISABLE_SPECIAL_KEYS'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckbox24"
+    {
+    	*RECT 	>25 154 24 24
+    	*NOMBRE	"CHKSpecialKeys"
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+    	*RECT		25 190 >150 20
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*PARAMS "Text='LTEXT_GUI_DISABLE_TOOLTIPS"
+    }
+    *CONTROL "CheckBox" "EstiloCheckBox24"
+    {
+    	*RECT 	>25 184 24 24
+    	*NOMBRE "CHKTooltips"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+    	*RECT		25 220 >150 20
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*PARAMS "Text='LTEXT_GUI_SHOW_CIVILIZATION_COLORS'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckBox24"
+    {
+    	*RECT		>25 214 24 24
+    	*NOMBRE	"CHKCivilizationColors"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+    	*RECT		25 250 >150 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*PARAMS "Text='LTEXT_GUI_SHOW_XTRA_INFO'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckBox24"
+    {
+    	*RECT 	>25 244 24 24
+    	*NOMBRE "CHKShowXtraInfo"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL	"Static" "EstiloRotuloOpcion"
+    {
+    	*RECT		25 280 >150 20
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*PARAMS	"Text='LTEXT_GUI_CAMERA_DISTANCE'"
+    } 
+    *CONTROL "Slider" "EstiloSliderPequeno"
+    {
+    	*RECT		>25 280 100 10
+    	*NOMBRE	"SlCameraDistance"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    	*PARAMS	"arg: 3 0 true 0"
+    }
+    // ----------
+    *CONTROL "Static" "EstiloRotuloOpcion"
+    {
+    	*RECT		25 310 >150 20
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	*PARAMS "Text='LTEXT_GUI_TROPAS_MULTIGRUPO'"
+    }
+    *CONTROL "CheckBox" "EstiloCheckBox24"
+    {
+    	*RECT 	>25 304 24 24
+    	*NOMBRE "CHKTopasMultigrupo"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+    // ----------
+    *CONTROL "PushButton" "EstiloBotonPiedraPeq"
+    { 
+      *RECT   >25 >65 140 30
+      *NOMBRE "Default" 
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+      *PARAMS "Text:'LTEXT_GUI_DEFAULT'" 
+    }
+    
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^-80 >15 150 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEENTER F_TABSTOP F_AUTOFOCUS } *PARAMS "Text:'LTEXT_GUI_APPLY'" }
+    *CONTROL "PushButton" "EStiloBotonPiedra" { *RECT		^80 >15 150 35 	*NOMBRE "Atras" *GFLAGS { ST_NORMAL F_USEESC	 F_TABSTOP F_AUTOFOCUS } *PARAMS "Text:'LTEXT_GUI_BACK'" } 
+  }
+  
+// ------------------------------------------------------------------------
+// SubMenu Opciones
+// ------------------------------------------------------------------------
+
+  *PANTALLA "SubMenuOpciones" "-"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "SubMenuOpciones"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 25 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_TITLE_OPTIONS'"
+    }
+
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 120 %50 35
+      *NOMBRE "OpcionesVideo"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+	    *PARAMS "Text='LTEXT_GUI_VIDEO_OPTIONS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 170 %50 35
+      *NOMBRE "OpcionesSonido"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+	    *PARAMS "Text='LTEXT_GUI_SOUND_OPTIONS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 220 %50 35
+      *NOMBRE "OpcionesJuego"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+  	  *PARAMS "Text='LTEXT_GUI_GAME_OPTIONS'"
+    }
+
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^0 >35 150 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS } *PARAMS "Text:'LTEXT_GUI_BACK'" }
+  }
+
+  // ------------------------------------------------------------------------
+  // SubMenu Multi-Skirmish
+  // ------------------------------------------------------------------------
+ 
+  *PANTALLA "SubMenuMultiSkirmish" "-"
+  {
+    *RECT 0 0 %100 %100
+    *NOMBRE "SubMenuMultiSkirmish"
+    *GFLAGS { ST_NORMAL F_TABSTOP }
+
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+    {
+      *RECT   17 22 >160 260
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloRotulo"
+    {
+      *RECT   290 32 110 30
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      *PARAMS "Text='LTEXT_GUI_PLAYERS_TITLE'"
+		}
+
+    // 1
+    *CONTROL "Static" "EstiloMarcoFinoHueco"
+    {      
+      *RECT   622 55 40 28
+      *NOMBRE "MarcoKick0"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloBotonKill"
+    {      
+      *RECT   638 59 16 16
+      *NOMBRE "Kick0"
+      *ID     0
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {
+    	*RECT   68 55 246 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    	*PARAMS "Text='LTEXT_GUI_EMPTY'"
+    	*NOMBRE "Jugador0"
+    	*ID     1
+    }
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {
+      *RECT   323 58 30 20
+      *NOMBRE "Color0"
+      *ID     2
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+    	*RECT   356 55 96 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    	*NOMBRE "Equipo0"
+    	*ID     3
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {      
+      *RECT   449 55 168 28
+      *NOMBRE "Raza0"
+      *ID     4
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloOkMulti"
+    {      
+      *RECT   36 50 24 28 // 622 55 64 28
+      *NOMBRE "Ok0"
+      *ID     5
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    // 2
+    *CONTROL "Static" "EstiloMarcoFinoHueco"
+    {      
+      *RECT   622 80 40 28
+      *NOMBRE "MarcoKick1"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloBotonKill"
+    {      
+      *RECT   638 84 16 16
+      *NOMBRE "Kick1"
+      *ID     0
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {
+    	*RECT   68 80 246 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    	*PARAMS "Text='LTEXT_GUI_EMPTY'"
+    	*NOMBRE "Jugador1"
+    	*ID     1
+    }
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {      
+      *RECT   323 83 30 20
+      *NOMBRE "Color1"
+      *ID     2
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+    	*RECT   356 80 96 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    	*NOMBRE "Equipo1"
+    	*ID     3
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {      
+      *RECT   449 80 168 28
+      *NOMBRE "Raza1"
+      *ID     4
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloOkMulti"
+    {      
+      *RECT   36  75 64 28
+      *NOMBRE "Ok1"
+      *ID     5
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    // 3
+    *CONTROL "Static" "EstiloMarcoFinoHueco"
+    {      
+      *RECT   622 105 40 28
+      *NOMBRE "MarcoKick2"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloBotonKill"
+    {      
+      *RECT   638 109 16 16
+      *NOMBRE "Kick2"
+      *ID     0
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {
+    	*RECT   68 105 246 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    	*PARAMS "Text='LTEXT_GUI_EMPTY'"
+    	*NOMBRE "Jugador2"
+    	*ID     1
+    }
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {      
+      *RECT   323 108 30 20
+      *NOMBRE "Color2"
+      *ID     2
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+    	*RECT   356 105 96 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    	*NOMBRE "Equipo2"
+    	*ID     3
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {      
+      *RECT   449 105 168 28
+      *NOMBRE "Raza2"
+      *ID     4
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloOkMulti"
+    {      
+      *RECT   36  100 64 28
+      *NOMBRE "Ok2"
+      *ID     5
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    // 4
+    *CONTROL "Static" "EstiloMarcoFinoHueco"
+    {      
+      *RECT   622 130 40 28
+      *NOMBRE "MarcoKick3"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloBotonKill"
+    {      
+      *RECT   638 134 16 16
+      *NOMBRE "Kick3"
+      *ID     0
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {
+    	*RECT   68 130 246 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    	*PARAMS "Text='LTEXT_GUI_EMPTY'"
+    	*NOMBRE "Jugador3"
+    	*ID     1
+    }
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {      
+      *RECT   323 133 30 20
+      *NOMBRE "Color3"
+      *ID     2
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+    	*RECT   356 130 96 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    	*NOMBRE "Equipo3"
+    	*ID     3
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {      
+      *RECT   449 130 168 28
+      *NOMBRE "Raza3"
+      *ID     4
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloOkMulti"
+    {      
+      *RECT   36  125 64 28
+      *NOMBRE "Ok3"
+      *ID     5
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    // 5
+    *CONTROL "Static" "EstiloMarcoFinoHueco"
+    {      
+      *RECT   622 155 40 28
+      *NOMBRE "MarcoKick4"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloBotonKill"
+    {      
+      *RECT   638 159 16 16
+      *NOMBRE "Kick4"
+      *ID     0
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {
+    	*RECT   68 155 246 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    	*PARAMS "Text='LTEXT_GUI_EMPTY'"
+    	*NOMBRE "Jugador4"
+    	*ID     1
+    }
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {      
+      *RECT   323 158 30 20
+      *NOMBRE "Color4"
+      *ID     2
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+    	*RECT   356 155 96 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    	*NOMBRE "Equipo4"
+    	*ID     3
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {      
+      *RECT   449 155 168 28
+      *NOMBRE "Raza4"
+      *ID     4
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloOkMulti"
+    {      
+      *RECT   36  150 64 28
+      *NOMBRE "Ok4"
+      *ID     5
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    // 6
+    *CONTROL "Static" "EstiloMarcoFinoHueco"
+    {      
+      *RECT   622 180 40 28
+      *NOMBRE "MarcoKick5"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloBotonKill"
+    {      
+      *RECT   638 184 16 16
+      *NOMBRE "Kick5"
+      *ID     0
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {
+    	*RECT   68 180 246 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    	*PARAMS "Text='LTEXT_GUI_EMPTY'"
+    	*NOMBRE "Jugador5"
+    	*ID     1
+    }
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {      
+      *RECT   323 183 30 20
+      *NOMBRE "Color5"
+      *ID     2
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+    	*RECT   356 180 96 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    	*NOMBRE "Equipo5"
+    	*ID     3
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {      
+      *RECT   449 180 168 28
+      *NOMBRE "Raza5"
+      *ID     4
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloOkMulti"
+    {      
+      *RECT   36  175 64 28
+      *NOMBRE "Ok5"
+      *ID     5
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    // 7
+    *CONTROL "Static" "EstiloMarcoFinoHueco"
+    {      
+      *RECT   622 205 40 28
+      *NOMBRE "MarcoKick6"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloBotonKill"
+    {      
+      *RECT   638 209 16 16
+      *NOMBRE "Kick6"
+      *ID     0
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {
+    	*RECT   68 205 246 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    	*PARAMS "Text='LTEXT_GUI_EMPTY'"
+    	*NOMBRE "Jugador6"
+    	*ID     1
+    }
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {      
+      *RECT   323 208 30 20
+      *NOMBRE "Color6"
+      *ID     2
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+    	*RECT   356 205 96 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    	*NOMBRE "Equipo6"
+    	*ID     3
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {      
+      *RECT   449 205 168 28
+      *NOMBRE "Raza6"
+      *ID     4
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloOkMulti"
+    {      
+      *RECT   36  200 64 28
+      *NOMBRE "Ok6"
+      *ID     5
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    // 8
+    *CONTROL "Static" "EstiloMarcoFinoHueco"
+    {      
+      *RECT   622 230 40 28
+      *NOMBRE "MarcoKick7"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloBotonKill"
+    {      
+      *RECT   638 234 16 16
+      *NOMBRE "Kick7"
+      *ID     0
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {
+    	*RECT   68 230 246 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    	*PARAMS "Text='LTEXT_GUI_EMPTY'"
+    	*NOMBRE "Jugador7"
+    	*ID     1
+    }
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {      
+      *RECT   323 233 30 20
+      *NOMBRE "Color7"
+      *ID     2
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+    	*RECT   356 230 96 28
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    	*NOMBRE "Equipo7"
+    	*ID     3
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {      
+      *RECT   449 230 168 28
+      *NOMBRE "Raza7"
+      *ID     4
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloOkMulti"
+    {      
+      *RECT   36  225 64 28
+      *NOMBRE "Ok7"
+      *ID     5
+      *GFLAGS { ST_NORMAL F_TABSTOP F_HIDDEN }
+    }
+    *CONTROL "PushButton" "EstiloCajaMultiplayer"
+    {      
+      *RECT   680 230 168 28
+      *NOMBRE "CPULEVEL"
+      *ID     10
+      *GFLAGS { ST_NORMAL F_TABSTOP F_LISTEN_RBUTTON }
+    }
+  }
+  
+  // ------------------------------------------------------------------------
+  // Dialoguillo
+  // ------------------------------------------------------------------------
+  *PANTALLA "DialogoPopup" "EstiloDialogo"
+  {
+  	*RECT		0 0 %100 %100
+  	*NOMBRE "Dialogo"
+  	*GFLAGS { ST_NORMAL F_TABSTOP }
+  }
+
+  // ------------------------------------------------------------------------
+  // Panel de resultados de un player
+  // ------------------------------------------------------------------------
+  *PANTALLA "PantallaResultadosJugador" "-"
+  {
+  	*RECT		0 0 256 384
+  	*NOMBRE "PantallaResultadosJugador"
+ 		*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+
+    // Escudillo 		
+ 		*CONTROL "Static" "EstiloEscudoEquipo"
+ 		{
+  	  *RECT		118 32 16 16
+    	*NOMBRE "EscudoEquipo"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+ 		}
+
+    // Etiquetas
+ 		*CONTROL "Static" "EstiloResultadoNombre"
+ 		{
+  	  *RECT		^0 70 200 20
+    	*NOMBRE "NombreJugador"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='NombreJugador'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		0 90 %100 20
+    	*NOMBRE "NombreRaza"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='Raza'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		0 120 %100 12 	  	
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE } 	  	
+			*PARAMS "Text='LTEXT_GUI_KILLS'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		0 160 %100 12  	 
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_LOSSES'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		0 200 %100 12  	  
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_TRAINED'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		0 240 %100 12  	  
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_VILLAGES'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		0 280 %100 12  	  
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_PLAYTIME'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		0 320 %100 12  	  
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_SCORE'"
+ 		}
+
+ 		// Campos variables
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		0 138 %100 12
+  	  *NOMBRE	"Kills"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='666'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		0 178 %100 12
+  	   *NOMBRE	"Losses"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='666'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		0 218 %100 12
+  	  *NOMBRE	"Trained"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='1025'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		0 258 %100 12
+  	  *NOMBRE	"Villages"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='6'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		0 298 %100 12
+  	  *NOMBRE	"Playtime"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='23:45'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		0 338 %100 12
+  	  *NOMBRE	"Experience"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='4567'"
+ 		}
+  }
+  
+  // -------------------------------------------  
+  // Pantalla de información de un jugador
+  // -------------------------------------------  
+  *PANTALLA "-" "-"
+  {
+    *RECT 0 0 %100 %100
+    *NOMBRE "InfoJugador"
+    *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS }
+   
+    /*CONTROL "STATIC" "EstiloCajaMultiplayer"
+    {
+      *RECT   213 0 106 %100
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }*/
+/*
+    *CONTROL "STATIC" "EstiloCajaMultiplayer"
+    {
+      *RECT   160 0 65 %100
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+*/
+    *CONTROL "STATIC" "EstiloCajaMultiplayer"				//EstiloMarcoInicioRed
+    {
+      *RECT   0 0 190 %100
+      *NOMBRE "NOMBRE"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {
+      *RECT   195 3 30 >5
+      *NOMBRE "COLOR"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    *CONTROL "STATIC" "EstiloCajaMultiplayer"				//EstiloMarcoInicioRed
+    {
+      *RECT   225 0 135 %100
+      *NOMBRE "RAZA"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+      *RECT   360 2 >0 30					//267 9 96 28 
+      *NOMBRE "EQUIPO"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+  }
+  
+  // -------------------------------------------  
+  // Pantalla de Status
+  // -------------------------------------------  
+  *PANTALLA "MenuStatus" "-"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuStatus"
+    *GFLAGS { ST_NORMAL }
+    
+    *PANTALLA "-" "EstiloMarcoBrillante"
+    {
+      *RECT ^0 ^0 490 455
+      *GFLAGS { ST_NORMAL }
+
+      *PANTALLA "-" "-" { *RECT   10  20 >20 35 *NOMBRE "CONEXION0" *ID 0 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "InfoJugador" }
+      *PANTALLA "-" "-" { *RECT   10  60 >20 35 *NOMBRE "CONEXION1" *ID 1 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "InfoJugador" }
+      *PANTALLA "-" "-" { *RECT   10 100 >20 35 *NOMBRE "CONEXION2" *ID 2 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "InfoJugador" }
+      *PANTALLA "-" "-" { *RECT   10 140 460 35 *NOMBRE "CONEXION3" *ID 3 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "InfoJugador" }
+      *PANTALLA "-" "-" { *RECT   10 180 460 35 *NOMBRE "CONEXION4" *ID 4 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "InfoJugador" }
+      *PANTALLA "-" "-" { *RECT   10 220 460 35 *NOMBRE "CONEXION5" *ID 5 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "InfoJugador" }
+      *PANTALLA "-" "-" { *RECT   10 260 460 35 *NOMBRE "CONEXION6" *ID 6 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "InfoJugador" }
+      *PANTALLA "-" "-" { *RECT   10 300 460 35 *NOMBRE "CONEXION7" *ID 7 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "InfoJugador" }
+      
+      *CONTROL "PUSHBUTTON" "EstiloBotonPiedra"
+      {
+        *RECT   ^0 400 100 40
+        *NOMBRE	"Salir"
+        *GFLAGS { ST_NORMAL F_USEESC F_TABSTOP }
+        *PARAMS "Text='LTEXT_GUI_EXIT'"
+      }
+    }
+  }
+}

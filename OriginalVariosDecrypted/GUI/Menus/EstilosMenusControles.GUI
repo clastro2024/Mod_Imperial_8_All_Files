@@ -1,0 +1,258 @@
+{
+// ----------------------------------------
+// Textos de jugadores
+// ----------------------------------------
+
+  *ESTILO "BaseTextoChat"
+  {
+    *CLRBACK      0x40000000
+    *CLRTEXT      0xFFFF0000
+    *CLRHIGHLIGHT 0xFF00FF00
+    *CLRROLLOVER  0xFF00FF00
+    *CLRDISABLED  0xFF00FF00
+    *CLRSELBACK   0x80FFFFFF
+    *CLRSELTEXT   0xFFFFFFFF
+    *FONTNAME     "Arial_10"
+    *FLAGS        { F_TEXFRAME }
+    *TEXNAME      "GUI\Menus\Graficos\MarcoBrillanteConInterior.tga"
+    *PADX     		4
+    *PADY     		4
+  }
+  *ESTILO "EstiloTextoRojo"
+  {
+    *ESTILOBASE   "BaseTextoChat"
+    *CLRTEXT      0xFFFF0000
+  }  
+  *ESTILO "EstiloTextoVerde"
+  {
+    *ESTILOBASE   "BaseTextoChat"
+    *CLRTEXT      0xFF00FF00
+  }  
+  *ESTILO "EstiloTextoAzul"
+  {
+    *ESTILOBASE   "BaseTextoChat"
+    *CLRTEXT      0xFF0000FF
+  }  
+  *ESTILO "EstiloTextoNaranja"
+  {
+    *ESTILOBASE   "BaseTextoChat"
+    *CLRTEXT      0xFFFF8400
+  }  
+  *ESTILO "EstiloTextoMorado"
+  {
+    *ESTILOBASE   "BaseTextoChat"
+    *CLRTEXT      0xFF9C00FF
+  }
+  *ESTILO "EstiloTextoAmarillo"
+  {
+    *ESTILOBASE   "BaseTextoChat"
+    *CLRTEXT      0xFFF0FF00
+  }    
+  *ESTILO "EstiloTextoNegro"
+  {
+    *ESTILOBASE   "BaseTextoChat"
+    *CLRTEXT      0xFF000000
+  }    
+  *ESTILO "EstiloTextoBlanco"
+  {
+    *ESTILOBASE   "BaseTextoChat"
+    *CLRTEXT      0xFFFFFFFF
+  }  
+
+// ----------------------------------------
+// Listboxes
+// ----------------------------------------
+  *ESTILO "EstiloSlider"
+  {
+    *CLRBACK      0x40000000
+    *CLRTEXT      0xFFD0D0D0
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFE0E0E0
+    *CLRDISABLED  0x80FFFFFF
+    *CLRSELBACK   0x80FFFFFF
+    *CLRSELTEXT   0xFFA0A0A0
+    *TEXNAME      "GUI\Menus\Graficos\Slider.tga"
+    *TEXBLOCKW    26
+    *TEXBLOCKH    15
+    *SOUNDDOWN		"IBPS"
+    *SOUNDUP 			"IBST"
+  }
+  *ESTILO "EstiloSliderPequeno"
+  {
+    *ESTILOBASE "EstiloSlider"
+    *TEXNAME      "GUI\Menus\Graficos\SliderTut.tga"
+    *TEXBLOCKW 		13
+    *TEXBLOCKH    8
+  }
+
+  *ESTILO "EstiloListBoxSinMarco"
+  {
+    *CLRBACK      0x00000000
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFF00FF00
+    *CLRDISABLED  0xFF00FF00
+    *CLRSELBACK   0x80FFFFFF
+    *CLRSELTEXT   0xFFFFFF00
+    *FONTNAME     "Arial_10"
+    *SOUNDDOWN		"IBPS"
+    *SOUNDUP 			"IBST"
+    *ESTILOCOMPLEMENTARIO "EstiloSlider"
+  }
+  *ESTILO "EstiloListBox"
+  {
+    *ESTILOBASE   "EstiloListBoxSinMarco"
+    *FLAGS        { F_TEXFRAME }
+    *TEXNAME      "GUI\Menus\Graficos\MarcoFinoSinInterior.tga"
+    *PADX     		16
+    *PADY     		11
+  }
+
+  *ESTILO "EstiloListBoxRellena"
+  {
+    *ESTILOBASE   "EstiloListBox"
+    *TEXNAME      "GUI\Menus\Graficos\MarcoFinoConInterior.tga"
+  }
+  *ESTILO "EstiloListBoxRellenaPeq"
+  {
+    *ESTILOBASE   "EstiloListBoxRellena"
+    *ESTILOCOMPLEMENTARIO "EstiloSliderPequeno"
+  }
+  *ESTILO "EstiloListBoxRellenaWrap"
+  {
+    *ESTILOBASE   "EstiloListBoxRellena"
+    *FLAGS        { F_TEXTWRAP F_TEXFRAME }
+    *CLRSELTEXT   0xFFFFFFFF
+  }
+  *ESTILO "EstiloLBListaPlayers"
+  {
+    *ESTILOBASE   "EstiloListBoxRellena"
+    *CLRSELTEXT   0xFFFFFFFF
+  }
+  *ESTILO "EstiloLBRellenaNoBlink"
+  {
+    *ESTILOBASE   "EstiloListBoxRellena"
+    *CLRHIGHLIGHT 0xFFFFFF00
+  }
+
+  *ESTILO "EstiloListaMisiones"
+  {
+    *ESTILOBASE "EstiloListBoxSinMarco"
+    *FLAGS        { F_TEXTCENTER }
+    *FONTNAME     "Times_14"
+//    *CLRTEXT      0xFFD0D0D0
+  }
+  *ESTILO "EstiloListaDificultad"
+  {
+    *ESTILOBASE "EstiloListBoxSinMarco"
+    *FLAGS        { F_TEXTCENTER }
+    *FONTNAME     "Times_14r"
+  }
+  *ESTILO "EstiloVarianteCompletado"
+  { 
+  	//*TEXNAME      "GUI\Menus\Graficos\Completada.bmp"    
+  	*CLRBACK      0xFFFFFFFF
+    *IMGNAME      "GUI\Menus\Graficos\Complete.tga"
+  }
+
+  *ESTILO "EstiloLBObjetivosSingle"
+  {
+    *ESTILOBASE   "EstiloListBoxRellena"
+    *FONTNAME     "Times_14r"
+    *CLRTEXT      0xFFFFFFFF
+    *CLRSELTEXT   0xFFFFFFFF
+  }
+
+  *ESTILO "EstiloListBoxMSS"
+  {
+    *ESTILOBASE "EstiloListBoxSinMarco"
+    *FLAGS        { F_TEXTCENTER }
+    *FONTNAME     "Times_10"
+  }
+  *ESTILO "EstiloLBChatLog"
+  {
+    *ESTILOBASE   "EstiloListBoxRellena"
+    *CLRTEXT      0xFFFFFF90
+    *CLRHIGHLIGHT 0xFFFFFF90
+    *CLRSELTEXT   0xFFFFFF90
+    *TEXNAME      "GUI\Menus\Graficos\MarcoBrillanteConInterior.tga"
+    *PADX     		4
+    *PADY     		4
+  }
+
+// ----------------------------------------
+// Chat
+// ----------------------------------------
+
+  *ESTILO "ChatEdit"
+  {
+    *CLRBACK      0x40000000
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFFFFFFF
+    *CLRDISABLED  0xFFFFFFFF
+    *CLRSELBACK   0xFFFFFFFF
+    *CLRSELTEXT   0xFF000000
+    *FONTNAME     "Times_12"
+    *FLAGS        { F_TEXFRAME }
+    *TEXNAME      "GUI\Menus\Graficos\MarcoBrillanteConInterior.tga"
+    *PADX     		4
+    *PADY     		4
+    *SOUNDDOWN		"IBPS"
+    *SOUNDUP 			"IBST"
+  }
+
+// ----------------------------------------
+// Checkboxes
+// ----------------------------------------
+
+  *ESTILO "EstiloCheckbox"
+  {
+    *CLRBACK      0
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFA0A0A0
+    *CLRDISABLED  0xFF808080
+    *CLRSELBACK   0xFFFFFFFF
+    *CLRSELTEXT   0xFFA0A0A0
+    *TEXNAME      "GUI\Menus\Graficos\Check.tga"
+    *TEXBLOCKW    32
+    *TEXBLOCKH    32
+  }
+
+  *ESTILO "EstiloCheckboxPeq"
+  {
+    *ESTILOBASE "EstiloCheckbox"
+    *TEXNAME      "GUI\Menus\Graficos\Check16.tga"
+    *TEXBLOCKW    16
+    *TEXBLOCKH    16
+  }
+
+  *ESTILO "EstiloCheckbox24"
+  {
+    *ESTILOBASE "EstiloCheckbox"
+    *TEXNAME      "GUI\Menus\Graficos\Check24.tga"
+    *TEXBLOCKW    24
+    *TEXBLOCKH    24
+  }
+
+// -----------------------------------------
+// -----------------------------------------
+  *ESTILO "EstiloCortina"
+  {
+    *CLRBACK      0x60000000
+  }
+  *ESTILO "BaseResultadosJugador"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *FLAGS        { F_ALPHABLENDIMG }
+  }
+  *ESTILO "EstiloPendon0" { *ESTILOBASE "BaseResultadosJugador" *IMGNAME "GUI\Menus\Graficos\PlayerWin0.tga" }
+  *ESTILO "EstiloPendon1" { *ESTILOBASE "BaseResultadosJugador" *IMGNAME "GUI\Menus\Graficos\PlayerWin1.tga" }
+  *ESTILO "EstiloPendon2" { *ESTILOBASE "BaseResultadosJugador" *IMGNAME "GUI\Menus\Graficos\PlayerWin2.tga" }
+  *ESTILO "EstiloPendon3" { *ESTILOBASE "BaseResultadosJugador" *IMGNAME "GUI\Menus\Graficos\PlayerWin3.tga" }
+  *ESTILO "EstiloPendon4" { *ESTILOBASE "BaseResultadosJugador" *IMGNAME "GUI\Menus\Graficos\PlayerWin4.tga" }
+  *ESTILO "EstiloPendon5" { *ESTILOBASE "BaseResultadosJugador" *IMGNAME "GUI\Menus\Graficos\PlayerWin5.tga" }
+  *ESTILO "EstiloPendon6" { *ESTILOBASE "BaseResultadosJugador" *IMGNAME "GUI\Menus\Graficos\PlayerWin6.tga" }
+  *ESTILO "EstiloPendon7" { *ESTILOBASE "BaseResultadosJugador" *IMGNAME "GUI\Menus\Graficos\PlayerWin7.tga" }  
+}

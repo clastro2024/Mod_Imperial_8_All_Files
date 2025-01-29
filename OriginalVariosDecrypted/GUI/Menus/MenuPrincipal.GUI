@@ -1,0 +1,8 @@
+{
+	*INCLUDE "GUI\Menus\EstilosMenus.GUI"
+	
+  *INCLUDE "GUI\Menus\MenusPrincipal.GUI"
+  *INCLUDE "GUI\Menus\MenusOpciones.GUI"
+  *INCLUDE "GUI\Menus\MenusMultiSkirmish.GUI"
+  *INCLUDE "GUI\Menus\MenusSingle.GUI"
+}

@@ -1,0 +1,152 @@
+{
+// ----------------------------------------
+// Fondos de pantalla
+// ----------------------------------------
+
+  *ESTILO "EstiloPantallaFondo"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *IMGNAME      "GUI\Menus\Graficos\FondoMenu.dds"
+//    *FLAGS        { F_SCALEIMG }
+  }
+  *ESTILO "EstiloMenuPrincipal"
+  {
+    *CLRBACK      0x00FFFFFF
+    *MUSIC        "SMNU"
+    *SOUNDDOWN		"IPDS"
+    *SOUNDUP 			"IPEC"
+  }
+  *ESTILO "EstiloMenuPartidaRed"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *IMGNAME      "GUI\Menus\Graficos\PartidaRed.bmp"
+  }
+  *ESTILO "EstiloMenuSkirmish"
+  {
+    *CLRBACK      0x00FFFFFF
+//    *IMGNAME    "GUI\Menus\Graficos\PartidaSkirmish.bmp"
+  }
+  *ESTILO "EstiloMenuPartidaSingle"
+  {
+    *CLRBACK      0x00FFFFFF
+//    *IMGNAME      "GUI\Menus\Graficos\PartidaSingle.bmp"
+  }
+  *ESTILO "EstiloMenuEstadisticas"
+  {
+    *CLRBACK      0x00FFFFFF
+//    *IMGNAME      "GUI\Menus\Graficos\Estadisticas.bmp"
+    *MUSIC        "SMNU"
+  }
+  *ESTILO "EstiloMenuEstadisticasSingle"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *IMGNAME      "GUI\Menus\Graficos\FondoFinalMision.dds"
+    *MUSIC        "SMNU"
+  }
+
+// ----------------------------------------
+// Fondos concretos
+// ----------------------------------------
+
+  *ESTILO "EstiloFondoMenuInGame"
+  {
+    *ESTILOBASE "EstiloMarcoFinoRelleno"
+    *SOUNDDOWN		"IPDS"
+    *SOUNDUP 			"IPEC"
+  }
+
+// ----------------------------------------
+// Imagenes
+// ----------------------------------------
+
+  *ESTILO "BaseImagen"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *FLAGS        { F_ALPHABLENDIMG }
+  }
+  *ESTILO "BaseAnimBmp"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *FLAGS        { F_ALPHABLENDIMG }
+  }
+  *ESTILO "EstiloLogo"
+  {
+    *ESTILOBASE   "BaseImagen"
+    *IMGNAME      "GUI\Menus\Graficos\letrero.dds"
+  }
+  *ESTILO "EstiloOkMulti"
+  {
+    *ESTILOBASE   "BaseImagen"
+    *IMGNAME      "GUI\Menus\Graficos\Ok.TGA"
+  }
+  *ESTILO "EstiloAguila"
+  {
+    *ESTILOBASE   "BaseImagen"
+    *CLRBACK      0x80FFFFFF
+    *IMGNAME      "GUI\Menus\Graficos\aguila.dds"
+  }
+  *ESTILO "EstiloCuenco"
+  {
+    *ESTILOBASE   "BaseAnimBmp"
+    *ANIMATEDBITMAPNAME "GUI\Menus\Graficos\CuencoFuego.ctg"
+  }
+  *ESTILO "EstiloGlowFuego"
+  {
+    *ESTILOBASE   "BaseImagen"
+    *CLRBACK      0x33FFE138
+    *TEXNAME      "GUI\Menus\Graficos\GLOW_FUEGO64.tga"
+    *FLAGS        { F_GLOW }
+  }
+  *ESTILO "EstiloSombraMenuPrincipal"
+  {
+    *CLRBACK      0xA0808080
+    *FLAGS        { F_ALPHABLENDIMG F_TEXSCALE }
+    *TEXNAME      "GUI\Menus\Graficos\SombraMenuPrincipal.tga"
+  }
+  
+  *ESTILO "EstiloRatingPerfil"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *IMGNAME      "GUI\Menus\Graficos\ESRB_RP.dds"
+  }
+
+// ----------------------------------------
+// Glows de fondo de textos
+// ----------------------------------------
+
+  *ESTILO "EstiloGlow_L"
+  {
+    *CLRBACK      0x50FFFFFF
+    *FLAGS        { F_ALPHABLENDIMG F_TEXSCALE }
+    *TEXNAME      "GUI\Menus\Graficos\GLOX_L.TGA"
+  }
+  *ESTILO "EstiloGlow_S"
+  {
+    *CLRBACK      0x50FFFFFF
+    *FLAGS        { F_ALPHABLENDIMG F_TEXSCALE }
+    *TEXNAME      "GUI\Menus\Graficos\GLOX_S.TGA"
+  }
+
+// ----------------------------------------
+// Minimapas
+// ----------------------------------------
+
+  *ESTILO "RT_EstiloMinimapa"
+  {
+    *ESTILOBASE "BaseImagen"
+  }
+  *ESTILO "RT_EstiloMinimapaSombra"
+  {
+    *ESTILOBASE "BaseImagen"
+    *CLRBACK    0xFF000000
+  }
+  *ESTILO "RT_EstiloMinimapaConsulta"
+  {
+    *ESTILOBASE "BaseImagen"
+  }
+  *ESTILO "RT_EstiloMinimapaConsultaSombra"
+  {
+    *ESTILOBASE "BaseImagen"
+    *CLRBACK    0xFF000000
+  }
+}

@@ -1,0 +1,552 @@
+{
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+// ------------------------------------------------------------------------
+// Menu Multi Player
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuMultiplayer" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuMultiplayer"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria"
+    *CONTROL "Static" "EstiloTituloSecundario"
+    {
+      *RECT   ^0 140 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+  	  *PARAMS "Text='LTEXT_GUI_MULTIPLAYER'"
+    }
+    *CONTROL "Static" "EstiloRotuloCentrado"
+		{
+			*RECT   ^0 240 %25 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_CONNECTION_MODE'"
+		}
+    *CONTROL "ListBox" "EstiloLBRellenaNoBlink"
+    {
+    	*RECT	^0 280 %75 190
+    	*NOMBRE "ListaProveedores"
+    	*GFLAGS { ST_NORMAL F_TABSTOP  }
+    }
+    *CONTROL "Static" "EstiloDescripcionCentrada"
+		{
+			*RECT 	^0 520 %100 32
+			*GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS }
+			*PARAMS "Text='LTEXT_GUI_EXPLANATION_DIR_IP'"
+		}
+    *CONTROL "EditBox" "EstiloEditBox"
+		{
+			*RECT 	^0 550 140 32
+			*NOMBRE "EdIP"
+			*GFLAGS { ST_NORMAL F_TABSTOP }
+			*PARAMS "Max: 15"
+		}
+
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT ^-80 >35 150 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'"  }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT  ^80 >35 150 35 *NOMBRE "Aceptar" *GFLAGS	{ ST_NORMAL F_USEENTER F_TABSTOP } *PARAMS "Text='LTEXT_GUI_CONTINUE'" }
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Partidas (Sesiones de red)
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuPartidas" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuPartidas"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria"
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 140 %75 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_MP_GAME_SELECTION'"
+    }
+
+    // Lista de sesiones
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+		{
+			*RECT   55 245 420 >135
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		}
+    *CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   75 258 150 25
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text:'LTEXT_GUI_GAMES'"
+		}
+    *CONTROL "ListBox" "EstiloListBoxSinMarco" //EstiloListBoxRellena"
+    {
+    	*RECT	75 290 380 >190
+    	*NOMBRE "ListaSesiones"
+    	*GFLAGS { ST_NORMAL F_TABSTOP }
+    }
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+    	*RECT 	80 >150 190 35
+    	*NOMBRE "Unir"
+    	*GFLAGS { ST_NORMAL F_TABSTOP }
+  	  *PARAMS "Text='LTEXT_GUI_JOIN'"
+    }
+
+    // Nombre de la partida
+		*CONTROL "Static" "EstiloMarcoFinoRelleno"
+		{
+			*RECT   %53 245 330 140
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		}
+		*CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   %55 258 278 25
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_GAME_NAME'"
+		}
+		*CONTROL "EditBox" "EstiloEditBox"
+		{
+			*RECT 	%55 290 278 28
+			*NOMBRE "EdNombreSesion"
+			*GFLAGS { ST_NORMAL F_TABSTOP }
+			*PARAMS "Max: 17"
+		}
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+			*RECT   %55 330 220 32
+      *NOMBRE "CrearPartida"
+      *GFLAGS { ST_NORMAL F_TABSTOP }
+	    *PARAMS "Text='LTEXT_GUI_CREATE_GAME'"
+    }
+
+    // Nombre del jugador
+		*CONTROL "Static" "EstiloMarcoFinoRelleno"
+		{
+			*RECT   %53 >135 330 115
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		}
+		*CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   %55 >207 278 25
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_PLAYER_NAME'"
+		}			
+		*CONTROL "EditBox" "EstiloEditBox"
+		{
+			*RECT 	%55 >170 278 30
+			*NOMBRE "EdNombreMaquina"
+			*GFLAGS { ST_NORMAL F_TABSTOP }
+			*PARAMS "Max: 17"
+		}
+    
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+      *RECT   ^0 >25 160 35
+      *NOMBRE "Salir"
+      *GFLAGS { ST_NORMAL F_USEESC F_TABSTOP }
+      *PARAMS "Text='LTEXT_GUI_BACK'"
+    }
+  }
+
+// ------------------------------------------------------------------------
+// Menu Configuración Partida de Red  
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuConfigRed" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuConfigRed"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuNormal"
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 45 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      *PARAMS "Text='LTEXT_GUI_NET_GAME'"
+		}  
+		
+    // Lista de jugadores
+    *CONTROL "ListBox" "EstiloListBox"
+    {
+    	*RECT	^0 130 278 98
+    	*NOMBRE "ListaMaquinas"
+    	*GFLAGS { ST_NORMAL F_TABSTOP }
+    }
+    *CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   ^0 104 278 25
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_PLAYERS'"
+		}
+    
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT ^-80 >35 150 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'"  }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT  ^80 >35 150 35 *NOMBRE "Aceptar" *GFLAGS	{ ST_NORMAL F_USEENTER F_TABSTOP } *PARAMS "Text='LTEXT_GUI_CONTINUE'" }
+  }
+
+// ------------------------------------------------------------------------
+// Menu Final de Partida de Red
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuPartidaRed" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuPartidaRed"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuNormalLimpio"
+    *INSTANCIA "SubMenuMultiSkirmish"
+    
+    *CONTROL "EditBoxHistorico" "ChatEdit"
+    {      
+      *RECT   27 >20 >20 30
+      *NOMBRE "ChatEdit"
+      *GFLAGS { ST_NORMAL F_USEESC }
+      *PARAMS "FlagEsp='FE_NOSELONFOCUS'"
+    }
+    *CONTROL "ListBox" "EstiloListBoxRellenaWrap"
+    {      
+      *RECT   20 480 >20 >50
+      *NOMBRE "ChatList"
+      *GFLAGS { ST_NORMAL }
+    }
+    
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+    {
+      *RECT   17 287 671 190
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloRotuloCentrado"
+    {
+      *RECT   32 292 238 32
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      *PARAMS "Text='LTEXT_GUI_BATTLEFIELD'"
+		}
+    *CONTROL "ListBox" "EstiloListBoxMSS"
+    {      
+      *RECT   32 327 258 136
+      *NOMBRE "ListaMisiones"
+      *GFLAGS { ST_NORMAL F_TABSTOP }
+    }
+
+    // Mapa seleccionado
+/*
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+    {
+      *RECT   280 287 408 190
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+*/
+    *CONTROL "Static" "EstiloRotulo"
+    {
+      *RECT   375 298 260 25
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      *PARAMS "Text='LTEXT_GUI_MAP_DETAILS'"
+		}
+    *CONTROL "Static" "RT_EstiloMinimapaConsultaSombra"
+    {
+      *RECT 482 335 180 112
+      *NOMBRE "MiniMapaSombraConsulta"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "MapaEstructuras" "RT_EstiloMinimapaConsulta"
+    {
+      *RECT 480 330 180 112
+      *NOMBRE "MiniMapaConsulta"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloDescripcion"
+    {      
+      *RECT   300 327 150 150
+      *NOMBRE "DescMis"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }    
+
+    // Mapa seleccionado
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+    {
+      *RECT   690 287 >20 190
+      *ID     6
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloRotulo"
+    {
+      *RECT   715 295 >45 25
+      *ID     7
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      *PARAMS "Text='LTEXT_GUI_MAP_SELECTED'"
+		}
+		*CONTROL "Static" "RT_EstiloMinimapaSombra"
+    {
+      *RECT 812 345 180 112
+      *ID     8
+      *NOMBRE "MiniMapaSombra"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+    }
+    *CONTROL "MapaEstructuras" "RT_EstiloMinimapa"
+    {
+      *RECT 810 340 180 112
+      *ID     9
+      *NOMBRE "MiniMapa"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+    }
+
+    *CONTROL "Static" "EstiloCountDown"
+    {      
+      *RECT   ^-120 ^0 128 256
+      *NOMBRE "CountDownI"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloCountDown"
+    {      
+      *RECT   ^0 ^0 128 256
+      *NOMBRE "CountDownII"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloCountDown"
+    {      
+      *RECT   ^120 ^0 128 256
+      *NOMBRE "CountDownIII"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloCountDown"
+    {      
+      *RECT   ^-60 ^0 128 256
+      *NOMBRE "CountDownIV"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+    }
+    *CONTROL "Static" "EstiloCountDown"
+    {      
+      *RECT   ^60 ^0 128 256
+      *NOMBRE "CountDownV"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+    }
+
+    *CONTROL "PushButton" "EstiloBotonArial"
+    {      
+      *RECT   >5 100 145 32
+      *NOMBRE "GrabaCarga"
+      *PARAMS "Text='LTEXT_GUI_NG_NC'"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_DEVELOPER }
+    }
+    
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {      
+      *RECT   >5 29 145 32
+      *NOMBRE "AddCPU"
+      *PARAMS "Text='LTEXT_GUI_CPU'"
+      *GFLAGS { ST_NORMAL F_TABSTOP }
+    }
+    
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+    	*RECT		>5 64 145 32
+    	*NOMBRE "Reorganize"
+    	*PARAMS	"Text='LTEXT_GUI_REORGANIZE"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP }
+    }
+
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {      
+      *RECT   >5 205 145 32
+      *NOMBRE "Aceptar"
+      *PARAMS "Text='LTEXT_GUI_START'"
+      *GFLAGS { ST_NORMAL F_TABSTOP }
+    }
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {      
+      *RECT   >5 240 145 32
+      *NOMBRE "Salir"
+      *PARAMS "Text='LTEXT_GUI_BACK'"
+      *GFLAGS { ST_NORMAL }
+    }
+    
+    // Editbox movible para cambiar el nombre.
+    *CONTROL "EditBox" "EstiloEditBox"
+    {
+      *RECT   0 0 246 28
+      *NOMBRE "CambioNombre"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_WANTKEYS F_HIDDEN F_USEESC }
+      *PARAMS "Max: 17"
+    }
+  }
+
+// ------------------------------------------------------------------------
+// Menu Final de Partida de Skirmish
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuSkirmish" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuSkirmish"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria"
+    *CONTROL "Static" "EstiloTituloSecundario"
+    {
+      *RECT   ^0 140 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+  	  *PARAMS "Text='LTEXT_GUI_SKIRMISH'"
+    }
+
+    *PANTALLA "-" "-"
+    {
+      *RECT   0 200 %100 %100
+      *GFLAGS { ST_NORMAL }
+
+      *INSTANCIA "SubMenuMultiSkirmish"    
+    
+      *CONTROL "Static" "EstiloMarcoFinoRelleno"
+      {
+        *RECT   17 287 671 190
+        *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      }
+      *CONTROL "Static" "EstiloRotuloCentrado"
+      {
+        *RECT   32 292 238 32
+        *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+        *PARAMS "Text='LTEXT_GUI_BATTLEFIELD'"
+  		}
+      *CONTROL "ListBox" "EstiloListBoxMSS"
+      {      
+        *RECT   32 327 258 136
+        *NOMBRE "ListaMisiones"
+        *GFLAGS { ST_NORMAL F_TABSTOP }
+      }
+/*
+      *CONTROL "Static" "EstiloMarcoFinoRelleno"
+      {
+        *RECT   280 287 408 190
+        *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      }
+*/
+      *CONTROL "Static" "EstiloRotulo"
+      {
+        *RECT   375 298 260 25
+        *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+        *PARAMS "Text='LTEXT_GUI_MAP_DETAILS'"
+  		}
+  		*CONTROL "Static" "RT_EstiloMinimapaSombra"
+      {
+        *RECT 482 335 180 112
+        *NOMBRE "MiniMapaSombra"
+        *GFLAGS { ST_NORMAL F_TABSTOP }
+      }
+      *CONTROL "MapaEstructuras" "RT_EstiloMinimapa"
+      {
+        *RECT 480 330 180 112
+        *NOMBRE "MiniMapa"
+        *GFLAGS { ST_NORMAL F_TABSTOP }
+      }
+      *CONTROL "Static" "EstiloDescripcion"
+      {      
+        *RECT   300 327 150 150
+        *NOMBRE "DescMis"
+        *GFLAGS { ST_NORMAL F_TABSTOP }
+      }
+      
+      *CONTROL "PushButton" "EstiloBotonPiedra"
+      {      
+        *RECT   >5 29 145 32
+        *NOMBRE "AddCPU"
+        *PARAMS "Text='LTEXT_GUI_CPU'"
+        *GFLAGS { ST_NORMAL F_TABSTOP }
+      }
+      *CONTROL "PushButton" "EstiloBotonPiedra"
+      {      
+        *RECT   >5 61 145 32
+        *NOMBRE "Player"
+        *PARAMS "Text='LTEXT_GUI_HUMAN'"
+        *GFLAGS { ST_NORMAL F_TABSTOP F_DEVELOPER }
+      }
+      *CONTROL "PushButton" "EstiloBotonPiedra"
+      {
+      	*RECT 	>5 93 145 32
+      	*NOMBRE "Reorganize"
+      	*PARAMS	"Text='LTEXT_GUI_REORGANIZE"
+      	*GFLAGS	{ ST_NORMAL F_TABSTOP }
+			}
+      *CONTROL "PushButton" "EstiloBotonPiedra"
+      {      
+        *RECT   >5 205 145 32
+        *NOMBRE "Aceptar"
+        *PARAMS "Text='LTEXT_GUI_START'"
+        *GFLAGS { ST_NORMAL F_TABSTOP }
+      }
+      *CONTROL "PushButton" "EstiloBotonPiedra"
+      {      
+        *RECT   >5 240 145 32
+        *NOMBRE "Salir"
+        *PARAMS "Text='LTEXT_GUI_BACK'"
+        *GFLAGS { ST_NORMAL F_USEESC }
+      } 
+      // Editbox movible para cambiar el nombre.
+      *CONTROL "EditBox" "EstiloEditBox"
+      {
+        *RECT   0 0 246 28
+        *NOMBRE "CambioNombre"
+        *GFLAGS { ST_NORMAL F_TABSTOP F_WANTKEYS F_HIDDEN F_USEESC }
+        *PARAMS "Max: 17"
+      }
+    }
+  }
+  
+// ------------------------------------------------------------------------
+// Menu de Estadísticas Red y Skirmish
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuEstadisticas" "EstiloMenuEstadisticas"
+  {
+    *NOMBRE "MenuEstadisticas"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuNormalLimpio"
+    *CONTROL "Static" "EstiloCortina"
+    {
+    	*RECT	60 20 >60 >20
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    *PANTALLA "-" "-" { *RECT   34  30 256 384 *NOMBRE "Resultado0" *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS } *INSTANCIA "PantallaResultadosJugador" }
+    *PANTALLA "-" "-" { *RECT  234  30 256 384 *NOMBRE "Resultado1" *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS } *INSTANCIA "PantallaResultadosJugador" }
+    *PANTALLA "-" "-" { *RECT  434  30 256 384 *NOMBRE "Resultado2" *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS } *INSTANCIA "PantallaResultadosJugador" }
+    *PANTALLA "-" "-" { *RECT  634  30 256 384 *NOMBRE "Resultado3" *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS } *INSTANCIA "PantallaResultadosJugador" }
+    *PANTALLA "-" "-" { *RECT >634 341 256 384 *NOMBRE "Resultado4" *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS } *INSTANCIA "PantallaResultadosJugador" }
+    *PANTALLA "-" "-" { *RECT >434 341 256 384 *NOMBRE "Resultado5" *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS } *INSTANCIA "PantallaResultadosJugador" }
+    *PANTALLA "-" "-" { *RECT >234 341 256 384 *NOMBRE "Resultado6" *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS } *INSTANCIA "PantallaResultadosJugador" }
+    *PANTALLA "-" "-" { *RECT  >34 341 256 384 *NOMBRE "Resultado7" *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS } *INSTANCIA "PantallaResultadosJugador" }
+    
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   257 5 410 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_MISSION_SUCCESS'"
+	    *NOMBRE "VICTORY"
+    }
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   257 5 410 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_MISSION_FAILURE'"
+	    *NOMBRE "FAILURE"
+    }
+
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {      
+      *RECT  ^0 >10 160 32
+      *NOMBRE "Salir"
+  	  *PARAMS "Text='LTEXT_GUI_EXIT'"
+      *GFLAGS { ST_NORMAL F_USEESC F_TABSTOP F_AUTOFOCUS }
+    }
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+    	*RECT >100 >10 250 32
+    	*NOMBRE "SaveSequence"
+    	*PARAMS "Text='LTEXT_GUI_SAVE_SEQUENCE'"
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+  }
+}

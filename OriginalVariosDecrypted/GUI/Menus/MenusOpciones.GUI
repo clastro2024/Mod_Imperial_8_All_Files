@@ -1,0 +1,120 @@
+{
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+  *INCLUDE "GUI\Menus\SubMenusComunes.GUI"
+
+// ------------------------------------------------------------------------
+// Menu Opciones
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuOpciones" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuOpciones"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria"
+    *CONTROL "Static" "EstiloTituloSecundario"
+    {
+      *RECT   ^0 185 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+  	  *PARAMS "Text='LTEXT_GUI_TITLE_OPTIONS'"
+    }
+
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 275 %30 35
+      *NOMBRE "OpcionesVideo"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+	    *PARAMS "Text='LTEXT_GUI_VIDEO_OPTIONS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 325 %30 35
+      *NOMBRE "OpcionesSonido"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+	    *PARAMS "Text='LTEXT_GUI_SOUND_OPTIONS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 375 %30 35
+      *NOMBRE "OpcionesJuego"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+  	  *PARAMS "Text='LTEXT_GUI_GAME_OPTIONS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+    	*RECT   ^0 425 %30 35
+    	*NOMBRE	"Perfiles"
+    	*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+    	*PARAMS "Text='LTEXT_GUI_PROFILES'"
+    }
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+      *RECT   ^0 >25 160 35
+      *NOMBRE "Salir"
+      *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_BACK'"
+    }
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Opciones de Video
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuOpcionesVideo" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuOpcionesVideo"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria" //Normal"
+    *INSTANCIA "SubMenuOpcionesVideo"
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Opciones Avanzadas de Video
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuOpcionesAvanzadasVideo" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuOpcionesAvanzadasVideo"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria" //Normal"
+    *INSTANCIA "SubMenuOpcionesAvanzadasVideo"
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Opciones de Sonido
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuOpcionesSonido" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuOpcionesSonido"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria" //BaseMenuNormal"
+    *INSTANCIA "SubMenuOpcionesSonido"
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Opciones de Juego
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuOpcionesJuego" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuOpcionesJuego"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria" //BaseMenuNormal"
+    *INSTANCIA "SubMenuOpcionesJuego"
+  }
+  
+}

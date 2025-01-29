@@ -1,0 +1,241 @@
+{
+  *INCLUDE "GUI\Interfaz\EstilosInterfazJuego.GUI"
+  *INCLUDE "GUI\Menus\EstilosMenusControles.GUI"
+  *INCLUDE "GUI\Interfaz\ComunesInterfazJuego.GUI"
+
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+// ------------------------------------------------------------------------
+// Panel de tutorial
+// ------------------------------------------------------------------------
+  *PANTALLA "PanelTutorial" "EstiloPanelTutorial"
+  {
+    *RECT   >0 0 379 250 // Mismo ancho que el FondoGSeleccion
+    *NOMBRE "PanelTutorial"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_PANTALLA }
+
+    // Barra de arriba
+    *CONTROL "Static" "EstiloIndiceTutorial"
+    {
+      *RECT 5 9 >25 20
+      *NOMBRE "Indice"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+    *CONTROL "PushButton" "EstiloBotonTutorial"
+    {
+      *RECT >5 5 20 20
+      *NOMBRE "Min"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_TUTORIAL_MINIMIZE'"
+    }
+    
+    // Hipertexto
+    *CONTROL "StaticHyperText" "EstiloHyperTextoTutorial"
+    {
+      *RECT 7 32 >7 >32
+      *NOMBRE "Hyper"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+
+    *CONTROL "PushButton" "EstiloBotonTutorial"
+    {
+      *RECT >25 >5 20 20
+      *NOMBRE "Prev"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_TUTORIAL_LEFT_ARROW'"
+    }
+    
+    *CONTROL "PushButton" "EstiloBotonTutorial"
+    {
+      *RECT >5 >5 20 20
+      *NOMBRE "Next"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_TUTORIAL_RIGHT_ARROW'"
+    }
+    
+    *CONTROL "PushButton" "EstiloBotonTutorial"
+    {
+      *RECT 5 >5 80 20
+      *NOMBRE "NextStep"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_TUTORIAL_SKIP'"
+    }
+    
+    *CONTROL "PushButton" "EstiloBotonTutorial"
+    {
+      *RECT 95 >5 75 20
+      *NOMBRE "SkipTutorial"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_DEVELOPER }
+      *PARAMS "Text='LTEXT_GUI_TUTORIAL_CLOSE'"
+    }
+   
+    // Marcos que delimitan las partes.
+    *CONTROL "Static" "EstiloMarcoTutorial" { *RECT 0   0 %100   30 *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE } *NOMBRE "MarcoTitulo" }
+    *CONTROL "Static" "EstiloMarcoTutorial" { *RECT 0  >0 %100   30 *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE } }
+    *CONTROL "Static" "EstiloMarcoTutorial" { *RECT 0   0 %100 %100 *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE } }
+  }
+  
+  // ------------------------------------------------------------------------
+  // Pantalla de juego
+  // ------------------------------------------------------------------------
+
+  // Esta pantallaInterfaz va dentro de PantallaJuego, una vez se carga el mundo.
+  *PANTALLA "PantallaInterfaz" "EstiloPantallaInterfaz"
+  {
+    *RECT   0 >181 %100 >0
+    *NOMBRE "PantallaInterfaz"
+    *GFLAGS { ST_NORMAL F_TABSTOP }
+
+    *PANTALLA "PantallaInfo" "EstiloPantallaInfo"
+    {
+      *RECT   250 >138 554 >0
+      *NOMBRE "PantallaInfo"
+      *GFLAGS { ST_NORMAL F_TABSTOP }
+      *NPTOS_SILUETA 4
+      *PTO_SILUETA 0 0 5
+      *PTO_SILUETA 1 1024 5
+      *PTO_SILUETA 2 1024 140
+      *PTO_SILUETA 3 0 140
+    }
+
+    *PANTALLA "PantallaMapa" "EstiloPantallaMapa"
+    {
+      *RECT   0 >170 250 >0
+      *NOMBRE "PantallaMapa"
+      *GFLAGS { ST_NORMAL F_TABSTOP }
+      
+      *NPTOS_SILUETA 8
+      *PTO_SILUETA 0 0 60
+      *PTO_SILUETA 1 100 0
+      *PTO_SILUETA 2 100 20
+      *PTO_SILUETA 3 198 85
+      *PTO_SILUETA 4 198 35
+      *PTO_SILUETA 5 250 35
+      *PTO_SILUETA 6 250 170
+      *PTO_SILUETA 7 0 170
+      
+      *INSTANCIA "PantallaMapaControles"
+    }
+
+    *PANTALLA "PantallaOrdenes" "EstiloPantallaOrdenes"
+    {
+      *RECT   >241 >166 >0 >0
+      *NOMBRE "PantallaOrdenes"
+      *GFLAGS { ST_NORMAL F_TABSTOP }
+      *NPTOS_SILUETA 6
+      *PTO_SILUETA 0 0 30
+      *PTO_SILUETA 1 43 30
+      *PTO_SILUETA 2 43 0
+      *PTO_SILUETA 3 240 0
+      *PTO_SILUETA 4 240 170
+      *PTO_SILUETA 5 0 170
+
+      *INSTANCIA "PantallaOrdenesControles"
+    }
+  }  
+  
+  *PANTALLA "PantallaReproduccionSecuencias" "EstiloPantallaOrdenes"
+  {
+  	*RECT 	>241 >166 >0 >0
+  	*NOMBRE	"PantallaReproduccionSecuencias"
+  	*GFLAGS { ST_NORMAL F_TABSTOP } //F_HIDDEN
+    *NPTOS_SILUETA 6
+    *PTO_SILUETA 0 0 30
+    *PTO_SILUETA 1 43 30
+    *PTO_SILUETA 2 43 0
+    *PTO_SILUETA 3 240 0
+    *PTO_SILUETA 4 240 170
+    *PTO_SILUETA 5 0 170
+
+    *CONTROL 	"Orden" "ReproduccionSecuencias"
+    {
+    	*RECT			60 60 32 32   
+    	*NOMBRE		"CiclarCivilizacion"
+    	*NTEX_X		0
+    	*NTEX_Y 	1
+    	*GFLAGS		{ ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+    	*TOOLTIP "LTEXT_GUI_CICLAR_CIV"
+   	}
+   	
+   	*CONTROL "Orden" "ReproduccionSecuencias"
+   	{
+   		*RECT			94 60 32 32
+   		*NOMBRE		"CommutarVision"
+   		*NTEX_X		0
+   		*NTEX_Y		2
+   		*GFLAGS		{ ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+   		*TOOLTIP "LTEXT_GUI_VISION_COMPLETA"
+   	}
+   	
+   	*CONTROL "Orden" "ReproduccionSecuencias"
+   	{
+   		*RECT 		128 60 32 32
+   		*NOMBRE		"RebobinarSecuencia"
+   		*NTEX_X		1
+   		*NTEX_Y		0
+   		*GFLAGS		{ ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+   		*TOOLTIP "LTEXT_GUI_REWIND"
+   	}
+   	
+   	*CONTROL "Orden" "ReproduccionSecuencias"
+   	{
+   		*RECT			162 60 32 32
+   		*NOMBRE		"PausarSecuencia"
+   		*NTEX_X		0
+   		*NTEX_Y  	3
+   		*GFLAGS		{ ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+   		*TOOLTIP "LTEXT_GUI_PAUSE"
+   	}   	
+   	
+		*CONTROL "Static" "NombreJugadorSecuencia"
+		{
+			*RECT			60 100 >10 20
+			*NOMBRE		"NombreJugador"
+			*GFLAGS		{ ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+   		*TOOLTIP "LTEXT_GUI_SEQ_CURRENT_PLAYER"
+		}
+
+   	*CONTROL "Slider" "EstiloSlider"
+   	{
+   		*RECT			60 110 >45 20
+   		*NOMBRE		"SlVelocidad"
+   		*GFLAGS 	{ ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+			*PARAMS		"arg: 99 32 true 0"
+   		*TOOLTIP "LTEXT_GUI_SEQ_PLAYBACK_SPEED"
+		}
+		
+		*CONTROL "Static" "EstiloReloj"
+		{
+			*RECT			>40 115 >5 20
+			*NOMBRE		"DisplayVelocidad"
+			*GFLAGS 	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		}
+		
+		*CONTROL "Static" "EstiloReloj"
+		{
+			*RECT			>40	>10 100 20
+			*NOMBRE		"DisplayTiempoTotal"
+			*GFLAGS 	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS		"Text='88:88:88'"							// De prueba
+		}
+  }  
+  
+  *PANTALLA "-" "-"
+  {
+    *RECT 0 0 %100 %100
+    *NOMBRE "PantallaChat"
+    *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS F_TRANSPARENTE }
+  
+  	// El chat    
+  	*CONTROL "ListaMensajesChat" "EstiloMensajesChat"
+		{
+			*RECT		50 170 >0 218
+			*NOMBRE "ChatMensajes" 
+			*GFLAGS { ST_NORMAL F_TRANSPARENTE F_NOFOCUS F_NOMOUSE }
+		}
+	}
+}

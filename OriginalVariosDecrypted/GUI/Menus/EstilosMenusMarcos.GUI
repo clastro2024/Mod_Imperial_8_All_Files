@@ -1,0 +1,60 @@
+{
+  *ESTILO "BaseMarco"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFFFFFFF
+    *CLRSELTEXT   0xFFFFFFFF
+    *FLAGS        { F_TEXFRAME }
+  }
+  *ESTILO "EstiloMarcoFinoRelleno"
+  {
+    *ESTILOBASE   "BaseMarco"
+    *TEXNAME      "GUI\Menus\Graficos\MarcoFinoConInterior.tga"
+    *PADX     		16
+    *PADY     		11
+  }
+  *ESTILO "EstiloMarcoFinoHueco"
+  {
+    *ESTILOBASE   "BaseMarco"
+    *TEXNAME      "GUI\Menus\Graficos\MarcoFinoSinInterior.tga"
+    *PADX     		16
+    *PADY     		11
+    *MARCOTEXTO   5 0 0 0
+  }
+  *ESTILO "EstiloMarcoFinoAjustado"
+  {
+    *ESTILOBASE   "BaseMarco"
+    *TEXNAME      "GUI\Menus\Graficos\MarcoFinoAjustado.tga"
+    *PADX     		4
+    *PADY     		4
+  }
+  *ESTILO "EstiloMarcoBrillante"
+  {
+    *ESTILOBASE   "BaseMarco"
+    *TEXNAME      "GUI\Menus\Graficos\MarcoBrillanteConInterior.tga"
+    *PADX     		4
+    *PADY     		4
+  }
+
+// ----------------------------------------
+// Cajas de descripcion
+// ----------------------------------------
+
+  *ESTILO "EstiloCajaDescripcion"
+  {
+    *ESTILOBASE   "EstiloMarcoFinoRelleno"
+    *CLRTEXT      0xFFFFFFFF
+    *FLAGS        { F_TEXFRAME F_TEXTWRAP }
+    *FONTNAME     "Times_14r"
+  }
+  
+  *ESTILO "EstiloCajaMultiplayer"
+  {
+    *ESTILOBASE   "EstiloMarcoFinoHueco"
+    *CLRTEXT      0xFFFFFFFF
+    *FLAGS        { F_TEXFRAME F_TEXTCENTER }
+    *FONTNAME     "Times_12"
+  }
+}
