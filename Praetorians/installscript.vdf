@@ -1,0 +1,17 @@
+"installscript"
+{
+	"registry"
+	{
+		"hkey_current_user\\software\\microsoft\\windows nt\\currentversion\\appcompatflags\\layers"
+		{
+			"string"
+			{
+				"%installdir%\\praetorians.exe"		"WIN98 8And16BitDXMaxWinMode"
+			}
+		}
+	}
+}
+"kvsignatures"
+{
+	"installscript"		"7757396887b3f4a3e7b986e4bf5ade0c134cd644d2db0cc01cae6e8e91201cdef337ab040f5d7ec85890cc8e447e1e6ee86e3925ca346fddb1771d8c16ed574e1e2ed807a065886b0ba06b5851dda26219c254d2ab559058bd617b275e36b6611c720c016bcc5d2c9c478046c2aefaeaf00ee27df8de141b0478fc3f91e6347e"
+}
