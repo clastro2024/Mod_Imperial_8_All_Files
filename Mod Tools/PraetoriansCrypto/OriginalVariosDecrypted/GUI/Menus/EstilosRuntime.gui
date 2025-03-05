@@ -1,0 +1,36 @@
+{
+  // ----------------------------------------
+// Minimapas
+// ----------------------------------------
+
+  *ESTILO "RT_EstiloMinimapa"
+  {
+    *ESTILOBASE "BaseImagen"
+  }
+  *ESTILO "RT_EstiloMinimapaSombra"
+  {
+    *ESTILOBASE "BaseImagen"
+    *CLRBACK    0xFF000000
+  }
+  *ESTILO "RT_EstiloMinimapaConsulta"
+  {
+    *ESTILOBASE "BaseImagen"
+  }
+  *ESTILO "RT_EstiloMinimapaConsultaSombra"
+  {
+    *ESTILOBASE "BaseImagen"
+    *CLRBACK    0xFF000000
+  }
+  *ESTILO "RT_EstiloMinimapaEA"
+  {
+    *ESTILOBASE	"BaseImagen"
+    *TEXNAME    "MarcasMinimapa.tga"
+  }
+  // El estilo de los screenshots de la salida de la demo
+  *ESTILO "RT_EstiloDemoScreenshots"
+  {
+  	*CLRTEXT      0xFFFF00FF
+    *CLRBACK      0x00000000  	
+  	*FLAGS        { F_ALPHABLENDIMG F_TEXSCALE }
+  }
+}

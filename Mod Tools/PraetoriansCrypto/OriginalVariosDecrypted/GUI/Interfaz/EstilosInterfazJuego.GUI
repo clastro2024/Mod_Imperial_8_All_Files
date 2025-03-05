@@ -1,0 +1,718 @@
+{
+  *ESTILO "Fondo1"
+  {
+    *CLRBACK      			0xFFFFFFFF
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRROLLOVER  			0xFFFFFFFF
+    *CLRDISABLED  			0xFF808080
+    *CLRSELBACK   			0xFFFFFFFF
+    *CLRSELTEXT   			0xFFFFFFFF
+/*
+    *CLRTOOLTIPBACK     0xFFF5FFC6
+    *CLRTOOLTIPTEXT     0xFF000000
+    *CLRTOOLTIPMARQUEE  0xFF000000
+*/
+    *CLRTOOLTIPBACK     0xB0000000
+    *CLRTOOLTIPTEXT     0xFFFFFFFF
+    *CLRTOOLTIPMARQUEE  0xFFF8CC4B
+
+    *TOOLTIPFONTNAME  	"Arial_10"
+  }
+
+  *ESTILO "EstiloPantallaJuego"
+  {
+    *ESTILOBASE   			"Fondo1"
+    *CLRBACK      			0
+  }
+  *ESTILO "EstiloPantallaInterfaz"
+  {
+    *ESTILOBASE   			"Fondo1"
+    *CLRBACK      			0
+  }
+  *ESTILO "EstiloPantallaMapa"
+  {
+    *ESTILOBASE   			"Fondo1"
+		*FLAGS		  				{ F_ALPHABLENDIMG }
+    *IMGNAME      			"GUI\Interfaz\Graficos\Minimapa.tga"
+  }
+  *ESTILO "EstiloPantallaMapa_640"
+  {
+    *ESTILOBASE   			"Fondo1"
+		*FLAGS		  				{ F_ALPHABLENDIMG }
+    *IMGNAME      			"GUI\Interfaz\Graficos\Minimapa_640.tga"
+  }
+  *ESTILO "EstiloPantallaInfo"
+  {
+    *ESTILOBASE   			"Fondo1"
+	  *FLAGS		  				{ F_ALPHABLENDIMG }
+    *IMGNAME      			"GUI\Interfaz\Graficos\Papiro.tga"
+  }
+  *ESTILO "EstiloPantallaInfo_640"
+  {
+    *ESTILOBASE   			"Fondo1"
+	  *FLAGS		  				{ F_ALPHABLENDIMG }
+    *IMGNAME      			"GUI\Interfaz\Graficos\Papiro_640.tga"
+  }
+  *ESTILO "EstiloPantallaOrdenes"
+  {
+    *ESTILOBASE   			"Fondo1"
+		*FLAGS		  				{ F_ALPHABLENDIMG }
+    *IMGNAME      			"GUI\Interfaz\Graficos\Friso.tga"
+  }
+  *ESTILO "EstiloPantallaOrdenes_640"
+  {
+    *ESTILOBASE   			"Fondo1"
+		*FLAGS		  				{ F_ALPHABLENDIMG }
+    *IMGNAME      			"GUI\Interfaz\Graficos\Friso_640.tga"
+  }
+
+/*
+  *ESTILO "Chat"
+  {
+    *CLRBACK      			0x00000000
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRROLLOVER  			0xFFFFFFFF
+    *CLRDISABLED  			0xFFFFFFFF
+    *CLRSELBACK   			0xFFFFFFFF
+    *CLRSELTEXT   			0xFF000000
+    *FONTNAME     			"Arial_10"
+    *SOUNDDOWN		      "IBPS"
+    *SOUNDUP 			      "IBST"
+  }
+*/
+  *ESTILO "ChatEdit"
+  {
+    *CLRBACK      			0x80000000
+    *CLRTEXT      			0xFFFFFFC0
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRROLLOVER  			0xFFFFFFFF
+    *CLRDISABLED  			0xFFFFFFFF
+    *CLRSELBACK   			0xFFFFFFFF
+    *CLRSELTEXT   			0xFF000000
+    *FONTNAME     			"Times_12"
+    *FLAGS        { F_TEXFRAME }
+    *TEXNAME      "GUI\Menus\Graficos\MarcoBrillanteConInterior.tga"
+    *PADX     		4
+    *PADY     		4
+    *SOUNDDOWN		"IBPS"
+    *SOUNDUP 			"IBST"
+  }
+
+  *ESTILO "EstiloMensajesChat"
+  {
+    *CLRBACK      			0
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRROLLOVER  			0xFFFFFFFF
+    *CLRHIGHLIGHT  			0xFFFFFFFF
+    *CLRSELTEXT         0xFFFFFFFF
+    *FONTNAME     			"Times_14r"
+    *FLAGS              { F_TEXTWRAP F_NO_SLIDER F_OUTLINE }
+    *SOMBRAOFFSETX      1.3
+    *SOMBRAOFFSETY      1.3
+  }
+
+  *ESTILO "EstiloJugadoresEspera"
+  {
+    *CLRBACK      			0
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRTEXT      			0xFFFFFFFF
+    *FONTNAME     			"Arial_12"
+//    *FLAGS              { F_TEXTWRAP F_NO_SLIDER }
+    *SOMBRAOFFSETX      2
+    *SOMBRAOFFSETY      2
+  }
+
+  *ESTILO "EstiloGrupoSeleccion"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *CLRBACK      			0
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRHIGHLIGHT 			0xFFA0A0A0   
+    *FLAGS        			{ F_PUSHDRAW F_DISABLEDRAW }
+    *SOUNDDOWN					"IBPS"
+    *SOUNDUP 						"IBST"
+//    *TOOLTIPFONTNAME  	"Arial_8"
+  }
+  *ESTILO "EstiloFondoGSeleccion"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *CLRBACK      			0xFFFFFFFF
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRHIGHLIGHT 			0xFFA0A0A0    
+    *FLAGS		  				{ F_ALPHABLENDIMG }
+    *IMGNAME      			"GUI\Interfaz\Graficos\GruposSeleccion.tga"
+    *SOUNDDOWN					"IBPS"
+    *SOUNDUP 						"IBST"
+  }
+  *ESTILO "EstiloGrupoSeleccionHeroes"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *CLRBACK      			0
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRHIGHLIGHT 			0xFFA0A0A0
+    *CLRTOOLTIPTEXT			0xFFFFFFFF
+    *CLRTOOLTIPMARQUEE  0xFFF8CC4B
+  	*CLRTOOLTIPBACK     0xB0000000
+    *FLAGS        			{ F_PUSHDRAW F_DISABLEDRAW }
+    *SOUNDDOWN					"IBPS"
+    *SOUNDUP 						"IBST"
+    *TOOLTIPFONTNAME  	"Arial_10"
+  }
+  
+  *ESTILO "EstiloPanelHeroes"
+  {
+  	*ESTILOBASE 				"Fondo1"
+  	*CLRTOOLTIPBACK     0xB0000000
+    *CLRTOOLTIPTEXT     0xFFFFFFFF 
+    *CLRTOOLTIPMARQUEE  0xFFF8CC4B
+    *TOOLTIPFONTNAME  	"Arial_10"
+  }
+    
+  *ESTILO "EstiloFondoHeroes"
+  {
+  	*ESTILOBASE					"Fondo1"
+  	*CLRBACK						0xFFFFFFFF
+  	*CLRTEXT						0xFFFFFFFF
+	 	*FLAGS							{ F_ALPHABLENDING }
+  	*IMGNAME						"GUI\Interfaz\Graficos\FondoHeroes.tga"
+  }
+  
+  *ESTILO "EstiloGestionAutomatica"
+  {
+  	*ESTILOBASE					"Fondo1"    	
+  	*TEXNAME						"GUI\Interfaz\Graficos\HabilidadAutomatica.tga"
+  	*TEXBLOCKW     			32
+    *TEXBLOCKH     			32
+  }
+
+  *ESTILO 							"EstiloBaseOrdenes"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRDISABLED        0xA0E0E0E0
+    *CLRROLLOVER  			0xFFFFFFFF
+    *TEXBLOCKW     			32
+    *TEXBLOCKH     			32
+    *FLAGS        			{ F_PUSHDRAW F_DISABLEDRAW }
+    *SOUNDDOWN					"IBPS"
+    *SOUNDUP 						"IBST"
+  }
+
+  *ESTILO 							"OrdenesBasicas"
+  {
+    *ESTILOBASE 				"EstiloBaseOrdenes"
+    *TEXNAME      			"GUI\Interfaz\Graficos\Ordenes.bmp"
+  }
+  
+  *ESTILO								"ReproduccionSecuencias"
+  {
+  	*ESTILOBASE					"EstiloBaseOrdenes"
+  	*TEXNAME						"GUI\Interfaz\Graficos\Secuencias.bmp"
+  }  
+  
+  *ESTILO								"NombreJugadorSecuencia"
+  {
+  	*ESTILOBASE					"Fondo1"
+  	*CLRBACK      			0x00000000
+    *CLRTEXT      			0xFFFFFFFF
+  	*FONTNAME     			"Times_12"
+  }
+
+  *ESTILO 							"MiniBoton"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *CLRTEXT      			0xFF808080
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRDISABLED        0xA0A0A0A0
+    *CLRROLLOVER  			0xFFF0F0F0
+    *TEXBLOCKW     			30
+    *TEXBLOCKH     			27
+    *FLAGS        			{ F_PUSHDRAW F_DISABLEDRAW }
+    *SOUNDDOWN					"IBPS"
+    *SOUNDUP 						"IBST"
+    *TEXNAME      			"GUI\Interfaz\Graficos\BotonesMinimapa.tga"
+  }
+  
+  *ESTILO 							"OrdenesControlSecuencias"
+  {
+    *ESTILOBASE 				"EstiloBaseOrdenes"
+    *TEXNAME      			"GUI\Interfaz\Graficos\Secuencias.bmp"
+  }
+  *ESTILO "OrdenesEntrenarRomanos"
+  {
+    *ESTILOBASE 				"EstiloBaseOrdenes"
+    *TEXNAME      			"GUI\Interfaz\Graficos\EntrenarRomanos.bmp"
+    *SOUNDDOWN					"IBOD"
+    *SOUNDUP 						"IBOU"
+  }
+  *ESTILO "OrdenesEntrenarGalos"
+  {
+    *ESTILOBASE 				"EstiloBaseOrdenes"
+    *TEXNAME      			"GUI\Interfaz\Graficos\EntrenarGalos.bmp"
+    *SOUNDDOWN					"IBOD"
+    *SOUNDUP 						"IBOU"
+  }
+  *ESTILO "OrdenesEntrenarEgipcios"
+  {
+    *ESTILOBASE 				"EstiloBaseOrdenes"
+    *TEXNAME      			"GUI\Interfaz\Graficos\EntrenarEgipcios.bmp"
+    *SOUNDDOWN					"IBOD"
+    *SOUNDUP 						"IBOU"
+  }
+  *ESTILO "OrdenesHabilidades"
+  {
+    *ESTILOBASE         "EstiloBaseOrdenes"
+    *TEXNAME      			"GUI\Interfaz\Graficos\Habilidades.bmp"
+    *SOUNDDOWN					"IBOD"
+    *SOUNDUP 						"IBOU"
+  }
+  *ESTILO "EstiloOpcionOrdenes"
+  {
+    *ESTILOBASE 				"EstiloBaseOrdenes"
+    *TEXNAME      			"GUI\Interfaz\Graficos\CatOrdenes.bmp"
+    *CLRDISABLED        0xFFC0C0C0
+    *TEXBLOCKW     			44
+    *TEXBLOCKH     			39
+    *SOUNDDOWN					"IBOD"
+    *SOUNDUP 						"IBOU"    
+  }
+  *ESTILO "EstiloTropasSeleccion"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *TEXNAME      			"GUI\Interfaz\Graficos\TropasSeleccion.bmp"
+    *TEXBLOCKW     			32
+    *TEXBLOCKH     			32
+    *CLRTOOLTIPBACK     0xB0000000
+    *CLRTOOLTIPTEXT     0xFFFFFFFF
+    *CLRTOOLTIPMARQUEE  0xFFF8CC4B
+//		*FONTNAME     			"Arial_8"
+  }
+
+// ----------------------------------------------------------------------------------------------------------
+
+  *ESTILO "EstiloTropasSeleccionGrandes1"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *CLRBACK      			0xFFFFFFFF
+    *CLRTEXT      			0xFFFFFF50
+    *CLRHIGHLIGHT 			0xFFA0A0A0
+    *TEXNAME      			"GUI\Interfaz\Graficos\TropasSeleccionGrandes1.bmp"
+    *TEXBLOCKW     			64
+    *TEXBLOCKH     			64
+    *CLRTEXT      			0xFFFFFFC0
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRROLLOVER  			0xFFFFFFFF
+    *CLRDISABLED  			0xFFFFFFFF
+    *CLRSELBACK   			0xFFFFFFFF
+    *CLRSELTEXT   			0xFF000000
+//    *FONTNAME     			"Arial_8"
+  }
+  *ESTILO "EstiloTropasSeleccionGrandes2"
+  {
+    *ESTILOBASE 				"EstiloTropasSeleccionGrandes1"
+    *TEXNAME      			"GUI\Interfaz\Graficos\TropasSeleccionGrandes2.bmp"
+  }
+  *ESTILO "EstiloTropasSeleccionGrandes3"
+  {
+    *ESTILOBASE 				"EstiloTropasSeleccionGrandes1"
+    *TEXNAME      			"GUI\Interfaz\Graficos\TropasSeleccionGrandes3.bmp"
+  }
+  *ESTILO "EstiloTropasSeleccionGrandes4"
+  {
+    *ESTILOBASE 				"EstiloTropasSeleccionGrandes1"
+    *TEXNAME      			"GUI\Interfaz\Graficos\TropasSeleccionGrandes4.bmp"
+  }
+
+// ----------------------------------------------------------------------------------------------------------
+
+  *ESTILO "EstiloInfoEstructuras"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *CLRBACK      			0xFFFFFFFF
+    *CLRTEXT      			0xFFFFFF50
+    *CLRHIGHLIGHT 			0xFFA0A0A0
+    *TEXNAME      			"GUI\Interfaz\Graficos\InfoEstructuras.bmp"
+    *TEXBLOCKW     			64
+    *TEXBLOCKH     			64
+  }
+  *ESTILO "EstiloBoton"
+  {
+    *CLRBACK      			0x80000000
+    *CLRTEXT      			0xFFB0B0B0
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRROLLOVER  			0xFFFFFF40
+    *CLRDISABLED  			0xFF808080
+    *FLAGS        			{ F_TEXTCENTER }
+  }
+  *ESTILO "EstiloBotonPiedra"
+  {
+    *ESTILOBASE   			"EstiloBoton"
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRROLLOVER  			0xFFE0E0E0
+    *CLRBACK      			0
+    *FLAGS        			{ F_TEXTCENTER F_TEXFRAME F_OUTLINE }
+    *TEXNAME      			"GUI\Menus\Graficos\Boton.TGA"
+    *PADX         			3
+    *PADY     					3
+    *FONTNAME     			"Times_14"
+  }
+
+  *ESTILO "EstiloBotonTutorial"
+  {
+    *ESTILOBASE   			"EstiloBotonPiedra"
+    *FONTNAME     			"Times_12"
+  }
+  *ESTILO "EstiloBotonMaximizarInterfaz"
+  {
+    *CLRBACK            0xFFFFFFFF
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRROLLOVER  			0xFFFFFFFF
+    *TEXNAME            "GUI\Interfaz\Graficos\Max_Interfaz.TGA"
+  }
+
+  *ESTILO "EstiloPanelTutorial"
+  {
+    *CLRBACK      			0xFFFFFFFF
+    *CLRTEXT      			0xFFD0D0D0
+    *FLAGS        			{ F_TEXFRAME }
+    *TEXNAME      			"GUI\Menus\Graficos\MarcoTutConInterior.tga"
+    *PADX     					6
+    *PADY    				 		6
+  }
+
+  *ESTILO "EstiloMarcoTutorial"
+  {
+    *ESTILOBASE   			"EstiloPanelTutorial"
+    *TEXNAME      			"GUI\Menus\Graficos\MarcoTutSinInterior.tga"
+  }
+  
+  *ESTILO "EstiloSliderPequeno"
+  {
+    *CLRBACK			      0x40000000
+    *CLRTEXT      			0xFFD0D0D0
+    *CLRHIGHLIGHT				0xFFFFFFFF
+    *CLRROLLOVER 				0xFFE0E0E0
+    *CLRDISABLED 				0x80FFFFFF
+    *CLRSELBACK  				0x80FFFFFF
+    *CLRSELTEXT   			0xFFFFFF00
+    *TEXNAME      			"GUI\Menus\Graficos\SliderTut.tga"
+    *TEXBLOCKW 				  13
+    *TEXBLOCKH    			8
+    *SOUNDDOWN					"IBPS"
+    *SOUNDUP 						"IBST"
+  }
+
+  *ESTILO "EstiloHyperTexto"
+  {
+    *CLRBACK      			0x80000000
+    *CLRTEXT      			0xFFB0B0B0
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+  }
+
+  *ESTILO "EstiloHyperTextoTutorial"
+  {
+    *ESTILOBASE "EstiloHyperTexto"
+    *CLRBACK      			0
+    *FONTNAME     			"Book_12"
+    *ESTILOCOMPLEMENTARIO "EstiloSliderPequeno"
+  }
+
+  *ESTILO "EstiloHyperTextoTutorial_640"
+  {
+    *ESTILOBASE "EstiloHyperTextoTutorial"
+    *FONTNAME     			"Book_10"
+  }
+
+  *ESTILO "EstiloSubtitulo"
+  {
+    *FLAGS				    	{ F_TEXTWRAP F_TEXTCENTER }
+    *CLRBACK      			0
+    *CLRTEXT      			0xFFFFFFD0
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *FONTNAME     			"Times_14r"
+  }
+
+  *ESTILO "EstiloPresentacion"
+   {
+    *FLAGS				    	{ F_TEXTWRAP }
+    *CLRBACK      			0x00000000
+    *CLRTEXT      			0xFFFFFFD0
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *FONTNAME     			"Times_14r"
+  }
+
+  *ESTILO "EstiloTexto"
+  {
+    *CLRBACK      			0
+    *CLRTEXT      			0xFFAFAFAF
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRROLLOVER  			0xFF40FFFF
+    *CLRDISABLED  			0xFF808080
+    *CLRSELBACK   			0xFFFFFFFF
+    *CLRSELTEXT   			0xFF000000
+    *FONTNAME     			"Arial_10"
+  }
+
+  *ESTILO "EstiloTextoTutorial"
+  {
+    *ESTILOBASE 				"EstiloTexto"
+    *FONTNAME     			"Times_10"
+  }
+
+  *ESTILO "EstiloIndiceTutorial"
+  {
+    *ESTILOBASE 				"EstiloTextoTutorial"
+    *CLRTEXT      			0xFFFFFFFF
+    *FONTNAME     			"Times_12"
+  }
+
+  *ESTILO "EstiloIndiceTutorial_640"
+  {
+    *ESTILOBASE 				"EstiloIndiceTutorial"
+    *FONTNAME     			"Times_10"
+  }
+
+  *ESTILO "EstiloSalidaArriba"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *CLRBACK      			0xFFFFFFFF
+    *CLRTEXT      			0xFFFFFF50
+    *CLRHIGHLIGHT 			0xFFA0A0A0
+    *IMGNAME	  				"\GUI\Interfaz\Graficos\Arriba.bmp"
+    *TEXBLOCKW     			32
+    *TEXBLOCKH     			32
+  }
+  *ESTILO 							"EstiloSalidaAbajo"
+  {
+    *ESTILOBASE 				"Fondo1"
+    *CLRBACK      			0xFFFFFFFF
+    *CLRTEXT      			0xFFFFFF50
+    *CLRHIGHLIGHT 			0xFFA0A0A0
+    *IMGNAME	  				"\GUI\Interfaz\Graficos\Abajo.bmp"
+    *TEXBLOCKW     			32
+    *TEXBLOCKH     			32
+  }
+  *ESTILO "EstiloReloj"
+  {
+    *CLRBACK      			0
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRHIGHLIGHT 			0xFFFFFFFF
+    *CLRROLLOVER  			0xFF40FFFF
+    *CLRDISABLED  			0xFF808080
+    *CLRSELBACK   			0xFFFFFFFF
+    *CLRSELTEXT   			0xFF000000
+    *FONTNAME     			"Times_14r"  
+  }
+  *ESTILO "EstiloRelojRJust"
+  {
+    *ESTILOBASE "EstiloReloj"
+    *FLAGS      { F_TEXTRIGHT }
+  }
+  *ESTILO "EstiloTimer"
+  {
+    *CLRBACK      			0
+    *CLRTEXT      			0xFFFFFFFF
+    *CLRHIGHLIGHT 			0xFFFFB060
+    *CLRROLLOVER  			0xFF40FFFF
+    *CLRDISABLED  			0xFF808080
+    *CLRSELBACK   			0xFFFFFFFF
+    *CLRSELTEXT   			0xFF000000
+    *FONTNAME     			"Times_12"
+		*FLAGS		  				{ F_BLINK }
+  }
+  
+// ---------------------------------------------------------------------------
+// TEXTOS ZONA DE INFO
+// ---------------------------------------------------------------------------
+  *ESTILO "EstiloZonaInfoTextoBase"
+  {
+    *CLRBACK      			0x00000000
+    *CLRTEXT      			0xFFFFFFC0
+    *CLRDISABLED  			0xFFFFFFFF
+    *FONTNAME     			"Times_10"
+  }
+  *ESTILO "EstiloZonaInfoTextoNombre"
+  {
+    *ESTILOBASE "EstiloZonaInfoTextoBase"
+    *CLRTEXT      			0xFFFFFFFF
+    *FONTNAME     			"Times_12"
+  }
+  *ESTILO "EstiloZonaInfoTextoVida"
+  {
+    *ESTILOBASE "EstiloZonaInfoTextoBase"
+    *CLRTEXT      			0xFF60FFB0
+  }
+  *ESTILO "EstiloZonaInfoTextoMana"
+  {
+    *ESTILOBASE "EstiloZonaInfoTextoBase"
+    *CLRTEXT      			0xFFC0FFFF
+  }
+  *ESTILO "EstiloZonaInfoTextoPopulation"
+  {
+    *ESTILOBASE "EstiloZonaInfoTextoBase"
+    *CLRTEXT      			0xFFC0FFFF
+  }
+  *ESTILO "EstiloZonaInfoTextoStatus"
+  {
+    *ESTILOBASE "EstiloZonaInfoTextoBase"
+    *CLRTEXT      			0xFFF0FF80
+  }
+  *ESTILO "EstiloZonaInfoTextoKills"
+  {
+  	*ESTILOBASE "EstiloZonaInfoTextoBase"
+  	*CLRTEXT						0xFFF0F0F0
+  }
+  *ESTILO "EstiloZonaInfoTextoExperience"
+  {
+  	*ESTILOBASE "EstiloZonaInfoTextoBase"
+  	*CLRTEXT						0xFFAFA0FF
+  }
+  *ESTILO "EstiloZonaInfoTextoLevel"
+  {
+  	*ESTILOBASE "EstiloZonaInfoTextoBase"
+  	*CLRTEXT						0xFFFFFFFF
+  }
+  *ESTILO "EstiloMiniMapa"
+  {
+    *ESTILOBASE   			"Fondo1"
+    *CLRBACK            0xFFFFFFFF
+  }
+  *ESTILO "RT_Minimapa_Sombra"
+  {
+    *ESTILOBASE   			"Fondo1"
+    *CLRBACK            0xFFFFFFFF
+  }
+  *ESTILO "RT_EstiloMinimapaEA" 			// Esto está en el estilo de los menús
+  {
+    *ESTILOBASE "Fondo1"
+    *TEXNAME    "MarcasMinimapa.tga"
+  }
+  *ESTILO "EstiloMarcoInicioRed"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFFFFFFF
+    *CLRSELTEXT   0xFFFFFFFF
+    *FLAGS        { F_TEXFRAME F_TEXTCENTER }
+    *TEXNAME      "GUI\Menus\Graficos\MarcoFinoConInterior.tga"
+    *PADX     		16
+    *PADY     		11
+    *FONTNAME     "Arial_12"
+  }
+  *ESTILO "EstiloMarcoBordeInicioRed"
+  {
+    *ESTILOBASE "EstiloMarcoInicioRed"
+    *TEXNAME      "GUI\Menus\Graficos\MarcoBrillanteConInterior.tga"
+    *PADX     		4
+    *PADY     		4
+  }
+  *ESTILO "FondoInicioRed"
+  {
+    *ESTILOBASE         "Fondo1"
+    *CLRBACK      			0x00000000
+  }
+  *ESTILO "EstiloIconosEquipo"
+  {
+    *CLRBACK      0x00000000
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFFFFFFF
+    *CLRDISABLED  0xFFA0A0A0
+    *CLRSELBACK   0x00000000
+    *CLRSELTEXT   0xFFFFFF80
+    *CLRSOMBRATEXT 0xFF000000
+    *FLAGS        { F_TEXTCENTER }
+    *SOUNDDOWN		"IBPS"
+    *SOUNDUP 			"IBST"
+    *TEXBLOCKW            16
+    *TEXBLOCKH            16
+    *TEXNAME              "GUI\Menus\Graficos\IconosMultiplayer.tga"
+  }
+  *ESTILO "EstiloBotonEquipo"
+  {
+    *CLRBACK      0x00000000
+    *CLRTEXT      0x00000000
+    *CLRHIGHLIGHT 0x00000000
+    *CLRROLLOVER  0x00000000
+    *CLRSELTEXT   0x00000000
+    *ESTILOCOMPLEMENTARIO "EstiloIconosEquipo"
+  }
+  *ESTILO "EstiloBotonColor"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFFFFFFF
+    *CLRSELTEXT   0xFFFFFFFF
+    *FLAGS        { F_TEXFRAME }
+    *TEXNAME      "GUI\Menus\Graficos\MarcoFinoAjustado.tga"
+    *PADX     		4
+    *PADY     		4
+  }
+
+  // -------------------------------------------  
+  // Panel de info y experiencia
+  // -------------------------------------------  
+  *ESTILO "EstiloPanelXtraInfo"
+  {
+    *CLRBACK      0xFFFFFFFF
+	  *FLAGS		  	{ F_ALPHABLENDIMG }
+    *IMGNAME      "GUI\Interfaz\Graficos\PanelXtraInfo.tga"
+  }
+  *ESTILO "EstiloBarraExperiencia"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *TEXNAME      "GUI\Interfaz\Graficos\XperienceBar.tga"
+  }
+  *ESTILO "EstiloTransparente"
+  {
+    *CLRBACK      0x00000000
+/*
+    *CLRTOOLTIPBACK     0xFFF5FFC6
+    *CLRTOOLTIPTEXT     0xFF000000
+    *CLRTOOLTIPMARQUEE  0xFF000000
+*/
+    *CLRTOOLTIPBACK     0xB0000000
+    *CLRTOOLTIPTEXT     0xFFFFFFFF
+    *CLRTOOLTIPMARQUEE  0xFFF8CC4B
+    *TOOLTIPFONTNAME  	"Arial_10"
+  }
+  *ESTILO "EstiloTextoXtraInfo"
+  {
+    *CLRBACK      0x60000000
+    *CLRTEXT      0xFFFFFFFF
+    *FLAGS        { F_TEXTCENTER }
+    *FONTNAME     "Times_10"
+  }
+  
+  // ------------------------
+  // Letrero de Victoria o Derrota final
+  *ESTILO "EstiloTextoSentencia"
+  {
+  	*CLRBACK			0x00000000
+  	*CLRTEXT			0xFFFFFFFF
+  	*FLAGS				{ F_TEXTCENTER }
+  	*FONTNAME 		"Times_30"
+  }
+ 
+ 	// --------------------------
+ 	*ESTILO "EstiloTooltipDebug"
+ 	{
+ 		*CLRBACK			0xFF000000
+ 		*CLRTEXT			0xFFFFFFFF
+ 		*FONTNAME			"Mini 5"
+ 	}
+ 	// --------------------------
+ 	*ESTILO "EstiloTooltipFinal"
+ 	{
+ 		*CLRBACK			0xFF000000
+ 		*CLRTEXT			0xFFFFFFFF
+ 		*FONTNAME			"Arial_10"
+ 	}
+}

@@ -1,0 +1,285 @@
+{
+  *INCLUDE "GUI\Menus\EstilosMenusMarcos.GUI"
+  *INCLUDE "GUI\Menus\EstilosMenusBotones.GUI"
+  *INCLUDE "GUI\Menus\EstilosMenusControles.GUI"
+  *INCLUDE "GUI\Menus\EstilosMenusFondos.GUI"
+  *INCLUDE "GUI\Menus\EstilosRuntime.GUI"
+
+  *ESTILO "EstiloTitulo"
+  {
+//    *ESTILOBASE   				"EstiloMarcoFinoRelleno"
+    *CLRBACK      				0
+    *CLRTEXT      				0xFFFFFFFF
+    *CLRSOMBRATEXT 				0xFF000000
+//    *FLAGS        				{ F_TEXTCENTER F_TEXFRAME }
+    *FLAGS        				{ F_TEXTCENTER }
+    *FONTNAME     				"Times_30"
+    *SOMBRAOFFSETX 				2
+    *SOMBRAOFFSETY 				2
+  }
+  *ESTILO "EstiloTituloSecundario"
+  {
+    *CLRTEXT      				0xFFFFFFFF
+    *CLRBACK      				0x00000000
+    *CLRSOMBRATEXT	 			0x00000000
+    *FLAGS        				{ F_TEXTCENTER }
+    *FONTNAME     				"Times_30"
+  }
+  *ESTILO "EstiloTituloPequeno"
+  {
+    *ESTILOBASE   				"EstiloTitulo"
+    *FONTNAME     				"Times_20"
+  }
+  *ESTILO "EstiloRotulo"
+  {
+    *CLRBACK      				0x00000000
+    *CLRTEXT      				0xFFFFFFFF
+    *CLRDISABLED  				0xFF808080
+    *FONTNAME     				"Times_20"
+  }
+  *ESTILO "EstiloRotuloNormal"
+  {
+    *ESTILOBASE 					"EstiloRotulo"
+    *FONTNAME  		   			"Times_14"
+  }
+  *ESTILO "EstiloRotuloOpcion"
+  {
+    *ESTILOBASE 					"EstiloRotulo"
+    *FONTNAME     				"Times_14r"
+  }
+  *ESTILO "EstiloRotuloPequeno"
+  {
+    *ESTILOBASE 					"EstiloRotulo"
+    *FONTNAME     				"Times_12"
+  }
+  *ESTILO "EstiloTextoCopyright"
+  {
+    *ESTILOBASE 					"EstiloRotuloPequeno"
+    *FLAGS        				{ F_TEXTRIGHT }
+  }
+  *ESTILO "EstiloRotuloMini"
+  {
+    *ESTILOBASE 					"EstiloRotulo"
+    *FONTNAME     				"Times_10"
+  }
+  *ESTILO "EstiloRotuloCentrado"
+  {
+    *ESTILOBASE   				"EstiloRotulo"
+    *FLAGS        				{ F_TEXTCENTER }
+  }
+  *ESTILO "EstiloDescripcion"
+  {
+    *CLRTEXT      				0xFFFFFFFF
+    *CLRBACK      				0x00000000
+    *FONTNAME     				"Times_14r"
+    *FLAGS        				{ F_TEXTWRAP }
+  }
+  *ESTILO "EstiloDescripcionCentrada"
+  {
+    *ESTILOBASE 					"EstiloDescripcion"
+    *FLAGS        				{ F_TEXTCENTER }
+  }
+  *ESTILO "EstiloTextoCreditos"
+  {
+    *ESTILOBASE 					"EstiloDescripcion"
+    *FONTNAME     				"Times_12"
+  }
+  *ESTILO "EstiloDescripcionHyper"
+  {
+    *ESTILOBASE  					"EstiloDescripcion"
+    *FLAGS        				{ }
+  }
+  
+  *ESTILO "EstiloHyperTextoTips"
+  {
+    *CLRBACK      				0
+    *CLRTEXT      				0xFFFFFFFF
+    *CLRHIGHLIGHT 				0xFFFFFFFF
+    *FONTNAME     				"Book_12"
+    *ESTILOCOMPLEMENTARIO "EstiloSliderPequeno"
+  }
+
+  *ESTILO "EstiloCountDown"
+  {
+    *CLRTEXT			      	0xFFFF00FF
+    *CLRBACK      				0x00000000
+  	*FLAGS  				      { F_ALPHABLENDIMG F_TEXSCALE }    
+    *TEXNAME							"GUI\Menus\Graficos\I_Grande.TGA"
+  }
+
+  *ESTILO "EstiloColorJugador"
+  {
+    *CLRBACK				      0x00000000
+    *CLRTEXT      				0xFFD0D0D0
+    *CLRHIGHLIGHT 				0xFFFFFFFF
+    *CLRROLLOVER  				0xFFFFFFFF
+    *CLRDISABLED  				0x80A0A0A0
+    *CLRSELBACK   				0x00000000
+    *CLRSELTEXT   				0xFFFFFF80
+    *TEXNAME  		  		  "GUI\Menus\Graficos\ColoresJugador.bmp"
+    *TEXBLOCKW    				32
+    *TEXBLOCKH    				32
+  }
+
+  
+  *ESTILO "EstiloDialogo"
+  {
+    *CLRBACK 			     		0x00777777
+    *CLRTEXT      				0xFFFFFF80
+    *CLRHIGHLIGHT 				0x30FFFFFF
+    *CLRROLLOVER  				0xFF40FFFF
+    *CLRDISABLED  				0xFF808080
+    *CLRSELBACK   				0x00000000
+    *CLRSELTEXT   				0xFF000000
+    *FLAGS        				{ F_TEXTCENTER }
+    *FONTNAME     				"Arial_10"
+  }
+  
+  *ESTILO "EstiloDialogoPopup"
+  {
+  	*CLRBACK							0x00FFFFFF
+  	*CLRTEXT							0xFFFFFF80
+  	*CLRHIGHLIGHT 				0x30FFFFFF
+    *CLRROLLOVER  				0xFF40FFFF
+    *CLRDISABLED  				0xFF808080
+    *CLRSELBACK   				0x00000000
+    *CLRSELTEXT   				0xFF000000    
+    *FLAGS        				{ F_TEXTCENTER }
+    *IMGNAME      				"GUI\Menus\Graficos\FondoDialogo.bmp"       
+    *FONTNAME     				"Arial_10"
+  }
+  
+  *ESTILO "EstiloTextoDialogo"
+  {
+  	*CLRBACK							0x00FFFFFF
+  	*CLRTEXT							0xFFFFFFFF
+    *FLAGS        				{ F_TEXTCENTER }    
+    *FONTNAME     				"Times_12"
+  }
+  
+  *ESTILO "EstiloEditBox"
+  {
+    *CLRBACK 				     	0x00000000
+    *CLRTEXT      				0xFFFFFF80
+    *CLRHIGHLIGHT 				0x30FFFFFF
+    *CLRROLLOVER  				0xFF40FFFF
+    *CLRDISABLED  				0xFF808080
+    *CLRSELBACK   				0xFFFFFFFF
+    *CLRSELTEXT   				0xFF000000
+    *FONTNAME     				"Book_12"
+    *FLAGS				        { F_TEXFRAME }
+    *TEXNAME      				"GUI\Menus\Graficos\MarcoBrillanteConInterior.tga"
+    *PADX     						4
+    *PADY     						4
+    *SOUNDDOWN						"IBPS"
+    *SOUNDUP 							"IBST"
+  }
+  *ESTILO "EstiloRotuloArial"
+  {
+    *CLRBACK      				0x00000000
+    *CLRTEXT      				0xFFFFFFFF
+    *CLRHIGHLIGHT 				0x30FFFFFF
+    *CLRROLLOVER  				0xFF40FFFF
+    *CLRDISABLED  				0xFF808080
+    *CLRSELBACK   				0xFFFFFFFF
+    *CLRSELTEXT   				0xFF000000
+    *FONTNAME     				"Arial_10"
+  }
+  *ESTILO "EstiloRotuloArialWrap"
+  {
+    *CLRBACK      				0x00000000
+    *CLRTEXT      				0xFFFFFFFF
+    *CLRHIGHLIGHT 				0x30FFFFFF
+    *CLRROLLOVER  				0xFF40FFFF
+    *CLRDISABLED  				0xFF808080
+    *CLRSELBACK   				0xFFFFFFFF
+    *CLRSELTEXT   				0xFF000000
+    *FLAGS        				{ F_TEXTWRAP }
+    *FONTNAME     				"Arial_10"
+  }
+  
+  *ESTILO "EstiloTextoResultados"
+  {
+    *CLRBACK        			0x00000000
+    *CLRTEXT        			0xFFFFFFFF
+    *CLRSOMBRATEXT  			0xFF000000
+    *FLAGS          			{ F_TEXTCENTER }
+  }
+  *ESTILO "EstiloEscudoEquipo"
+  {
+    *ESTILOBASE   				"BaseResultadosJugador"
+    *TEXNAME      				"GUI\Menus\Graficos\IconosMultiplayer.tga"
+    *TEXBLOCKW    				16
+    *TEXBLOCKH    				16
+  }
+  *ESTILO "EstiloResultadoNombre"
+  {
+    *ESTILOBASE   				"EstiloTextoResultados"
+    *FONTNAME     				"Times_16"
+    *FLAGS          			{ F_TEXTCENTER F_OUTLINE }
+  }
+  *ESTILO "EstiloResultadoCat"
+  {
+    *ESTILOBASE   				"EstiloTextoResultados"
+    *FONTNAME     				"Times_10"
+  }
+  *ESTILO "EstiloResultadoVal"
+  {
+    *ESTILOBASE   				"EstiloTextoResultados"
+    *FONTNAME     				"Times_14r"
+  }
+
+  // ESTILOS TEMPORALES
+  *ESTILO "EstiloMapaGrandeSingle"
+  {
+    *ESTILOBASE 					"BaseImagen"
+  	*IMGNAME    					"Imagenes\Single\Mapa_C_05.dds"
+  }
+  *ESTILO "EstiloMapaPeqSingle"
+  {
+    *ESTILOBASE 					"BaseImagen"
+  	*IMGNAME    					"Imagenes\Single\Mapa_S_05.dds"
+  }
+  *ESTILO "EstiloImagenDecoracionSingle"
+  {
+    *CLRBACK  	  				0xFFFFFFFF
+  	*IMGNAME    					"Imagenes\Single\MisionDecorFailure.dds"
+  }
+  *ESTILO "EstiloMenuInGameTimer"
+  {
+    *CLRBACK      				0
+    *CLRTEXT      				0xFFE0E0E0
+    *FONTNAME     				"Times_12"
+  	*FLAGS								{ F_TEXTRIGHT }
+  }
+  *ESTILO "EstiloMenuInGameSinMarco"
+  {
+    *CLRBACK      				0
+    *SOUNDDOWN		      	"IINM"
+    *SOUNDUP 			      	"IINM"
+  }
+  *ESTILO "EstiloMenuInGameConMarco"
+  {
+    *ESTILOBASE       	  "EstiloMarcoBrillante"  
+    *SOUNDDOWN		      	"IINM"
+    *SOUNDUP 			      	"IINM"
+  }
+  
+  *ESTILO "EstiloMenuFinalDemo"
+  {
+  	*CLRTEXT 							0x00000000
+  	*CLRBACK							0xFF000000
+  }
+  *ESTILO "EstiloFotoCreditos"
+  {
+  	*CLRBACK  	  				0xFFFFFFFF
+		*FLAGS  				      { F_ALPHABLENDIMG }
+  	*IMGNAME							"GUI\Menus\Graficos\FotoEquipo.tga"
+  }
+  *ESTILO "EstiloLogoPyro"
+  {
+  	*CLRBACK  	  				0xFFFFFFFF
+		*FLAGS  				      { F_ALPHABLENDIMG }
+  	*IMGNAME							"GUI\Menus\Graficos\LogoPyro.tga"
+  }
+}

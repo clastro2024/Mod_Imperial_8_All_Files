@@ -1,0 +1,115 @@
+{
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+  *INCLUDE "GUI\Menus\EstilosMenus.GUI"
+  *INCLUDE "GUI\Menus\SubMenusComunes.GUI"
+
+// ------------------------------------------------------------------------
+// Pantalla de cargar partida
+// ------------------------------------------------------------------------  
+	*PANTALLA "MenuCargarPartida" "-" //EstiloMarcoBrillante
+	{
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuCargarPartida"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+    *INSTANCIA "SubMenuCargarPartida"
+	}
+	
+// ------------------------------------------------------------------------
+// Pantalla de cargar secuencia
+// ------------------------------------------------------------------------  
+	*PANTALLA "MenuCargarSecuencia" "-" //EstiloMarcoBrillante"
+	{
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuCargarSecuencia"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+    *INSTANCIA "SubMenuCargarSecuencia"
+	}
+
+// ------------------------------------------------------------------------
+// Pantalla de grabar partida
+// ------------------------------------------------------------------------  
+	*PANTALLA "MenuGrabarPartida" "-" //EstiloMarcoBrillante"
+	{
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuGrabarPartida"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+    *INSTANCIA "SubMenuGrabarPartida"
+	}
+	
+// ------------------------------------------------------------------------
+// Pantalla de grabar secuencia
+// ------------------------------------------------------------------------  
+	*PANTALLA "MenuGrabarSecuencia" "-" //EstiloMarcoBrillante"
+	{
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuGrabarSecuencia"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+    *INSTANCIA "SubMenuGrabarSecuencia"
+	}
+
+// ------------------------------------------------------------------------
+// Menu Opciones
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuOpciones" "EstiloMarcoBrillante" //EstiloFondoMenuInGame"
+  {
+    *RECT   ^0 ^0 400 460
+    *NOMBRE "MenuOpciones"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+    *INSTANCIA "SubMenuOpciones"
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Opciones de Video
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuOpcionesVideo" "-"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuOpcionesVideo"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+    *INSTANCIA "SubMenuOpcionesVideo"
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Opciones Avanzadas de Video
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuOpcionesAvanzadasVideo" "-"
+  {
+    *NOMBRE "MenuOpcionesAvanzadasVideo"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria" //Normal"
+    *INSTANCIA "SubMenuOpcionesAvanzadasVideo"
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Opciones de Sonido
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuOpcionesSonido" "-"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuOpcionesSonido"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+    *INSTANCIA "SubMenuOpcionesSonido"
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Opciones de Juego
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuOpcionesJuego" "-"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuOpcionesJuego"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+    *INSTANCIA "SubMenuOpcionesJuego"
+  }  
+}

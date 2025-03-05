@@ -1,0 +1,265 @@
+{
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+  *INCLUDE "GUI\Menus\MenuInGameComunes.GUI"
+
+// ------------------------------------------------------------------------
+// Menu In-Game
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuInGame" "EstiloMenuInGameConMarco" //EstiloFondoMenuInGame"
+  {
+    *RECT   ^0 ^0 400 460
+    *NOMBRE "MenuInGame"
+    *GFLAGS { ST_NORMAL F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 25 %60 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      *PARAMS "Text:'LTEXT_GUI_IN_GAME_MENU'"
+    }
+
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 90 %50 35
+      *NOMBRE "CargarPartida"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS F_DEVELOPER_DISABLE }
+      *PARAMS "Text='LTEXT_GUI_LOAD_GAME'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 125 %50 35
+      *NOMBRE "GuardarPartida"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS F_DEVELOPER_DISABLE }
+      *PARAMS "Text='LTEXT_GUI_SAVE_GAME'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 175 %50 35
+      *NOMBRE "Opciones"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_TITLE_OPTIONS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 210 %50 35
+      *NOMBRE "Status"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_STATUS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 260 %50 35
+      *NOMBRE "MenuDiplomacia"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_CHAT_OPTIONS'"
+    }
+    
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 295 %50 35
+      *NOMBRE "AbortarPartida"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_MAIN_MENU'"
+    }
+
+    // El texto del reloj del menú in game
+    *CONTROL "Static" "EstiloMenuInGameTimer"
+    {
+    	*NOMBRE "RelojMenu"
+		  *RECT 8 >8 >8 14
+    	*GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 330 %50 35
+      *NOMBRE "MenuRuidoRed"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS F_DEVELOPER }
+      *PARAMS "Text='Sim Ruido'"
+    }
+    
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^0 >35 200 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS } *PARAMS "Text='LTEXT_GUI_BACK_TO_GAME'" }
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Ruido de Red 
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuRuidoRed" "EstiloMarcoBrillante" //EstiloFondoMenuInGame"
+  {
+    *RECT   ^0 ^0 400 460
+    *NOMBRE "MenuRuidoRed"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+    
+    // P‚rdida de paquetes
+    
+    *CONTROL "Static" "EstiloRotulo"
+    {
+      *RECT   55 50 %45 32
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='Perdida'"
+    }
+  	*CONTROL "Slider" "EstiloSlider"
+  	{
+			*RECT		>55 55 150 10
+  		*NOMBRE "SlPerdida"
+  		*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+  		*PARAMS	"arg: 600 0 true 0"
+  	}
+  	*CONTROL "Static" "EstiloRotuloMini"
+    {
+      *RECT   >16 50 32 32
+      *NOMBRE "StPerdida"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  //*PARAMS "Text='2000'"
+    }
+  	*CONTROL "Static" "EstiloRotulo"
+    {
+      *RECT   55 80 %45 32
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='Duracion'"
+    }
+  	*CONTROL "EditBox" "EstiloEditBox"
+    {      
+      *RECT   >80 82 100 25
+      *NOMBRE "EdPerdida"
+      *GFLAGS { ST_NORMAL }
+    }
+    
+    // Latencia
+    *CONTROL "Static" "EstiloRotulo"
+    {
+      *RECT   55 170 %45 32
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='Latencia'"
+    }
+  	*CONTROL "Slider" "EstiloSlider"
+  	{
+			*RECT		>55 175 150 10
+  		*NOMBRE "SlLatencia"
+  		*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+  		*PARAMS	"arg: 500 0 true 0"
+  	}
+  	*CONTROL "Static" "EstiloRotuloMini"
+    {
+      *RECT   >16 170 32 32
+      *NOMBRE "StLatencia"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  //*PARAMS "Text='2000'"
+    }
+    
+    // Lag
+    *CONTROL "Static" "EstiloRotulo"
+    {
+      *RECT   55 260 %45 32
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  *PARAMS "Text='Lag'"
+    }
+  	*CONTROL "Slider" "EstiloSlider"
+  	{
+			*RECT		>55 265 150 10
+  		*NOMBRE "SlLag"
+  		*GFLAGS { ST_NORMAL F_AUTOFOCUS }
+  		*PARAMS	"arg: 2000 0 true 0"
+  	}
+  	*CONTROL "Static" "EstiloRotuloMini"
+    {
+      *RECT   >16 260 32 32
+      *NOMBRE "StLag"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		  //*PARAMS "Text='2000'"
+    }
+    
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+      *RECT   ^0 >75 %40 35
+      *NOMBRE "Apply"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+      *PARAMS "Text='Apply'"
+    }
+    
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^0 >35 %40 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS } *PARAMS "Text='LTEXT_GUI_BACK'" }
+  }  
+  
+// ------------------------------------------------------------------------
+// Menu Diplomacia 
+// ------------------------------------------------------------------------
+	*PANTALLA "MenuDiplomacia" "EstiloMarcoBrillante" //EstiloFondoMenuInGame"
+  {
+    *RECT   ^0 ^0 600 460
+    *NOMBRE "MenuDiplomacia"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+		*CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 10 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text:'LTEXT_GUI_CHAT_LOG'"
+    }
+		
+		*CONTROL "Static" "EstiloTituloPequeno"
+		{
+			*RECT 	^0 320 %50 20
+			*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text:'LTEXT_GUI_CHAT_OPTIONS'"
+		}
+		
+		*CONTROL "CheckBox" "EstiloCheckbox"
+		{
+			*RECT 	60 360 32 32
+			*NOMBRE "Aliados"
+			*GFLAGS { ST_NORMAL }						
+		}
+		
+		*CONTROL "Static" "EstiloRotuloNormal"
+		{
+			*RECT 	100 365 100 20
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text:'LTEXT_GUI_ALLIES'"
+		}
+		
+		*CONTROL "CheckBox" "EstiloCheckbox"
+		{
+			*RECT 	210 360 32 32
+			*NOMBRE "Enemigos"
+			*GFLAGS { ST_NORMAL }
+		}
+		
+		*CONTROL "Static" "EstiloRotuloNormal"
+		{
+			*RECT		250 365 100 20 
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text:'LTEXT_GUI_ENEMIES'"
+		}
+		
+		*CONTROL "CheckBox" "EstiloCheckbox"
+		{
+			*RECT		360 360 32 32
+			*NOMBRE "Todos"
+			*GFLAGS { ST_NORMAL }
+		}
+		
+		*CONTROL "Static" "EstiloRotuloNormal"
+		{
+			*RECT		400 365 100 20
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text:'LTEXT_GUI_ALL'"
+		}
+				
+		*CONTROL "ListBox" "EstiloListBoxRellenaWrap"
+		{
+			*RECT		^0 65 %95 250
+			*NOMBRE	"HistoricoChat"
+			*GFLAGS	{ ST_NORMAL F_NOFOCUS }
+		}	
+
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^0 >20 %30 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS } *PARAMS "Text='LTEXT_GUI_BACK'" }
+  }
+}

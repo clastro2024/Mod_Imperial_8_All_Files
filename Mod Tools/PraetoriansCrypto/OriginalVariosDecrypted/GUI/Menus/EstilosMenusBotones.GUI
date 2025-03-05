@@ -1,0 +1,143 @@
+{
+  *ESTILO "BaseBoton"
+  {
+    *CLRBACK      0x00000000
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFF80
+    *CLRROLLOVER  0xFFFFFFFF
+    *CLRDISABLED  0xFFA0A0A0
+    *CLRSELBACK   0x00000000
+    *CLRSELTEXT   0xFFFFFF80
+    *CLRSOMBRATEXT 0xFF000000
+    *FLAGS        { F_TEXTCENTER }
+    *SOUNDDOWN		"IBPS"
+    *SOUNDUP 			"IBST"
+  }
+  *ESTILO "EstiloBotonOpcion"
+  {
+    *ESTILOBASE   "BaseBoton"
+    *FONTNAME     "Times_20"
+  }
+  *ESTILO "EstiloBotonPiedra"
+  {
+    *ESTILOBASE   "BaseBoton"
+    *FONTNAME     "Times_20"
+    *CLRSELTEXT   0xFFF0F0F0
+    *CLRHIGHLIGHT 0xFFF0F0F0
+    *CLRROLLOVER  0xFFF0F0F0
+    *FLAGS        { F_TEXTCENTER F_TEXFRAME F_OUTLINE }
+    *TEXNAME      "GUI\Menus\Graficos\Boton.TGA"
+    *PADX         7
+    *PADY     		7
+  }
+  *ESTILO "EstiloBotonPiedraPeq"
+  {
+    *ESTILOBASE "EstiloBotonPiedra"
+    *FONTNAME     "Times_20"
+    *PADX         3
+    *PADY     		3
+  }
+
+  *ESTILO "EstiloOpcionPrincipal"
+  {
+    *ESTILOBASE   "BaseBoton"
+    *CLRSOMBRATEXT 0x00000000
+    *CLRSELTEXT   0xFFE0E080
+    *FONTNAME     "Times_30"
+  }
+  *ESTILO "EstiloOpcionMenu"
+  {
+    *ESTILOBASE   "BaseBoton"
+    *CLRTEXT      0xFFDBB079
+    *CLRROLLOVER  0xFFDBB079
+    *CLRDISABLED  0x90DBB079
+    *FONTNAME     "Times_20"
+  }
+  *ESTILO "EstiloOpcionSalir"
+  {
+    *ESTILOBASE   "EstiloOpcionPrincipal"
+  }
+  *ESTILO "EstiloBotonDialogo"
+  {
+    *ESTILOBASE   "EstiloBotonPiedra"
+  }
+
+  *ESTILO "EstiloBotonArial"
+  {
+    *CLRBACK      0x00000000
+    *CLRTEXT      0xFFD0D0D0
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFFFFFFF
+    *CLRDISABLED  0x80A0A0A0
+    *FLAGS        { F_TEXTCENTER F_TEXFRAME }
+    *TEXNAME      "GUI\Menus\Graficos\MarcoBotonAzul.bmp"
+    *FONTNAME     "Times_10"
+    *PADX         16
+    *PADY     		11
+  }
+  *ESTILO "EstiloBotonKill"
+  {
+    *ESTILOBASE   "BaseBoton"
+    *CLRSELTEXT   0xFFF0F0F0
+    *CLRHIGHLIGHT 0xFFF0F0F0
+    *CLRROLLOVER  0xFFF0F0F0
+    *TEXNAME      "GUI\Menus\Graficos\Skull.TGA"
+  }
+  *ESTILO "EstiloBotonEquipo"
+  {
+    *ESTILOBASE           "EstiloMarcoFinoHueco"
+    *ESTILOCOMPLEMENTARIO "EstiloIconosEquipo"
+    *MARCOTEXTO   10 4 82 0
+  }
+  *ESTILO "EstiloIconosEquipo"
+  {
+    *ESTILOBASE           "BaseBoton"
+    *TEXBLOCKW            16
+    *TEXBLOCKH            16
+    *TEXNAME              "GUI\Menus\Graficos\IconosMultiplayer.tga"
+  }
+
+  *ESTILO "EstiloBotonColor"
+  {
+    *ESTILOBASE   "EstiloMarcoFinoAjustado"
+  }
+  
+  *ESTILO "EstiloIconosEquipo"
+  {
+    *CLRBACK      0x00000000
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFFFFFFF
+    *CLRDISABLED  0xFFA0A0A0
+    *CLRSELBACK   0x00000000
+    *CLRSELTEXT   0xFFFFFF80
+    *CLRSOMBRATEXT 0xFF000000
+    *FLAGS        { F_TEXTCENTER }
+    *SOUNDDOWN		"IBPS"
+    *SOUNDUP 			"IBST"
+    *TEXBLOCKW            16
+    *TEXBLOCKH            16
+    *TEXNAME              "GUI\Menus\Graficos\IconosMultiplayer.tga"
+  }
+  *ESTILO "EstiloBotonEquipo"
+  {
+    *CLRBACK      0x00000000
+    *CLRTEXT      0x00000000
+    *CLRHIGHLIGHT 0x00000000
+    *CLRROLLOVER  0x00000000
+    *CLRSELTEXT   0x00000000
+    *ESTILOCOMPLEMENTARIO "EstiloIconosEquipo"
+  }
+  *ESTILO "EstiloBotonColor"
+  {
+    *CLRBACK      0xFFFFFFFF
+    *CLRTEXT      0xFFFFFFFF
+    *CLRHIGHLIGHT 0xFFFFFFFF
+    *CLRROLLOVER  0xFFFFFFFF
+    *CLRSELTEXT   0xFFFFFFFF
+    *FLAGS        { F_TEXFRAME }
+    *TEXNAME      "GUI\Menus\Graficos\MarcoFinoAjustado.tga"
+    *PADX     		4
+    *PADY     		4
+  }
+}

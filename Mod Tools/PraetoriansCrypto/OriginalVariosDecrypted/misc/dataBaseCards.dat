@@ -1,0 +1,170 @@
+/*
+SETTINGS
+
+NO_MIPMAP
+SW_CURSOR
+MONOCROMO_CURSOR
+TEXTURE_MANAGE
+SUBPIXEL_DX
+SUBPIXEL_OGL
+SUBPIXEL_FSAA
+BLT_FULL_SCREEN
+LOW_QUALITY_TEXTURES
+*/
+
+/*
+OPT
+
+LOW_MESH
+ALFA_TEST
+HQDETAILS
+NO_FX_ATM
+NO_NUBES
+HQ_AGUA
+NO_BLENDING
+32_BPP
+RES 640x480
+RES 800x600
+RES 1024x768
+
+*/
+
+/*
+DRIVER
+xxxxxxxx xxxxxxxx - xxxxxxxx xxxxxxxx
+*/
+
+/*
+OPERATING_SYSTEM
+
+W9x
+W2000
+WXP
+*/
+
+{
+  *OPT RES 1024x768
+  *OPT HQ_AGUA
+  *SETTING SW_CURSOR
+  *SETTING TEXTURE_MANAGE
+
+  *VENDOR 0x10DE nVidia          
+  
+  *SETTING SW_CURSOR 0  
+   
+    
+    
+  *DEVICE 0x0150 GeForce2_GTS  
+  
+  *DEVICE 0x0151 GeForce2_Ti  
+  
+  *DEVICE 0x0152 GeForce2_Ultra  
+  
+  *DEVICE 0x0153 Quadro2_Pro
+  
+  
+  
+  *DEVICE 0x0110 GeForce2 MX / MX 400  
+  
+  *DEVICE 0x0111 GeForce2 MX 100 / 200  
+  
+  *DEVICE 0x0112 GeForce2 Go
+  
+  *DEVICE 0x0113 Quadro2 MXR / EX / Go  
+        
+  
+  *DEVICE 0x0100 GeForceSDR  
+  
+  *DEVICE 0x0101 GeForceDDR  
+  
+  *DEVICE 0x0103 Quadro  
+        
+
+  *DEVICE 0x0020 TNT  
+    
+  *DEVICE 0x0028 TNT2  
+  
+  *DEVICE 0x0029 TNT2_Ultra  
+  
+  *DEVICE 0x002C TNT2_Vanta  
+  
+  *DEVICE 0x002D TNT2_M64  
+  
+  *DEVICE 0x00A0 TNT2_Aladdin  
+    
+  *DEVICE 0x200 Geforce3      
+  
+  
+  
+  *VENDOR 0x121A 3dfx
+  *DEVICE 0x0009 Voodoo_5500_AGP  
+  *OPERATING_SYSTEM W9x
+  *SETTING SW_CURSOR
+  
+  *OPERATING_SYSTEM W2000   
+  *SETTING SW_CURSOR 
+  
+  *OPERATING_SYSTEM WXP    
+  *SETTING BLT_FULL_SCREEN
+  *SETTING SW_CURSOR 0
+  
+  
+  *DEVICE 0x0005 Voodoo_3
+  
+  
+  *VENDOR 0x102B Matrox
+ 
+  *SETTING SW_CURSOR 0   
+  
+  *VENDOR 0x1002 ATI      
+  
+  *DEVICE 0x4C59 Mobility_Radeon
+  
+  *DEVICE 0x4C5A Mobility_Radeon
+    
+  *DEVICE 0x5159 RadeonVE
+  *DEVICE 0x515A RadeonVE
+  
+  *DEVICE 0x5144 Radeon_DDR  
+  *OPERATING_SYSTEM W9x
+  *SETTING SW_CURSOR 0
+  
+  *DEVICE 0x5145 Radeon
+  *DEVICE 0x5146 Radeon
+  *DEVICE 0x5147 Radeon
+  
+  *DEVICE 0x514C Radeon 8500
+  *OPERATING_SYSTEM W2000
+  *SETTING SW_CURSOR 0
+    
+  
+  
+  *VENDOR 0x104A PowerVR    
+  
+  *DEVICE 0x0010 KYRO
+  
+  *SETTING NO_MIPMAP
+  *SETTING SW_CURSOR 0
+  
+  
+  *VENDOR 0x5333 S3
+
+  *DEVICE 0x8A22 Savage4
+  
+  
+  *VENDOR 0x8086 Intel
+  
+  
+  
+  *VENDOR 0x3D3D 3Dlabs
+
+  *DEVICE 0x3D07 Permedia2
+  
+  
+  *VENDOR 0x1039 Sis
+
+  *DEVICE 0x0330 Xabre
+
+  *SETTING SW_CURSOR 0  
+
+}

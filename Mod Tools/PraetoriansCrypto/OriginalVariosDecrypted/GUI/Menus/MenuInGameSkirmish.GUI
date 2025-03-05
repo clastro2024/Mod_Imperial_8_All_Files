@@ -1,0 +1,110 @@
+{
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+  *INCLUDE "GUI\Menus\MenuInGameComunes.GUI"
+
+// ------------------------------------------------------------------------
+// Menu In-Game
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuInGame" "EstiloMenuInGameConMarco" //EstiloFondoMenuInGame"
+  {
+    *RECT   ^0 ^0 400 460
+    *NOMBRE "MenuInGame"
+    *GFLAGS { ST_NORMAL F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 25 %80 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      *PARAMS "Text:'LTEXT_GUI_IN_GAME_MENU'"
+    }
+
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 90 %50 35
+      *NOMBRE "CargarPartida"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_LOAD_GAME'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 125 %50 35
+      *NOMBRE "GuardarPartida"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_SAVE_GAME'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 175 %50 35
+      *NOMBRE "Opciones"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_TITLE_OPTIONS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 210 %50 35
+      *NOMBRE "Status"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_STATUS'"
+    }
+
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+       *RECT   ^0 260 %50 35
+       *NOMBRE "AbortarPartida"
+       *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+       *PARAMS "Text='LTEXT_GUI_MAIN_MENU'"
+    }
+
+ 		*CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 295 %50 35
+      *NOMBRE "ReiniciarPartida"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_RESTART_LEVEL'"
+    }
+
+    // El texto del reloj del menú in game
+  	*CONTROL "Static" "EstiloMenuInGameTimer"
+    {
+	  	*NOMBRE "RelojMenu"
+		  *RECT 8 >8 >8 14
+  		*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+  	}
+
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^0 >35 200 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS } *PARAMS "Text='LTEXT_GUI_BACK_TO_GAME'" }
+  }
+  
+ // ------------------------------------------------------------------------
+// Menu Diplomacia 
+// ------------------------------------------------------------------------
+	*PANTALLA "MenuDiplomacia" "EstiloMarcoBrillante" //EstiloFondoMenuInGame"
+  {
+    *RECT   ^0 ^0 600 460
+    *NOMBRE "MenuDiplomacia"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+		*CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 10 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text:'LTEXT_GUI_CHAT_LOG'"
+    }
+		
+		*CONTROL "ListBox" "EstiloListBoxRellenaWrap"
+		{
+			*RECT		^0 65 %95 320
+			*NOMBRE	"HistoricoChat"
+			*GFLAGS	{ ST_NORMAL F_NOFOCUS }
+		}	
+
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^0 >20 %30 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS } *PARAMS "Text='LTEXT_GUI_BACK'" }
+  }
+}

@@ -1,0 +1,416 @@
+{
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+// ------------------------------------------------------------------------
+// Menu Single Player
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuSingleplayer" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuSingleplayer"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria"
+/*
+    *CONTROL "Static" "EstiloGlow_L"
+    {
+      *RECT   ^0 120 %45 90
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+*/
+    *CONTROL "Static" "EstiloTitulo" //"EstiloOpcionPrincipal"
+    {
+      *RECT   ^0 185 %40 40
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+  	  *PARAMS "Text='LTEXT_GUI_SINGLEPLAYER'"
+    }
+
+
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 275 %30 35
+      *NOMBRE "NuevaPartida"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+  	  *PARAMS "Text='LTEXT_GUI_CAMPAIGN'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 325 %30 35
+      *NOMBRE "CargarPartida"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+	    *PARAMS "Text='LTEXT_GUI_LOAD_GAME'"
+    } 
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+    	*RECT   ^0 375 %30 35
+    	*NOMBRE "CargarSecuenciaSIN"
+    	*GFLAGS	{ ST_NORMAL F_AUTOFOCUS }
+    	*PARAMS "Text='LTEXT_GUI_LOAD_SEQUENCE"
+    }
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+    	*RECT   ^0 425 %30 35
+    	*NOMBRE "Skirmish"
+    	*GFLAGS	{ ST_NORMAL F_AUTOFOCUS }
+    	*PARAMS "Text='LTEXT_GUI_SKIRMISH"
+    }
+
+    
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+      *RECT   ^0 485 %30 35
+      *NOMBRE "CargarMision"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS F_DEVELOPER }
+  	  *PARAMS "Text='LTEXT_GUI_LOAD_MISSION'"
+    }
+    // Este es el boton de cargar secuencias con juego asociado, lo dejo aqui para que se formatee
+    *CONTROL "PushButton" "EstiloOpcionMenu"
+    {
+    	*RECT	 	^0 535 %30 35
+    	*NOMBRE "CargarSecuencia"
+    	*GFLAGS { ST_NORMAL F_AUTOFOCUS F_DEVELOPER }
+    	*PARAMS "Text='LTEXT_GUI_LOAD_SEQUENCE_II'"
+    }
+
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^0 >35 160 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS } *PARAMS "Text='LTEXT_GUI_BACK'" }
+  }
+
+// ------------------------------------------------------------------------
+// Menu CargarMision
+// ------------------------------------------------------------------------
+	*PANTALLA "MenuCargarConfig" "EstiloMenuPrincipal"
+  {
+    *NOMBRE "MenuCargarConfig"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuNormal"
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 25 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_LOAD_MISSION'"
+    }
+
+    *CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   25 111 150 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_CHOOSE_MISSION'"
+		}
+    *CONTROL "ListBox" "EstiloListBoxRellena"
+    {
+    	*RECT	15 140 400 350
+    	*NOMBRE "ListaFicheros"
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+    }
+
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT ^-80 >35 150 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'"  }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT  ^80 >35 150 35 *NOMBRE "Aceptar" *GFLAGS	{ ST_NORMAL F_USEENTER F_TABSTOP } *PARAMS "Text='LTEXT_GUI_START'" }
+  }
+  
+// ------------------------------------------------------------------------
+// Menu Partida en Single
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuPartidaSingle" "EstiloMenuPartidaSingle"
+  {
+    *NOMBRE "MenuPartidaSingle"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria"
+    
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 135 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_GUI_CAMPAIGN'"
+    }
+
+    // Misiones
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+		{
+			*RECT   15 210 385 280
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		}
+    *CONTROL "Static" "EstiloRotuloCentrado"
+		{
+			*RECT   30 215 337 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_CHOOSE_MISSION'"
+		}
+    *CONTROL "ListBox" "EstiloListaMisiones"
+    {
+    	*RECT	30 250 363 230
+    	*NOMBRE "ListaMisiones"
+    	*GFLAGS { ST_NORMAL F_TABSTOP }
+    }
+
+    // Niveles de dificultad
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+    {
+    	*RECT	15 500 385 160
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloRotuloCentrado"
+		{
+    	*RECT	30 505 337 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_DIFFICULTY'"
+		}
+    *CONTROL "ListBox" "EstiloListaDificultad"
+    {
+    	*RECT	30 540 363 106
+    	*NOMBRE "ListaNiveles"
+    	*GFLAGS { ST_NORMAL F_TABSTOP  }
+    }
+    // Simbolitos de variante completado
+    *CONTROL "Static" "EstiloVarianteCompletado"
+    {
+    	*RECT 	260 542 16 16
+    	*NOMBRE "Completado1"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloVarianteCompletado"
+    {
+    	*RECT 	260 562 16 16
+    	*NOMBRE "Completado2"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloVarianteCompletado"
+    {
+    	*RECT 	260 582 16 16
+    	*NOMBRE "Completado3"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    // Descripcion
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+    {
+    	*RECT	410 210 >20 450
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloMapaPeqSingle"
+		{
+			*RECT   430 230 303 401
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		}
+    *CONTROL "Static" "EstiloRotuloCentrado"
+		{
+			*RECT   735 226 >40 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_DESCRIPTION'"
+		}
+    *CONTROL "StaticHypertext" "EstiloDescripcionHyper"
+    {
+    	*RECT	745 265 >40 366
+      *NOMBRE "DescMis"
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_NO_DESCRIPTION'"
+    }
+
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT ^-80 >35 150 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'"  }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT  ^80 >35 150 35 *NOMBRE "Aceptar" *GFLAGS	{ ST_NORMAL F_USEENTER F_TABSTOP } *PARAMS "Text='LTEXT_GUI_ACCEPT'" }
+  }
+  
+// ------------------------------------------------------------------------
+// Pantalla de cargar partida
+// ------------------------------------------------------------------------  
+	*PANTALLA "MenuCargarPartida" "-" //EstiloMenuPrincipal"
+	{
+    *NOMBRE "MenuCargarPartida"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria" //BaseMenuNormal"
+    *INSTANCIA "SubMenuCargarPartida"
+	}
+	
+// ------------------------------------------------------------------------
+// Pantalla de cargar secuencia
+// ------------------------------------------------------------------------  
+	*PANTALLA "MenuCargarSecuencia" "-" //EstiloMenuPrincipal"
+	{
+    *NOMBRE "MenuCargarSecuencia"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria" //BaseMenuNormal"
+    *INSTANCIA "SubMenuCargarSecuencia"    
+	}
+	
+// ------------------------------------------------------------------------
+// Pantalla de cargar secuencia sin partida
+// ------------------------------------------------------------------------  
+	*PANTALLA "MenuCargarSecuenciaSIN" "EstiloMenuPrincipal"
+	{
+    *NOMBRE "MenuCargarSecuenciaSIN"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria" //BaseMenuNormal"
+    *INSTANCIA "SubMenuCargarSecuencia"
+	}
+
+// ------------------------------------------------------------------------
+// Menu de Estadísticas de mision singleplayer
+// ------------------------------------------------------------------------
+  *PANTALLA "MenuEstadisticasSingle" "EstiloMenuEstadisticasSingle"
+  {
+    *NOMBRE "MenuEstadisticasSingle"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    // Adornos    
+    *CONTROL "Static" "EstiloImagenDecoracionSingle"
+    {
+    	*RECT	0 >0 304 407
+    	*NOMBRE "ImagenDecoracionSingle"
+    	*GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS }
+    }
+    *CONTROL "Static" "EstiloMapaGrandeSingle"
+    {
+    	*RECT	>0 10 753 636
+    	*NOMBRE "MapaGrandeSingle"
+    	*GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS }
+    }
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   >0 5 753 30
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='Aqui va la mision'"
+	    *NOMBRE "NombreMision"
+    }
+
+    // Objetivos
+    *CONTROL "ListBox" "EstiloLBObjetivosSingle"
+    {
+    	*RECT	300 620 706 144
+    	*NOMBRE "EstadoObjetivos"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+
+    // Victory / Failure 
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   20 30 256 54
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_MISSION_SUCCESS'"
+	    *NOMBRE "VICTORY"
+    }
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   20 30 256 54
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text='LTEXT_MISSION_FAILURE'"
+	    *NOMBRE "FAILURE"
+    }
+    
+    // Etiquetas
+ 		*CONTROL "Static" "EstiloResultadoNombre"
+ 		{
+  	  *RECT		15 100 256 20
+    	*NOMBRE "NombreJugador"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='NombreJugador'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		15 130 256 12 	  	
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE } 	  	
+			*PARAMS "Text='LTEXT_GUI_KILLS'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		15 170 256 12  	 
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_LOSSES'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		15 210 256 12  	  
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_TRAINED'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		15 250 256 12  	  
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_VILLAGES'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		15 290 256 12  	  
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_PLAYTIME'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoCat"
+ 		{
+  	  *RECT		15 330 256 12  	  
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_EXPERIENCE'"
+ 		}
+
+ 		// Campos variables
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		15 148 256 12
+  	  *NOMBRE	"Kills"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='666'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		15 188 256 12
+  	   *NOMBRE	"Losses"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='666'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		15 228 256 12
+  	  *NOMBRE	"Trained"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='1025'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		15 268 256 12
+  	  *NOMBRE	"Villages"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='6'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		15 308 256 12
+  	  *NOMBRE	"Playtime"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='23:45'"
+ 		}
+ 		*CONTROL "Static" "EstiloResultadoVal"
+ 		{
+  	  *RECT		15 348 256 12
+  	  *NOMBRE	"Experience"
+ 	  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='4567'"
+ 		}
+
+    
+
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {      
+      *RECT  90 >20 160 32
+      *NOMBRE "Salir"
+  	  *PARAMS "Text='LTEXT_GUI_EXIT'"
+      *GFLAGS { ST_NORMAL F_USEESC F_USEENTER F_TABSTOP F_AUTOFOCUS }
+    }
+  }
+  
+}

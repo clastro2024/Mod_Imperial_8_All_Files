@@ -1,0 +1,449 @@
+{
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+// ------------------------------------------------------------------------
+// Base Pantalla Menu Principal
+// ------------------------------------------------------------------------
+
+  *PANTALLA "BaseMenuPrincipal" "-"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "BaseMenuPrincipal"
+    *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+
+    *CONTROL "Static" "EstiloSombraMenuPrincipal"
+    {
+      *RECT   ^0 10 420 %100
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    *CONTROL "Static" "EstiloCuenco"
+    {
+      *RECT   40 >37 172 196
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloCuenco"
+    {
+      *RECT   >70 >37 172 196
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlowFuego"
+    {
+      *RECT   -150 >-10 522 399
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlowFuego"
+    {
+      *RECT   >-170 >-10 522 399
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloAguila"
+    {
+      *RECT   ^0 10 670 276
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    *CONTROL "Static" "EstiloLogo"
+    {
+      *RECT   ^0 10 905 184
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+  }
+
+// ------------------------------------------------------------------------
+// Base Pantalla Menu Secundaria
+// ------------------------------------------------------------------------
+
+  *PANTALLA "BaseMenuSecundaria" "-"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "BaseMenuSecundaria"
+    *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+
+    *INSTANCIA "BaseMenuPrincipal"
+  }
+
+// ------------------------------------------------------------------------
+// Base Pantalla Menu Normal
+// ------------------------------------------------------------------------
+
+	*PANTALLA "BaseMenuNormal" "-"
+  {
+    *NOMBRE "BaseMenuNormal"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+
+    *CONTROL "Static" "EstiloCuenco"
+    {
+      *RECT   40 >37 172 196
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloCuenco"
+    {
+      *RECT   >70 >37 172 196
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlowFuego"
+    {
+      *RECT   -150 >-10 522 399
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlowFuego"
+    {
+      *RECT   >-170 >-10 522 399
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+    {
+      *RECT   5 5 >10 >10
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    *CONTROL "Static" "EstiloAguila"
+    {
+      *RECT   ^0 10 670 276
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+  }
+
+	*PANTALLA "BaseMenuNormalLimpio" "-"
+  {
+    *NOMBRE "BaseMenuNormalLimpio"
+    *RECT   0 0 %100 %100
+    *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+
+    *CONTROL "Static" "EstiloCuenco"
+    {
+      *RECT   40 >37 172 196
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloCuenco"
+    {
+      *RECT   >70 >37 172 196
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlowFuego"
+    {
+      *RECT   -150 >-10 522 399
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlowFuego"
+    {
+      *RECT   >-170 >-10 522 399
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+
+    *CONTROL "Static" "EstiloAguila"
+    {
+      *RECT   ^0 10 670 276
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+  }
+
+// ------------------------------------------------------------------------
+// Menu Principal
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuPrincipal" "EstiloMenuPrincipal"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuPrincipal"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuPrincipal"
+//*
+    *CONTROL "Static" "EstiloGlow_L"
+    {
+      *RECT   ^0 245 %30 90
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlow_L"
+    {
+      *RECT   ^0 305 %30 90
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlow_S"
+    {
+      *RECT   ^0 365 %20 90
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlow_S"
+    {
+      *RECT   ^0 425 %17 90
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloGlow_S"
+    {
+      *RECT   ^0 >25 %12 65
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+//*/
+    *CONTROL "PushButton" "EstiloOpcionPrincipal"
+    {
+      *RECT   ^0 280 %30 40
+      *NOMBRE "SinglePlayer"
+      *GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+	  	*PARAMS "Text='LTEXT_GUI_SINGLEPLAYER'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionPrincipal"
+    {
+      *RECT   ^0 340 %30 40
+      *NOMBRE "MultiPlayer"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+	  	*PARAMS "Text='LTEXT_GUI_MULTIPLAYER'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionPrincipal"
+    {
+      *RECT   ^0 400 %30 40
+      *NOMBRE "Opciones"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+	  	*PARAMS "Text='LTEXT_GUI_OPTIONS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionPrincipal"
+    {
+      *RECT   ^0 460 %30 40
+      *NOMBRE "Credits"
+      *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+	  	*PARAMS "Text='LTEXT_GUI_CREDITS'"
+    }
+    *CONTROL "PushButton" "EstiloOpcionSalir"
+    {
+      *RECT   ^0 >35 %20 40
+      *NOMBRE "Salir"
+      *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS }
+	  	*PARAMS "Text='LTEXT_GUI_QUIT'"
+    }
+    
+    *CONTROL "Static" "EstiloTextoCopyright"
+    {
+      *RECT >0 >0 %100 14
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+      *PARAMS "Text='LTEXT_GUI_COPYRIGHTINFO'"
+    }
+  }
+
+// ------------------------------------------------------------------------
+// Pantalla de perfiles
+// ------------------------------------------------------------------------  
+	*PANTALLA "MenuPerfiles" "EstiloMenuPrincipal"
+	{
+		*RECT   0 0 %100 %100
+    *NOMBRE "MenuPerfiles"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *INSTANCIA "BaseMenuSecundaria"
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 125 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+  	  *PARAMS "Text='LTEXT_GUI_LOAD_PROFILE'"
+    }
+
+    // Lista de sesiones
+    *CONTROL "Static" "EstiloMarcoFinoRelleno"
+		{
+			*RECT   55 245 420 >135
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		}
+    *CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   75 255 150 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text:'LTEXT_GUI_PROFILES'"
+		}
+    *CONTROL "ListBox" "EstiloListBoxSinMarco" //EstiloListBoxRellena"
+    {
+    	*RECT	75 290 380 >190
+    	*NOMBRE "ListaPerfiles"
+    	*GFLAGS { ST_NORMAL F_TABSTOP }
+    }  
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+    	*RECT 	80 >150 180 35
+    	*NOMBRE "UsarPerfil"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP }
+    	*PARAMS	"Text='LTEXT_GUI_USE'"
+    }
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+    	*RECT 	280 >150 180 35
+    	*NOMBRE "Borrar"
+    	*GFLAGS { ST_NORMAL F_TABSTOP }
+    	*PARAMS	"Text='LTEXT_GUI_DELETE'"
+    }
+   	*CONTROL "Static" "EstiloRotuloArial"
+   	{
+   		*NOMBRE "PerfilActual"
+			*RECT   55 >115 420 20
+   		*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }   		 
+   	}
+
+    // Nuevo Perfil
+		*CONTROL "Static" "EstiloMarcoFinoRelleno"
+		{
+			*RECT   %53 245 330 140
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+		}
+		*CONTROL "Static" "EstiloRotulo"
+		{
+			*RECT   %55 255 278 32
+			*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+			*PARAMS "Text='LTEXT_GUI_NEW_PROFILE'"
+		}
+		*CONTROL "EditBox" "EstiloEditBox"
+		{
+			*RECT 	%55 290 278 28
+      *NOMBRE "EditBox"
+			*GFLAGS { ST_NORMAL F_TABSTOP }
+      *PARAMS "Max: 17"
+		}
+
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+			*RECT   %55 330 220 35
+    	*NOMBRE "CrearPerfil"
+    	*GFLAGS	{ ST_NORMAL F_TABSTOP }
+    	*PARAMS	"Text='LTEXT_GUI_CREATE'"
+    }
+
+/* //DESCOMENTAR ESTO PARA VERSION YANQUI
+    *CONTROL "Static" "EstiloRatingPerfil"
+    {
+    	*RECT	757 594 256 115
+    	*NOMBRE "LogoRating"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+*/
+
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT ^0 >35 160 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'"  }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT ^0 >35 160 35 *NOMBRE "SalirJuego" *GFLAGS {ST_NORMAL F_USEESC F_TABSTOP } *PARAMS "Text='LTEXT_GUI_QUIT'" }
+	}
+ 
+//-------------------------------------------------------------------------
+// Dialogo de grabar secuencia
+// ------------------------------------------------------------------------  
+
+	*PANTALLA "MenuGrabarSecuenciaFinal" "EstiloMarcoBrillante"
+	{
+		*NOMBRE "MenuGrabarSecuenciaFinal"
+		*RECT   ^0 ^0 630 470
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 25 %40 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text:'LTEXT_GUI_SAVE_SEQUENCE'"
+    }
+
+		*INSTANCIA "PanelPartida"
+		
+		*CONTROL "Static" "RT_EstiloMinimapaSombra"
+		{
+			*RECT		>53 112 180 112
+			*NOMBRE "SombraMapa"
+			*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+		}
+		
+		*CONTROL "MapaEstructuras" "RT_EstiloMinimapa"
+    {
+      *RECT >55 110 180 112
+      *NOMBRE "MiniMapa"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+    }
+
+    // Ok/Cancel
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT  5 >15 140 35 *NOMBRE "Salir"   *GFLAGS { ST_NORMAL F_USEESC   F_TABSTOP } *PARAMS "Text='LTEXT_GUI_BACK'" }
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 150 >15 140 35 *NOMBRE "Aceptar" *GFLAGS { ST_NORMAL F_USEENTER F_TABSTOP } *PARAMS "Text='LTEXT_GUI_SAVE'" }
+    
+    // Botón de borrar partida
+		*CONTROL "PushButton" "EstiloBotonPiedra" { *RECT 295 >15 140 35 *NOMBRE "Borrar" *GFLAGS	{ ST_NORMAL F_TABSTOP } *PARAMS "Text='LTEXT_GUI_DELETE'" }
+	}
+
+// ------------------------------------------------------------------------
+// Pantalla de creditos
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuCredits" "EstiloMenuCredits"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuCredits"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+	  *INSTANCIA "BaseMenuPrincipal"
+
+   /*CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   ^0 150 %40 35
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text:'LTEXT_GUI_CREDITS'"
+    }
+    *CONTROL "Static" "EstiloMarcoBrillante"
+    {
+      *RECT   5 195 >5 >80
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloMarcoBrillante"
+    {
+      *RECT   5 195 >5 >80
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloTextoCreditos"
+    {
+      *RECT   12 202 498 >75
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	  	*PARAMS "Text=LTEXT_GUI_CREDITOS_1"
+    }
+    *CONTROL "Static" "EstiloTextoCreditos"
+    {
+      *RECT   515 202 >12 >75
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	  	*PARAMS "Text=LTEXT_GUI_CREDITOS_2"
+    }
+    // Salir
+    *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^0 >20 160 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS } *PARAMS "Text='LTEXT_GUI_BACK'" }
+    */
+    
+    *CONTROL "Static" "EstiloFotoCreditos"
+    {
+    	*RECT		^0 ^0 1006 %100
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }    	
+    }
+    *CONTROL "Static" "EstiloLogoPyro"
+    {
+    	*RECT		^0 595 411 %100
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    
+    *CONTROL "PushButton" "EstiloGhostButton"
+    {
+    	*RECT		0 0 0 0
+    	*NOMBRE "Salir"
+    	*GFLAGS	{ ST_NORMAL F_USEESC F_AUTOFOCUS }    	
+    }
+  }
+  
+// ------------------------------------------------------------------------
+// Pantalla de final de la demo
+// ------------------------------------------------------------------------
+	
+	*PANTALLA "MenuFinalDemo" "EstiloMenuFinalDemo"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "MenuFinalDemo"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_USEESC }
+          
+    *CONTROL "Static" "RT_EstiloDemoScreenshots"
+    {
+    	*RECT	 0 0 %100 %100
+    	*NOMBRE "Screenshot"
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }    
+  }
+}

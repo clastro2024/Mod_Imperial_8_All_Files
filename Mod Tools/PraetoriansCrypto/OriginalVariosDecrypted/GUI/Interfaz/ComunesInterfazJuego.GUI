@@ -1,0 +1,535 @@
+{
+  *INCLUDE "GUI\Interfaz\EstilosInterfazJuego.GUI"
+  *INCLUDE "GUI\Menus\EstilosMenusControles.GUI"
+  
+  // Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+	// -------------------------------------------  
+  // Panel de info y experiencia
+  // -------------------------------------------  
+  *PANTALLA "PanelXtraInfo" "EstiloPanelXtraInfo"
+  {
+    *RECT   0 55 194 112
+    *NOMBRE "PanelXtraInfo"
+    *GFLAGS { ST_NORMAL F_NOFOCUS F_HIDDEN }
+
+    *CONTROL "Static" "EstiloTransparente" { *RECT  16  18  55  20 *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP } *TOOLTIP "LTEXT_GUI_TOOLTIP_PCU" }
+    *CONTROL "Static" "EstiloTextoXtraInfo"
+    {
+      *RECT    36 22 53 16
+      *NOMBRE  "PCU"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloTransparente" { *RECT 108  18  55  20 *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP } *TOOLTIP "LTEXT_GUI_TOOLTIP_PCT" }
+    *CONTROL "Static" "EstiloTextoXtraInfo"
+    {
+      *RECT    138 22 35 16
+      *NOMBRE  "PCT"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloTransparente" { *RECT  16  46  55  20 *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP } *TOOLTIP "LTEXT_GUI_TOOLTIP_LOSSES" }
+    *CONTROL "Static" "EstiloTextoXtraInfo"
+    {
+      *RECT    46 50 35 16
+      *NOMBRE  "Losses"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloTransparente" { *RECT 108  46  55  20 *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP } *TOOLTIP "LTEXT_GUI_TOOLTIP_KILLS" }
+    *CONTROL "Static" "EstiloTextoXtraInfo"
+    {
+      *RECT    138 50 35 16
+      *NOMBRE  "Kills"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloTransparente" { *RECT  16  74  55  20 *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP } *TOOLTIP "LTEXT_GUI_TOOLTIP_PH" }
+    *CONTROL "Static" "EstiloTextoXtraInfo"
+    {
+      *RECT    46 78 35 16
+      *NOMBRE  "PHonor"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloBarraExperiencia"
+    {
+      *RECT    97 80 69 16
+      *NOMBRE  "BarraExperience"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "Static" "EstiloTransparente"
+    {
+      *RECT    97 80 69 16
+      *NOMBRE  "BarraExperienceTooltip"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+    }
+	}  
+
+	// -------------------------------------------  
+	// Pantalla flotante
+	// -------------------------------------------  
+	*PANTALLA "PantallaFlotante" "-"
+	{
+		*RECT 	0 0 %100 %100
+		*NOMBRE	"PantallaFlotante"
+		*GFLAGS	{ ST_NORMAL F_NOFOCUS F_TRANSPARENTE }
+
+		*INSTANCIA "PanelXtraInfo" 
+		
+		*CONTROL "STATIC" "EstiloFondoGSeleccion"
+    {
+      *ID     14
+      *RECT   0 0 343 58
+      *NOMBRE "FondoGSeleccion"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   10 11 32 32
+      *NOMBRE "Grupo 1"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_SELECTION_GROUP_1"
+      *PARAMS "Grupo=1"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   46 11 32 32
+      *NOMBRE "Grupo 2"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_SELECTION_GROUP_2"
+      *PARAMS "Grupo=2"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   82 11 32 32
+      *NOMBRE "Grupo 3"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_SELECTION_GROUP_3"
+      *PARAMS "Grupo=3"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   118 11 32 32
+      *NOMBRE "Grupo 4"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_SELECTION_GROUP_4"
+      *PARAMS "Grupo=4"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   154 11 32 32
+      *NOMBRE "Grupo 5"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_SELECTION_GROUP_5"
+      *PARAMS "Grupo=5"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   190 11 32 32
+      *NOMBRE "Grupo 6"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_SELECTION_GROUP_6"
+      *PARAMS "Grupo=6"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   226 11 32 32
+      *NOMBRE "Grupo 7"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_SELECTION_GROUP_7"
+      *PARAMS "Grupo=7"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   262 11 32 32
+      *NOMBRE "Grupo 8"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_SELECTION_GROUP_8"
+      *PARAMS "Grupo=8"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   298 11 32 32
+      *NOMBRE "Grupo 9"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_SELECTION_GROUP_9"
+      *PARAMS "Grupo=9"
+    }
+/*
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccion"
+    {
+      *ID     13
+      *RECT   334 11 32 32
+      *NOMBRE "Grupo 0"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_NO_SELECTION_GROUP"
+      *PARAMS "Grupo=0"
+    }
+*/
+    // Temporizador de inferioridad
+    *CONTROL "STATIC" "EstiloTimer"
+    {
+      *RECT   ^0 >150 190 20
+      *NOMBRE "Timer"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_TRANSPARENTE F_HIDDEN }
+    }
+  
+    
+    // El fondo del panel de héroes
+    *CONTROL "Static" "EstiloFondoHeroes"
+    {
+    	*RECT   3 >185 32 32
+      *NOMBRE "FondoGHeroe0"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }      
+    }
+    *CONTROL "Static" "EstiloFondoHeroes"
+    {
+    	*RECT   3 >235 32 32
+      *NOMBRE "FondoGHeroe1"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }      
+    }
+    *CONTROL "Static" "EstiloFondoHeroes"
+    {
+    	*RECT   3 >285 32 32
+      *NOMBRE "FondoGHeroe2"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }      
+    }
+    *CONTROL "Static" "EstiloFondoHeroes"
+    {
+    	*RECT   3 >335 32 32
+      *NOMBRE "FondoGHeroe3"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+    *CONTROL "Static" "EstiloFondoHeroes"
+    {
+    	*RECT   3 >385 32 32
+      *NOMBRE "FondoGHeroe4"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+    
+    // Los iconos de grupo de heroes
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccionHeroes"
+    {
+    	*ID     13
+    	*RECT   9 >175 32 32
+      *NOMBRE "GrupoHeroe0"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *PARAMS "Grupo=10"
+    }
+   	*CONTROL "GrupoSeleccion" "EstiloGrupoSeleccionHeroes"
+    {
+    	*ID     13
+    	*RECT   9 >225 32 32
+      *NOMBRE "GrupoHeroe1"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *PARAMS "Grupo=11"
+    }
+   	*CONTROL "GrupoSeleccion" "EstiloGrupoSeleccionHeroes"
+    {
+    	*ID     13
+    	*RECT   9 >275 32 32
+      *NOMBRE "GrupoHeroe2"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *PARAMS "Grupo=12"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccionHeroes"
+    {
+    	*ID     13
+    	*RECT  	9 >325 32 32
+      *NOMBRE "GrupoHeroe3"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *PARAMS "Grupo=13"
+    }
+    *CONTROL "GrupoSeleccion" "EstiloGrupoSeleccionHeroes"
+    {
+    	*ID     13
+    	*RECT   9 >375 32 32
+      *NOMBRE "GrupoHeroe4"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *PARAMS "Grupo=14"
+    }
+	}
+  
+  // ------------------------------------------------------------------------
+  // Pantalla de juego
+  // ------------------------------------------------------------------------
+  
+  *PANTALLA "PantallaJuego" "EstiloPantallaJuego"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "PantallaJuego"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_TRANSPARENTE  }
+    
+    *INSTANCIA "PantallaFlotante"
+    *INSTANCIA "PantallaChat"
+    
+    *CONTROL "TextoPresentacion" "EstiloPresentacion"
+    {
+      *RECT   0 0 %100 %100
+      *NOMBRE "TituloMision"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE F_HIDDEN }
+      *PARAMS "Font='Times New Roman'"
+    }
+    
+		*CONTROL "EditBoxHistorico" "ChatEdit"
+    {      
+      *ID     12
+      *RECT   0 >180 %100 30
+      *NOMBRE "ChatEdit"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HIDDEN }
+      *PARAMS "FlagEsp='FE_NOSELONFOCUS'"
+    }
+            
+    // El reloj
+    *CONTROL "Static" "EstiloRelojRJust"
+    {
+    	*NOMBRE "Reloj"
+    	*RECT		>5 11 150 32 
+    	*GFLAGS { ST_NORMAL F_NOFOCUS /* F_HIDDEN */ F_DEVELOPER F_TRANSPARENTE }
+    }
+    
+    // El ping
+    *CONTROL "Static" "EstiloRelojRJust"
+    {
+    	*NOMBRE "Ping"
+    	*RECT		>5 45 94 32
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_HIDDEN F_TRANSPARENTE }
+    }
+  }
+  
+  // -------------------------------------------  
+  // 
+  // -------------------------------------------  
+  *PANTALLA "-" "-"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "PantallaMapaControles"
+    *GFLAGS { ST_NORMAL F_TABSTOP F_TRANSPARENTE }
+    
+  // Aqui están los botones de Especiales, Exploradores y Avisos
+    *CONTROL "BotonMiniMapa" "MiniBoton"
+    {
+    	*RECT 	87 >113 30 27
+    	*NOMBRE "Avisos"
+    	*ID			14
+    	*NTEX_X	0
+    	*NTEX_Y 0
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_TOOLTIP_MINIMAP_SIGNAL"
+    }      
+    
+    *CONTROL "BotonMiniMapa" "MiniBoton"
+    {
+    	*RECT 	111 >97 30 27
+    	*NOMBRE "Exploradores"
+    	*ID			15
+    	*NTEX_X	0
+    	*NTEX_Y 1
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_DISABLED F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_TOOLTIP_SCOUTS"
+    }
+    
+    *CONTROL "BotonMiniMapa" "MiniBoton"
+    {
+    	*RECT 	135 >81 30 27
+    	*NOMBRE "Especiales"
+    	*ID			16
+    	*NTEX_X	0
+    	*NTEX_Y 2
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_DISABLED F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_TOOLTIP_SPECIAL_UNITS"
+    }
+    
+    *CONTROL "BotonMiniMapa" "MiniBoton"
+    {
+    	*RECT 	159 >65 30 27
+    	*NOMBRE "Pueblos"
+    	*ID			17
+    	*NTEX_X	0
+    	*NTEX_Y 3
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_DISABLED F_HASTOOLTIP }
+      *TOOLTIP "LTEXT_GUI_TOOLTIP_VILLAGES"
+    }
+    
+    *CONTROL "MiniMapa" "EstiloMiniMapa"
+    {
+    	*RECT 	5 ^25 180 112
+    	*NOMBRE "MiniMapa"
+    	*ID     1
+    	*GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+  }
+  
+  // -------------------------------------------  
+  // 
+  // -------------------------------------------  
+  *PANTALLA "-" "-"
+  {
+    *RECT   >200 >166 >0 >0
+    *NOMBRE "PantallaOrdenesControles"
+    *GFLAGS { ST_NORMAL F_TABSTOP }
+    
+    // Botones de categorias de ordenes
+    *CONTROL "CHECKBOX" "EstiloOpcionOrdenes"
+    {
+      *ID     8                 // CPantallaInterfaz::CONTROL_SUBMENU_BASICO
+      *RECT   >129 6 44 39
+      *NOMBRE "COBasico"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+		  *NTEX_X 0
+		  *NTEX_Y 0
+      *TOOLTIP "LTEXT_GUI_TOOLTIP_ACTIONS"
+    }
+    *CONTROL "CHECKBOX" "EstiloOpcionOrdenes"
+    {
+      *ID     9                 // CPantallaInterfaz::CONTROL_SUBMENU_ESPECIFICAS
+      *RECT   >78 6 44 39
+      *NOMBRE "COEspecificas"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *NTEX_X 0
+      *NTEX_Y 1
+      *TOOLTIP "LTEXT_GUI_TOOLTIP_SKILLS"
+    }
+    *CONTROL "CHECKBOX" "EstiloOpcionOrdenes"
+    {
+      *ID     10                // CPantallaInterfaz::CONTROL_SUBMENU_BUILDER
+      *RECT   >27 6 44 39
+      *NOMBRE "COBuilder"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_HASTOOLTIP }
+      *NTEX_X 0
+      *NTEX_Y 2
+      *TOOLTIP "LTEXT_GUI_TOOLTIP_CONSTRUCTION"
+    }
+    *CONTROL "Static" "EstiloOpcionOrdenes"
+    {
+    	*NOMBRE "BasicoVacio"
+    	*RECT 	>129 6 44 39
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS }
+    	*NTEX_X	1
+    	*NTEX_Y	1
+    }
+    *CONTROL "Static" "EstiloOpcionOrdenes"
+    {
+    	*NOMBRE "EspecificasVacio"
+    	*RECT 	>78 6 44 39
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS }
+    	*NTEX_X	1
+    	*NTEX_Y	1
+    }
+    *CONTROL "Static" "EstiloOpcionOrdenes"
+    {
+    	*NOMBRE "BuilderVacio"
+    	*RECT 	>27 6 44 39
+    	*GFLAGS	{ ST_NORMAL F_NOFOCUS }
+    	*NTEX_X	1
+    	*NTEX_Y	1
+    }
+  }
+  
+  // -------------------------------------------  
+  // 
+  // -------------------------------------------  
+  *PANTALLA "-" "-"
+  {
+    *RECT 0 0 460 40
+    *NOMBRE "ConexionJugador"
+    *GFLAGS { ST_NORMAL F_NOMOUSE F_NOFOCUS }
+    
+    *CONTROL "STATIC" "EstiloMarcoInicioRed"
+    {
+      *RECT   306 0 150 40
+      *NOMBRE "READY"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "STATIC" "EstiloMarcoInicioRed"
+    {
+      *RECT   213 0 106 40
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "STATIC" "EstiloMarcoInicioRed"
+    {
+      *RECT   160 0 65 40
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "STATIC" "EstiloMarcoInicioRed"
+    {
+      *RECT   0 0 170 40
+      *NOMBRE "NOMBRE"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "BotonEquipo" "EstiloBotonEquipo"
+    {
+      *RECT   267 9 96 28
+      *NOMBRE "EQUIPO"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    *CONTROL "BotonColor" "EstiloBotonColor"
+    {
+      *RECT   180 10 30 20
+      *NOMBRE "COLOR"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+  }
+  
+  // -------------------------------------------  
+  // 
+  // -------------------------------------------  
+  *PANTALLA "InicioRed" "-"
+  {
+    *RECT   0 0 %100 %100
+    *NOMBRE "InicioRed"
+    *GFLAGS { ST_NORMAL }
+    
+    *PANTALLA "-" "EstiloMarcoBordeInicioRed"
+    {
+      *RECT ^0 ^0 490 455
+      *GFLAGS { ST_NORMAL }
+
+      *PANTALLA "-" "-" { *RECT   20  20 460 40 *NOMBRE "CONEXION0" *ID 0 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "ConexionJugador" }
+      *PANTALLA "-" "-" { *RECT   20  60 460 40 *NOMBRE "CONEXION1" *ID 1 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "ConexionJugador" }
+      *PANTALLA "-" "-" { *RECT   20 100 460 40 *NOMBRE "CONEXION2" *ID 2 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "ConexionJugador" }
+      *PANTALLA "-" "-" { *RECT   20 140 460 40 *NOMBRE "CONEXION3" *ID 3 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "ConexionJugador" }
+      *PANTALLA "-" "-" { *RECT   20 180 460 40 *NOMBRE "CONEXION4" *ID 4 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "ConexionJugador" }
+      *PANTALLA "-" "-" { *RECT   20 220 460 40 *NOMBRE "CONEXION5" *ID 5 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "ConexionJugador" }
+      *PANTALLA "-" "-" { *RECT   20 260 460 40 *NOMBRE "CONEXION6" *ID 6 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "ConexionJugador" }
+      *PANTALLA "-" "-" { *RECT   20 300 460 40 *NOMBRE "CONEXION7" *ID 7 *GFLAGS { ST_NORMAL F_HIDDEN } *INSTANCIA "ConexionJugador" }
+      
+      *CONTROL "PUSHBUTTON" "EstiloBotonPiedra"
+      {
+        *RECT   ^0 400 100 40
+        *ID     18
+        *GFLAGS { ST_NORMAL F_NOFOCUS }
+        *PARAMS "Text='LTEXT_GUI_EXIT'"
+      }
+    }
+  }
+  
+// ------------------------------------------------------------------------
+// Pantalla de espera de conexión al servidor
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuEsperaConexion" "EstiloMenuPartidaRed"
+  {
+  	*RECT 	0 0 %100 %100
+  	*NOMBRE "MenuEsperaConexion"
+  	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+  	
+  	*CONTROL "Static" "EstiloMarcoInicioRed"
+  	{
+  		*RECT ^0 ^0 %100 %100
+  		*NOMBRE "MensajeEspera"
+  		*PARAMS "Text='LTEXT_GUI_WAITING_SERVER'"
+    	*GFLAGS { ST_NORMAL F_TABSTOP F_AUTOFOCUS }
+  	}
+  }  
+}

@@ -1,0 +1,196 @@
+{
+  *NOMBRE AGRESIVO_DE_VERDAD
+  
+  // ** NOTA IMPORTANTE **
+  // Ver el fichero Docs\IA\Parametros.html
+  
+  *RUSH 0
+
+  // Defensa Pueblos
+  *POTMIN_DEFENSA_PUEBLO          0       // Potencia minima que se deja en un pueblo (cuando no se ve nadie cerca)
+  *POT_DESEADA_DEFENSA_PUEBLO     40000   // Potencia que se deja en un pueblo cuando no hay nadie cerca, pero nada mejor que hacer
+  *VENTAJA_MINIMA_DEFENSA_PUEBLO  1.0     // Minima potencia para defender el pueblo, respecto a la estimada del enemigo
+  *VENTAJA_DESEADA_DEFENSA_PUEBLO 2.0     // Potencia que dejamos, respecto a la estimada del enemigo, si no hay nada mejor que hacer
+  *PEDIR_REFUERZOS_DEF_PUEBLO     1.0     // Desventaja, respecto a la potencia minima calculada, que hace que se pidan refuerzos
+  *DEFENSA_PUEBLO_STAND           0       // Indica si la defensa de los pueblos esperara a recibir un ataque, o será agresiva (atacará nada más ver)
+  *SEGS_HASTA_CONSTRUIR_TORRES    120     // Segundos que pasan desde que se termina de construir la guarnicion hasta que se empiezan (si hay tropas) a construir torres de defensa. Si es negativo las torres NO se construiran
+
+  // Atacar Pueblo
+  *POT_MINIMA_ATAQUE_PUEBLO       50000   // Potencia minima necesaria para lanzar un ataque sobre un pueblo que no hemos visto
+  *POT_DESEADA_ATAQUE_PUEBLO      65000   // Potencia ideal (o máxima) para lanzar un ataque sobre un pueblo que no hemos visto. No destinará más potencia de este número.
+  *POT_MIN_ABSOLUTO_ATAQUE_PUEBLO 5000    // Minimo absoluto de potencia para ir a por un pueblo (donde no hay nadie, p.ej)
+  *VENTAJA_MINIMA_ATAQUE_PUEBLO   1.5     // Ventaja minima sobre la potencia enemiga estimada para lanzar un ataque sobre el pueblo
+  *VENTAJA_DESEADA_ATAQUE_PUEBLO  2.0     // Ventaja ideal (o máxima) sobre la potencia enemiga estimada para lanzar un ataque sobre el pueblo. No destinará más potencia de este número.
+  
+  *POT_MAX_ABSOLUTO_ATAQUE        65000   // Maximo absoluto de potencia para atacar (porque basicamente no hay mas)
+  
+  *NUM_PUEBLOS_PREF_ATAQUE        3       // Numero de pueblos controlados que hacen que la CPU prefiera lanzar un ataque a conquistar un nuevo pueblo
+
+  *VIAB_PUEBLO_RETIRARSE          0.15    // Relación entre potencia que tiene y potencia que desearía tener, que hace que un objetivo de pueblo se retire
+  
+  *MOVER_A_PUEBLO_OFENSIVO        1       // Indica si el desplazamiento hasta el pueblo se hará en ofensivo (atacando a todo lo que se mueva) o defensivo (atacando solo a lo que se cruce en nuestro camino, o nos ataque)
+
+  // Lanzar Ataque
+  *VENTAJA_MINIMA_ATAQUE          1.5     // Minima potencia, respecto a la mayor concentracion enemiga descubierta, para lanzar un ataque "para incordiar"
+  *VENTAJA_DESEADA_ATAQUE         2.0     // Potencia ideal (o máxima) respecto al mayor grupo de enemigos, para lanzar un ataque. Nunca se mandará más de este valor.
+  *POT_MIN_LANZAR_ATAQUE          15000   // Valor mínimo absoluto de potencia. Nunca se lanzará un ataque con menos de esta potencia.
+
+  // Exploracion
+  *MAX_TROPAS_EXPLORANDO          2       // Número de exploradores que se intentarán tener moviéndose por el mapa. Se generan nuevos cuando muere uno.
+  
+  // Combate
+  *VENTAJA_IR_GANANDO             1.2     // Porcentaje de potencia respecto a la del enemigo que hace pensar que vamos a ganar un combate (para no pedir refuerzos, etc)
+  
+  // Tropas a Entrenar
+  *POTENCIA_REFERENCIA                      2000   // Este valor se usa para promediar con las tropas que tienen potencia 0 (medicos, exploradores, etc)
+  *GRUPO_TROPAS_ENTRENAR INF_ARQUERO        25     // Arqueros
+  *GRUPO_TROPAS_ENTRENAR INF_PESADA         35     // Infanteria pesada
+  *GRUPO_TROPAS_ENTRENAR PIQUERO            5      // Piqueros normales
+  *GRUPO_TROPAS_ENTRENAR CABALLERIA         10     // Incluye 'Caballeria Arquera' y 'Caballeria Pesada'
+  *GRUPO_TROPAS_ENTRENAR MAQUINAS           5      // Catapulta y Ballesta
+  *GRUPO_TROPAS_ENTRENAR ESPECIALES         10     // Los tres tripos de tropas 'guays' de la raza correspondiente
+  *GRUPO_TROPAS_ENTRENAR MEDICO             5
+  *GRUPO_TROPAS_ENTRENAR EXPLORADOR_HALCON  5
+    
+  // Diplomacia
+  *POT_MIN_APOYO_ALIADO         1000      // Potencia minima que debe terner libre para poder mandar un apoyo
+  *POT_MAX_APOYO_ALIADO         20000     // Potencia maxima que va a enviar cuando se solicite un apoyo
+  *TIEMPO_ESPERA_APOYO_ALIADO   30        // Tiempo que esperará en una posicion donde se ha solicitado un apoyo (antes de volver)
+  *APOYO_PRIORITARIO            0         // Indica si la CPU da mucha prioridad a los apoyos o no. Solo se aplica a apoyos al jugador (no entre CPUs). Si el apoyo es prioritario la CPU mandará casi cualquier tropa que tenga hasta el limite de potencia, salvo que estén combatiendo.
+
+  
+  // Evaluacion de objetivos
+  
+  // -- Conquista de Pueblos
+  // Factores para seleccionar el pueblo mas "apetitoso". Los factores se normalizan y luego se ponderan.
+  *EVAL_PUEBLO_FACTOR_NUM_HABS       0.5    // Multiplicador del factor de número de habitantes
+  *EVAL_PUEBLO_FACTOR_NECESIDAD      1.0    // Multiplicador del factor de necesidad (no demasiado útil)
+  *EVAL_PUEBLO_FACTOR_FACIL_DEF      1.0    // Multiplicador del factor de facilidad de defensa del pueblo (no se está calculando)
+  *EVAL_PUEBLO_FACTOR_POT_ENEMIGA    1.0    // Multiplicador del factor de potencia enemiga en la zona del pueblo
+  *EVAL_PUEBLO_FACTOR_DISTANCIA      2.0    // Multiplicador del factor de distancia al pueblo y enemigos en el camino
+  *EVAL_PUEBLO_FACTOR_GUARNICION     10.0   // Multiplicador del factor de si tengo la guarnicion ya construida
+  
+  *EVAL_PUEBLO_MAX_NUM_HABS          300    // Valor de habitantes por encima del cual ya "soy rico"
+  *EVAL_PUEBLO_MAX_NECESIDAD         10     // Valor de necesidad que significa "mucha"
+  *EVAL_PUEBLO_MAX_FACIL_DEF         1      // Valor de facilidad de defensa que quiere decir "muy facil"
+  *EVAL_PUEBLO_MAX_POT_ENEMIGA       20000  // Valor de potencia enemiga que significa "un puñao de gente"
+  *EVAL_PUEBLO_MAX_DISTANCIA         10000  // Valor de distancia que quiere decir "muy lejos y con mucha gente en el camino"
+  
+  // -- Refuerzo
+  // Factores para seleccionar el refuerzo/apoyo mas "necesario" e "interesante"
+  *EVAL_REFUERZO_FACTOR_DISTANCIA    1.0    // Multiplicador del factor de distancia al punto de refuerzo
+  *EVAL_REFUERZO_MAX_DISTANCIA			 30000  // Valor de distancia que significa "muy lejos"
+  
+  // -- Otros
+  *EVAL_VENTAJA_EN_CURSO						 1.3    // Bonificacion que se aplica a los objetivos que ya están en curso, a la hora de decidir cancelarlos en favor de otros
+  *EVAL_PUEBLO_VS_REFUERZO					 1.0    // Bias que se usa para comparar conquistas de nuevos pueblos frente a peticiones de apoyo/refuerzo
+  
+  *REFUERZO_MEJOR_QUE_ATAQUE         1
+  
+  *MIN_DERROTAS                   5         // Minimo numero de derrotas necesario para pasar a modo defensivo
+  *RATIO_KILLED_DEAD              0.5       // Mejor ratio de muertes que se puede tener para pasar a modo defensivo (se pasa si el ratio es igual o peor)
+  *MIN_DEAD                       100       // Minimo numero de muertos para pasar a modo defensivo (para evitar pasar muy rapido o con distorsiones en el ratio)
+  *MIN_KILLED                     100       // Minimo numero de matados para pasar a modo defensivo (para evitar pasar muy rapido o con distorsiones en el ratio)
+  *MIN_SEGS_ENTRE_CAMBIOS         480       // Tiempo minimo que debe transcurrir entre cambios de variante
+  *MIN_PCU_AGRESIVO               450       // Minimos PCUs para ponernos en modo agresivo-psicopata
+  *MIN_SEGS_LIMITE_PCU            30        // Segundos que han de transcurrir, con PCUs mayor que MIN_PCU_AGRESIVO, para que cambie a modo agresivo
+  *MIN_SEGS_SIN_ATACAR            240       // Segundos que han de transcurrir, sin que se lance    ningun ataque, para pasar a agresivo (tambien hay que estar por encima en PCU)
+  *MIN_SEGS_SIN_COMBATIR          500       // Segundos que han de transcurrir, sin que se produzca ningun combate, "   "    "   "    "     "
+  *RATIO_KD_ABYSMAL               0.1       // Ratio muertas/matadas que hace pasar a modo defensivo (y que se joda el jugador)
+  *BUEN_RATIO_KD                  1.0       // Ratio muertas/matadas que hace pasar a modo agresivo (despues de una buena defensa, atacar)
+  *MAX_PCU_DEFENSIVO              60        // Maximos PCUs que puede tener en agresivo para hacer el salto a defensivo
+  
+  
+  //////////////////////////////////////////////////////////////
+  // E A S Y
+  //////////////////////////////////////////////////////////////
+  *DIFICULTAD 1
+  {
+    *DELAY_ENTRENAMIENTO            10       // Tiempo minimo (segs) que debe transcurrir entre entrenamientos en un pueblo (sin contar el tiempo de generacion de la tropa)
+    
+    // Los parametros especificos para niveles de dificultad se indican dentro de bloques como este    
+    *POTMIN_DEFENSA_PUEBLO          10000
+    *VENTAJA_MINIMA_DEFENSA_PUEBLO  1.0     // Minima potencia para defender el pueblo, respecto a la estimada del enemigo
+    *VENTAJA_DESEADA_DEFENSA_PUEBLO 1.5     // Potencia que dejamos, respecto a la estimada del enemigo, si no hay nada mejor que hacer
+    *SEGS_HASTA_CONSTRUIR_TORRES    -1      // Segundos que pasan desde que se termina de construir la guarnicion hasta que se empiezan (si hay tropas) a construir torres de defensa. Si es negativo las torres NO se construiran
+    *VENTAJA_MINIMA_ATAQUE          1.0     // Minima potencia, respecto a la mayor concentracion enemiga descubierta, para lanzar un ataque "para incordiar"
+    *VENTAJA_DESEADA_ATAQUE         1.0     // Potencia ideal (o máxima) respecto al mayor grupo de enemigos, para lanzar un ataque. Nunca se mandará más de este valor.
+	  *VENTAJA_MINIMA_ATAQUE_PUEBLO   1.0     // Ventaja minima sobre la potencia enemiga estimada para lanzar un ataque sobre el pueblo
+  	*VENTAJA_DESEADA_ATAQUE_PUEBLO  1.5     // Ventaja ideal (o máxima) sobre la potencia enemiga estimada para lanzar un ataque sobre el pueblo. No destinará más potencia de este número.
+
+    *GRUPO_TROPAS_ENTRENAR INF_ARQUERO        20     // Incluye 'Caballeria Arquera' y 'Arqueros'
+    *GRUPO_TROPAS_ENTRENAR INF_PESADA         20     // Incluye 'Caballeria Pesada' e 'Infanteria Pesada'
+    *GRUPO_TROPAS_ENTRENAR PIQUERO            20     // Piqueros normales
+    *GRUPO_TROPAS_ENTRENAR CABALLERIA         10     // Incluye 'Caballeria Arquera' y 'Caballeria Pesada'
+    *GRUPO_TROPAS_ENTRENAR MAQUINAS           2      // Catapulta y Ballesta
+    *GRUPO_TROPAS_ENTRENAR ESPECIALES         5      // Los tres tripos de tropas 'guays' de la raza correspondiente
+    *GRUPO_TROPAS_ENTRENAR MEDICO             5
+  }
+  
+  //////////////////////////////////////////////////////////////
+  // N O R M A L
+  //////////////////////////////////////////////////////////////
+  *DIFICULTAD 2
+  {
+    // Los valores de los tres niveles de dificultad son:
+    // 1.- Easy
+    // 2.- Normal
+    // 3.- Hard
+
+    *DELAY_ENTRENAMIENTO            5        // Tiempo minimo (segs) que debe transcurrir entre entrenamientos en un pueblo (sin contar el tiempo de generacion de la tropa)
+
+    *POTMIN_DEFENSA_PUEBLO          3000
+    *VENTAJA_MINIMA_ATAQUE_PUEBLO   2.0     // Ventaja minima sobre la potencia enemiga estimada para lanzar un ataque sobre el pueblo
+    *VENTAJA_MINIMA_ATAQUE          2.0     // Minima potencia, respecto a la mayor concentracion enemiga descubierta, para lanzar un ataque "para incordiar"
+    
+    *DEFENSIVO
+    {
+      *POTMIN_DEFENSA_PUEBLO 15000
+      *VENTAJA_MINIMA_DEFENSA_PUEBLO  1.5
+      *POT_MIN_ABSOLUTO_ATAQUE_PUEBLO 10000
+      *EVAL_PUEBLO_VS_REFUERZO	0.7
+      
+    }
+    *AGRESIVO
+    {
+      *PSICOPATA 1
+      *POTMIN_DEFENSA_PUEBLO     0
+      *REFUERZO_MEJOR_QUE_ATAQUE 0
+    }
+  }
+  
+  //////////////////////////////////////////////////////////////
+  // H A R D
+  //////////////////////////////////////////////////////////////
+  *DIFICULTAD 3
+  {
+    // Los parametros incluidos en los niveles sobreescriben a los leidos anteriormente.
+    // O sea, se leen secuencialmente, si redefino un mismo parámetro vale el último valor encontrado.
+    // El parametro GRUPO_TROPAS_ENTRENAR, dentro de un bloque, resetea todos los valores anteriores.
+    // P.ej. si quiero que en un nivel de dificultad entrenen especiales, no basta con poner la linea,
+    // ya que esto haría que SOLO se entrenaran especiales (el resto de grupos se han borrado). Tengo
+    // que poner todos los porcentajes de todos los grupos.
+
+    *VENTAJA_MINIMA_ATAQUE_PUEBLO   0.7     // Ventaja minima sobre la potencia enemiga estimada para lanzar un ataque sobre el pueblo
+    *VENTAJA_MINIMA_ATAQUE          1.0     // Minima potencia, respecto a la mayor concentracion enemiga descubierta, para lanzar un ataque "para incordiar"
+    *VENTAJA_MINIMA_DEFENSA_PUEBLO  0.8     // Minima potencia para defender el pueblo, respecto a la estimada del enemigo
+    *VENTAJA_DESEADA_DEFENSA_PUEBLO 1.5     // Potencia que dejamos, respecto a la estimada del enemigo, si no hay nada mejor que hacer
+
+    *EVAL_PUEBLO_VS_REFUERZO			  1.3     // Bias que se usa para comparar conquistas de nuevos pueblos frente a peticiones de apoyo/refuerzo
+    
+    *DEFENSIVO
+    {
+      *POTMIN_DEFENSA_PUEBLO 15000
+      *VENTAJA_MINIMA_DEFENSA_PUEBLO  1.2
+      *POT_MIN_ABSOLUTO_ATAQUE_PUEBLO 10000
+      *EVAL_PUEBLO_VS_REFUERZO	0.7
+      
+    }
+    
+    *AGRESIVO
+    {
+      *PSICOPATA 1
+      *REFUERZO_MEJOR_QUE_ATAQUE 0
+    }
+  }
+}

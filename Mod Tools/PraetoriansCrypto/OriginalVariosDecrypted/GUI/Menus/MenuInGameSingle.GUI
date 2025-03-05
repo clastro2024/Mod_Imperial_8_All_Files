@@ -1,0 +1,206 @@
+{
+// Formas de especificar el rectangulo de un control o pantalla:
+// un numero normal y corriente: coordenada / tamaño en pixels.
+// ^numero : Centrar y luego añadir 'numero' pixels.
+// >numero : Alinear a la derecha y restar 'numero' pixels.
+// %numero : El valor es ese porcentaje de tamaño de la pantalla en la que esta metido.
+
+  *INCLUDE "GUI\Menus\MenuInGameComunes.GUI"
+  *INCLUDE "GUI\Interfaz\ComunesInterfazJuego.GUI"
+
+// ------------------------------------------------------------------------
+// Menu In-Game
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuInGame" "EstiloMenuInGameSinMarco"
+  {
+    *RECT   ^0 ^0 %100 %100
+    *NOMBRE "MenuInGame"
+    *GFLAGS { ST_NORMAL F_DIALOG }
+/*
+    *CONTROL "Static" "EstiloAguila"
+    {
+      *RECT   ^0 10 670 276
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+*/
+    *PANTALLA "-" "EstiloMarcoBrillante" //EstiloFondoMenuInGame"
+    {
+      *RECT   ^0 ^0 400 470
+      *GFLAGS { ST_NORMAL F_DIALOG }
+
+      *CONTROL "Static" "EstiloTitulo"
+      {
+        *RECT   ^0 25 %80 55
+        *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+        *PARAMS "Text:'LTEXT_GUI_IN_GAME_MENU'"
+      }
+  
+      *CONTROL "PushButton" "EstiloOpcionMenu"
+      {
+        *RECT   ^0 90 %50 35
+        *NOMBRE "CargarPartida"
+        *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+        *PARAMS "Text='LTEXT_GUI_LOAD_GAME'"
+      }
+      *CONTROL "PushButton" "EstiloOpcionMenu"
+      {
+        *RECT   ^0 125 %50 35
+        *NOMBRE "GuardarPartida"
+        *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+        *PARAMS "Text='LTEXT_GUI_SAVE_GAME'"
+      }
+     
+      *CONTROL "PushButton" "EstiloOpcionMenu"
+      {
+        *RECT   ^0 175 %50 35
+        *NOMBRE "Opciones"
+        *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+        *PARAMS "Text='LTEXT_GUI_TITLE_OPTIONS'"
+      }
+  
+      *CONTROL "PushButton" "EstiloOpcionMenu"
+      {
+        *RECT   ^0 210 %50 35
+        *NOMBRE "MostrarObjetivos"
+        *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+        *PARAMS "Text='LTEXT_GUI_OBJETIVES'"
+      }
+
+      *CONTROL "PushButton" "EstiloOpcionMenu"
+      {
+         *RECT   ^0 245 %50 35
+         *NOMBRE "Tips"
+         *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+         *PARAMS "Text='LTEXT_GUI_TIPS'"
+      }
+      *CONTROL "PushButton" "EstiloOpcionMenu"
+      {
+        *RECT   ^0 295 %50 35
+        *NOMBRE "AbortarPartida"
+        *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+        *PARAMS "Text='LTEXT_GUI_MAIN_MENU'"
+      }
+  
+      *CONTROL "PushButton" "EstiloOpcionMenu"
+      {
+        *RECT   ^0 330 %50 35
+        *NOMBRE "ReiniciarPartida"
+        *GFLAGS { ST_NORMAL F_AUTOFOCUS }
+        *PARAMS "Text='LTEXT_GUI_RESTART_LEVEL'"
+      }
+      // El texto del reloj del menú in game
+    	*CONTROL "Static" "EstiloMenuInGameTimer"
+      {
+  	  	*NOMBRE "RelojMenu"
+  		  *RECT 8 >8 >8 14
+    		*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    	}
+      
+      *CONTROL "PushButton" "EstiloOpcionMenu"
+      {
+         *RECT   ^0 380 %50 35
+         *NOMBRE "GuardarSecuencia"
+         *GFLAGS { ST_NORMAL F_AUTOFOCUS F_DEVELOPER }
+         *PARAMS "Text='LTEXT_GUI_SAVE_SEQUENCE'"
+      }
+      
+      // Salir
+      *CONTROL "PushButton" "EstiloBotonPiedra" { *RECT   ^0 >25 200 35 *NOMBRE "Salir" *GFLAGS { ST_NORMAL F_USEESC F_AUTOFOCUS } *PARAMS "Text='LTEXT_GUI_BACK_TO_GAME'" }
+    }
+  }
+
+// ------------------------------------------------------------------------
+// Lista de objetivos
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuObjetivos" "EstiloMarcoBrillante" //EstiloFondoMenuInGame"
+  {
+    *NOMBRE "MenuObjetivos"
+    *RECT   ^0 ^0 520 445
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   20 10 >20 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text:'LTEXT_GUI_OBJETIVES'"
+    }
+
+    *CONTROL "ListBox" "EstiloListBoxRellena"
+    {
+    	*RECT	20 55 >20 140
+    	*NOMBRE "ListaObjetivos"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+    }
+    
+    *CONTROL "Static" "EstiloTitulo"
+    {
+      *RECT   20 180 >20 55
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_NOMOUSE }
+	    *PARAMS "Text:'LTEXT_GUI_CHAT_LOG'"
+    }
+    
+    *CONTROL "ListBox" "EstiloListBoxRellenaWrap"
+    {
+    	*RECT	20 225 >20 >50
+    	*NOMBRE "HistoricoChat"
+    	*GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+      *RECT ^0 >10 200 35
+      *NOMBRE "Salir"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_USEESC }
+      *PARAMS "Text='LTEXT_GUI_BACK'"
+    }
+  }
+  
+// ------------------------------------------------------------------------
+// Pantalla de Tips
+// ------------------------------------------------------------------------
+
+  *PANTALLA "MenuTips" "EstiloMarcoBrillante" //EstiloFondoMenuInGame"
+  {
+    *NOMBRE "MenuTips"
+    *RECT   ^0 ^0 400 320
+    *GFLAGS { ST_NORMAL F_TABSTOP F_DIALOG }
+
+    *CONTROL "Static" "EstiloIndiceTutorial"
+    {
+      *RECT 12 10 >25 20
+      *NOMBRE "Titulo"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+    *CONTROL "StaticHyperText" "EstiloHyperTextoTips"
+    {
+      *RECT 18 50 >18 >55
+      *NOMBRE "Texto"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+    }
+    *CONTROL "PushButton" "EstiloBotonTutorial"
+    {
+      *RECT >35 >5 30 30
+      *NOMBRE "Prev"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_TUTORIAL_LEFT_ARROW'"
+    }
+    
+    *CONTROL "PushButton" "EstiloBotonTutorial"
+    {
+      *RECT >5 >5 30 30
+      *NOMBRE "Next"
+      *GFLAGS { ST_NORMAL F_NOFOCUS }
+      *PARAMS "Text='LTEXT_GUI_TUTORIAL_RIGHT_ARROW'"
+    }
+
+    *CONTROL "PushButton" "EstiloBotonPiedra"
+    {
+      *RECT ^0 >12 200 35
+      *NOMBRE "Salir"
+      *GFLAGS { ST_NORMAL F_NOFOCUS F_USEESC }
+      *PARAMS "Text='LTEXT_GUI_BACK'"
+    }
+  }
+}

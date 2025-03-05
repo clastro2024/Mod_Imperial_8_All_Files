@@ -1,0 +1,9 @@
+TROPA: CATAPULTA_ROMANA, FORMACION: CATAPULTA
+
+                         TROPA                      FORMACION  VI0  VI1  VIDA0  VIDA1 %VIV0 %VIV1 TIEMPO
+
+                   GALO_LIGERA                   GALO_ILIGERA    0   16      0   1500     0   100 5.54
+                   GALO_PESADA                   GALO_IPESADA    0   16      0   2900     0   100 2.84
+                  GALO_ARQUERO                   GALO_ARQUERO    0   16      0   1500     0   100 5.54
+                  GALO_ARQUERO          GALO_ARQUERO_PLANTADO    0   16      0   1500     0   100 5.54
+                  GALO_PIQUERO                   GALO_PIQUERO    0   16      0   2250     0   100 132.00
