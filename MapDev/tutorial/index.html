@@ -1,0 +1,1151 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Praetorians</title>
+</head>
+
+<body>
+
+<p>&nbsp;</p>
+<table border="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="95%"><b><font face="Arial">Preparing the Data Files</font></b></td>
+  </tr>
+  <tr>
+    <td width="95%"><font face="Arial" size="2"><br>
+    Run the &quot;PAK&quot; decryption tool, which you can download
+    <a href="http://www.merlinsoftware.com/praetorians/pak.zip">here</a>.<br>
+    <br>
+    Press the &quot;Open PAK file&quot; button.&nbsp; Navigate to the DATA folder in your 
+    Praetorians directory, the default path is &quot;c:\program files\eidos 
+    interactive\pyro studios\praetorians\dat&quot;<br>
+    <br>
+    Select the name of the PAK file you wish to decrypt.&nbsp; All files are 
+    encrypted except the sound*.pak and music.pak file, if you select a file 
+    that is already decrypted it will ask if you wish to re-encrypt it.&nbsp; I 
+    would recommend doing all the encrypted files, even though you will normally 
+    only need the varios.pak file.&nbsp; Backups will be made with the .BACKUP 
+    extension.<br>
+    <br>
+    You can now access files inside of the PAKs, which are standard ZIP files.&nbsp; 
+    I recommend using WinRAR, available
+    <a target="_blank" href="http://www.rarlabs.com">here</a>, since it allows 
+    you to drag and drop folders into subfolders without extracting all the 
+    files.</font></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table border="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="95%"><b><font face="Arial">Making a Multiplayer Map</font></b></td>
+  </tr>
+  <tr>
+    <td width="95%"><font face="Arial" size="2"><br>
+    For this example, we will be converting the &quot;Tutorial III&quot; campaign map into 
+    a multiplayer map.<br>
+    <br>
+    First, we will need a copy of the original settings file for this mission.&nbsp; 
+    Extract the &quot;SP_TUTORIAL_3.MIS&quot; file from the Misiones folder of the 
+    varios.pak file.&nbsp; The main purpose of this file is to set up the map 
+    graphics, cameras, unit and building locations, and link to other data files 
+    such as scripts.&nbsp; You will notice the multiplayer maps are also in this 
+    folder, named MP_x_y.mss, and the single player campaign maps ZZZ_name.mis.&nbsp; 
+    If you wish to convert a campaign map in the future and are unable to 
+    decipher the Spanish filename the DefTextoNombreMisiones.dat in the textos 
+    folder of the textos.pak file is a good reference.&nbsp; You can also use
+    <a target="_blank" href="http://www.google.com/language_tools?hl=en">Google</a> 
+    to do translations.</font><p><font face="Arial" size="2">The first step is 
+    to make a copy of the newly extracted file and change it's name so it will 
+    appear as a new map.&nbsp; I use the format similar to that of the other 
+    multiplayer maps, my initials, the number of players, and the number of the 
+    map, ie JN_2_1.mss</font></p>
+    <p><font face="Arial" size="2">Now you can open up this new file in any 
+    standard text editor, such as notepad.&nbsp; Let's look at the first 
+    section.&nbsp; Comments and translations appear in <font color="#008000">
+    green</font>, and just notes, they do not appear in the file.&nbsp; Lines 
+    that are in <font color="#808080">gray </font>are deleting in the 
+    modifications.&nbsp; If there is an arrow icon &quot;<font color="#FF0000"><img border="0" src="arrow.gif" width="10" height="11"></font>&quot; 
+    followed by an indented <font color="#FF0000">red </font>line that means a 
+    new line is being inserted, usually replacing the line above it.&nbsp; A 
+    &quot;section&quot; in the game is the *name, a { starts it, and a } closes it.&nbsp; 
+    You must remove all of it to remove a section.</font></p>
+    <div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">*ESCENARIO</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">Scenario</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *VISUAL &quot;Mapas\SP_TUTORIAL_3.PVE&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">&quot;Line of Vision&quot; file</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *LOGICO &quot;Mapas\SP_TUTORIAL_3.MLG&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">&quot;Logic&quot; file</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *OBJETOS &quot;Mapas\SP_TUTORIAL_3.MOB&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">&quot;Objects&quot; file</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *AGUA &quot;Mapas\SP_TUTORIAL_3.H2O&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">&quot;Water&quot; file</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *MINIMAPA &quot;Mapas\Descripcion\SP_TUTORIAL_3.TGA&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">Mini-map graphic</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *MURALLAS &quot;Mapas\SP_TUTORIAL_3.MUR&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">&quot;Walls&quot; file</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *ZONAS_ACC &quot;Mapas\SP_TUTORIAL_3.ZAC&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">&quot;Zones&quot; file</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *DATOS_IA &quot;Mapas\SP_TUTORIAL_3.pia&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">&quot;Data&quot; file</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *SCRIPT &quot;Scripts\SP_TUTORIAL_3.TRG&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">Script file</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *CONFIG_TERRENO &quot;Tutorial_3&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">Terrain type</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *MALLA 125 100</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Mesh&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">&nbsp;</td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+    <p><font face="Arial" size="2">The only thing that needs to be changed in 
+    this section is the *SCRIPT line should be be removed, since it won't be 
+    used.&nbsp; Scripts have more advanced settings, as well as all the logic to 
+    make a mission work, such as doing the mission briefing to all the special 
+    events and triggers.<br>
+    <br>
+
+    <div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">*MAPEADOR</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000">?</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *CAMARA 32.124 57.4 61.2631 50 0 88 200 0.1</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">&quot;Camera&quot;</font></td>
+            </tr>
+            <tr>
+              <font face="Arial" size="2">
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *FLAGS 0x52a2ca</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000">Flags</font></td>
+              </font>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;
+              <font color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> *FLAGS 
+              0x1042a688</font></font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">&nbsp;</td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+
+&nbsp;</font></p>
+    <p><font face="Arial" size="2">I am unsure of the the &quot;camera&quot; settings are 
+    for, so they are left as they are.&nbsp; The flags setting is a series of 
+    hex values that toggle certain characteristics on and off.&nbsp; What values 
+    do what is unknown, I had problems with the Centurions and the barracks in 
+    the fortress, so I copied the line 
+    from one of the original multi-player maps.&nbsp; Here is what I replaced 
+    the existing line with: &quot;*FLAGS 0x1042a688&quot;</font><p>&nbsp;    <div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">*COLORES_MAPEADOR</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Colors&quot; ? </font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *FONDO 0x7f000000</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" face="Arial" color="#008000">&quot;Bottom&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *MALLA_IMPAR 0xff408080</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Mesh Uneven&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *MALLA_PAR 0xff808080</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Mesh Even&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *MALLA_BORDE 0x7fc0c0c0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Mesh Edge&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *TEXTURE_BORDE 0x7f00ff00</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Texture Edge&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *CASILLA_NOSEL 0x7fffffff</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Square&quot; ?</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *VERT_DIAG 0xffc0c0c0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">?</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *VERT_POND 0xff00ff00</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">?</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *SPLINE_NOSEL 0xff400000</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">?</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *STR_ENTRADA 0xff000000</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Entered&quot; ?</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">&nbsp;</td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p>
+    <font face="Arial" size="2">The purpose of this section is unclear, it 
+    appears to be hex RGB color codes for certain aspects of the map.&nbsp; I 
+    left them the same.<br>
+    </font>&nbsp; <div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">*NOMBRE_MISION 
+              &quot;LTEXT_MISION_SP_TUTORIAL_3&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Mission Name&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font color="#FF0000"><font face="Arial" size="2">
+              <img border="0" src="arrow.gif" width="10" height="11"> </font>
+              </font><font face="Arial" size="2" color="#FF0000">*NOMBRE_MISION 
+              &quot;Fortress Siege (2)&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Mission Name&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">*DESCRIPCION 
+              &quot;LTEXT_TUTORIAL3_DESCRIPCION&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Description</font></td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p>
+    <font face="Arial" size="2">Here are the next three lines.&nbsp; The first 
+    line is the name of the mission as it appears in the mission selector.&nbsp; 
+    It points to a variable mentioned earlier in the DefTextoNombreMisiones.dat in the textos 
+    folder of the textos.pak file, the text there is inserted as the title.&nbsp; 
+    However, we do not want to change that file since it is a shared files, and 
+    it would be overwritten by other custom maps.&nbsp; You can enter your new 
+    name directly between the quotes, such as &quot;Fortress Siege (2)&quot;.&nbsp; The 2 
+    is the number of players this map will be, and is only cosmetic to make the 
+    format of existing map names.&nbsp; The next line is the description, and 
+    isn't used in multiplayer maps, so it is removed.</font><p>
+    &nbsp;<div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*EFECTO_ATMOSFERICO</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Effect Atmosphere</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">*SONIDO</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Sound&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *TIPO &quot;ARIO&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">?</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *POSICION 
+              29.8364 0 -1.2356</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Position&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *POSICION 
+              32.2671 0 2.32173</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Position&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *POSICION 
+              41.2274 0 3.05127</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Position&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...etc</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*MUSICA</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Music&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *TIPO &quot;SA01&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Type&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*MUSICA_BATALLA</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Music Battle&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *TIPO &quot;SB01&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Type&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p>
+    <font face="Arial" size="2">This is a large section with many &quot;Sound&quot; 
+    sub-sections and appears to be ambient sound affects, triggered at specific 
+    locations?&nbsp; It also contains the background music and battle music.&nbsp; I left them in place, untouched.</font><p>
+    &nbsp;<div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> *MAX_PLAYERS 
+              2</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Maximum Players</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> 
+              *POS_INICIAL 101.0 20.0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Initial Starting Point</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> 
+              *POS_INICIAL 25.0 77.0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Initial Starting Point</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*CIVILIZACION</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Civilization&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *NOMBRE 
+              &quot;NEUTRAL&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Name Neutral&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *RAZA &quot;BARBAROS&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">&quot;Race Barbarian&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *COLOR 7</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font size="2" color="#008000" face="Arial">Team Color</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *NEUTRAL</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Allegiance; team</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">*CIVILIZACION</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">*NOMBRE &quot;Romanos&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">*NOMBRE_LEGIBLE 
+              &quot;LTEXT_TUTORIAL3_CIV1_TXT&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">*RAZA &quot;ROMANOS&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">...etc</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">*CRITTER</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *TIPO &quot;CONEJO&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *POSICION 48.1718 -0.0162716 85.5148</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *ORIENTACION 0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p>
+    <font face="Arial" size="2">The first three lines are new, the first one 
+    sets the maximum number of players, both CPU and human.&nbsp; The second two 
+    lines set up starting locations for those players, you will need one 
+    POS_INICIAL line for each possible player.&nbsp; The parameters for the line 
+    are POS_INICIAL y ? x.&nbsp; I'm unsure of the middle setting, but here is a 
+    quick and dirty sketch of how the x/y coordinate system works.&nbsp; The 0,0 
+    location starts in the upper left corner, and x is east/west, and y 
+    north/south.&nbsp; The scale depends on the size of the map, this map x 
+    roughly 0-100, y is 0-120.&nbsp; The neutral civilization section is left in 
+    since it appears in the multiplayer maps as well, but does not appear in the 
+    game.&nbsp; Everything after through the last &quot;critter&quot; is removed.&nbsp; 
+    These contain all the troop and creature locations, and aren't used in 
+    multiplayer.</font><p align="center">
+    <font face="Arial" size="2" color="#FF0000">
+              <img border="2" src="coords.jpg" width="250" height="245"></font><p>
+    &nbsp;<p>
+    &nbsp;<div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*ESTRUCTURA</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Structure</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *NOMBRE &quot;Matisco&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Name&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *NOMBRE_LEGIBLE &quot;LTEXT_TUTORIAL3_PUE1_TXT&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Name&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *DEFINICION 
+              &quot;PESE_1&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Definition&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *POSICION 
+              101.5 -0.0162735 25.5</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Position&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; </font>
+              <font face="Arial" size="2" color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> *POSICION 
+              103 -0.0074501 8</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Position&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *ORIENTACION 
+              0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Orientation&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *VISUAL 
+              &quot;PESE_1&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Visual&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *HABITANTES 200</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; </font>
+              <font face="Arial" size="2" color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> 
+              *HABITANTES 350</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *MAX_HABITANTES 200</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Maximum Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; </font>
+              <font face="Arial" size="2" color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> 
+              *MAX_HABITANTES 350</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Maximum Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *VEL_REGENERACION 
+              5</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Regeneration&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p>
+    <font face="Arial" size="2">This section now follows neutral civilization 
+    section.&nbsp; The first structure is the village in the lower right.&nbsp; 
+    The first first two lines set up the name of the village, I removed them so 
+    it shows the default &quot;Village&quot; name.&nbsp;&nbsp;&nbsp; The definition line 
+    defines the name of the village to the game.&nbsp; After the &quot;PE&quot; are 
+    compass directions that rotate the village, showing which direction the exit 
+    is drawn as pointing.&nbsp; The next line uses 
+    the same format as noted above, POSICION y ? x.&nbsp; I changed the location 
+    slightly to move it so it couldn't be attacked from across the river.&nbsp; I am unsure of the ORIENTACION line, it appears to usually be 0.&nbsp; The VISUAL line is how 
+    the object appears on the screen.&nbsp; HABITANTES is how many people are 
+    currently in the village, and MAX_HABITANTES is the maximum possible people 
+    in the village.&nbsp; VEL_REGENERACION is how many seconds it takes for a 
+    village to be re-added to the village.&nbsp; I raised the population of the 
+    village from 200 to 350 to counteract the other player's fortress.</font><p>
+    &nbsp;<div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*ESTRUCTURA</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Structure</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *DEFINICION &quot;PUERTAFORTALEZA&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Definition&quot; &quot;Fortress 
+              Door&quot;?</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *POSICION 
+              25.5 -0.0109406 69.5</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Position&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *ORIENTACION 
+              4.71239</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Orientation&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*ESTRUCTURA</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Structure</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *NOMBRE 
+              &quot;Barracks&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Name&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *DEFINICION &quot;BARRACON_ROMANO&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Definition&quot; &quot;Roman 
+              Barracks&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *POSICION 
+              25.5 -0.0162754 86.5</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Position&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *ORIENTACION 
+              0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Orientation&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *GENERADOR &quot;BARRACON_ROMANO&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Generate&quot; &quot;Roman 
+              Barracks&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;
+              <font color="#808080">*HABITANTES 0</font></font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; </font>
+              <font face="Arial" size="2" color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> 
+              *HABITANTES 200</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *<font color="#808080">MAX_HABITANTES 
+              0</font></font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Maximum Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; </font>
+              <font face="Arial" size="2" color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> *MAX_HABITANTES 
+              200</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Maximum Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;
+              <font color="#808080">*VEL_REGENERACION 0</font></font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Regeneration&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; </font>
+              <font face="Arial" size="2" color="#FF0000">
+              <img border="0" src="arrow.gif" width="10" height="11"> *VEL_REGENERACION 
+              6</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Regeneration&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *PUNTO_ENTRADA 0 0 0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Entrance Point&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *PUNTO_SALIDA 0 0 0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Exit Point&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p>
+    <font face="Arial" size="2">The first structure is the fortress door, it is 
+    left alone.&nbsp; The second structure is the barracks in fortress.&nbsp; 
+    The first two lines of it set up it's name and type, &quot;Roman Barracks&quot;.&nbsp; 
+    The position line is the same as before, POSICION y ? x, same with 
+    ORIENTACION.&nbsp; The GENERADOR function seems to be required, where it 
+    isn't to make a normal village.&nbsp; The HABITANTES and MAX_HABITANTES 
+    lines are changed to 200, in the tutorial you can't use the village so 
+    they're set to 0.&nbsp; The VEL_REGENERACION line is set to 6 so it people 
+    will repopulate it, slightly slower then in the village outside.&nbsp; The 
+    last two lines would set up entrance and exit points to the barracks, 
+    removing them lets the game set them up.</font><p>
+    &nbsp;<div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*ESTRUCTURA</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Structure</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*NOMBRE &quot;PUENTE&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Name&quot; &quot;Bridge&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*DEFINICION &quot;PUENTE_TOSCO&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Definition&quot; &quot;Course 
+              Bridge&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*POSICION 46.5 -0.0162735 14.5</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Position&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*ORIENTACION 0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Orientation&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p>
+    <font face="Arial" size="2">This final structure is the bridge in the map.&nbsp; 
+    None of the settings need to be changed.&nbsp; Everything else after this 
+    structure can be removed, just need to leave the final un-indented &quot;}&quot; at 
+    the end to close the &quot;{&quot; at the start of the file.&nbsp; The sections deal 
+    with zones and camera angles and don't apply.<br>
+    <br>
+    There is one other possible modification, you can replace the barracks 
+    structure above with this one:<br>
+&nbsp;</font><div align="center">
+      <center>
+      <table border="1" cellpadding="0" style="border-collapse: collapse; text-align: center" bordercolor="#111111" width="95%" id="AutoNumber3" cellspacing="0">
+        <tr>
+          <td width="100%">
+          <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">*ESTRUCTURA</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">Structure</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB"><font face="Arial" size="2">{</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *DEFINICION 
+              &quot;PESW_1&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Definition&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *POSICION 
+              27.5 -0.0162754 83.5</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Position&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *ORIENTACION 
+              0</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Orientation&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *VISUAL 
+              &quot;PESW_1&quot;</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Visual&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *HABITANTES 200</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+              *MAX_HABITANTES 200</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Maximum Inhabitants&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp; *VEL_REGENERACION 
+              6</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2" color="#008000">&quot;Regeneration&quot;</font></td>
+            </tr>
+            <tr>
+              <td width="69%" bgcolor="#EBEBEB">
+              <font face="Arial" size="2">}</font></td>
+              <td width="31%" bgcolor="#EBEBEB">
+              &nbsp;</td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p>
+    <font face="Arial" size="2">This replaces the barracks with a village.&nbsp; 
+    It doesn't look as nice but has some advantages.&nbsp; First, playing 
+    against the CPU in skirmish if the computer starts in the fortress they will 
+    actually play, they don't understand it and will rush to the other village 
+    otherwise, never using it to create any units.&nbsp; It also helps the game 
+    decide when you've one where it doesn't when the barracks is destroyed.&nbsp; </font></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<table border="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="95%"><b><font face="Arial">Playing Your Map</font></b></td>
+  </tr>
+  <tr>
+    <td width="95%"><font face="Arial" size="2"><br>
+    So now you have a completed map, you need to put it into a PAK file.&nbsp; 
+    It must be in a &quot;Misiones&quot; folder.&nbsp; So create one on your hard drive 
+    and copy the new map into it.&nbsp; Then step back out of the folder and 
+    right click on it, and assuming you have WinZip installed select the &quot;Add to 
+    ZIP&quot; option.&nbsp; When it asks for the filename, enter in any name that 
+    isn't currently a standard PAK file, I use the same name as the mission 
+    file, ie jn_2_1.pak.&nbsp; Note is must have a .PAK extension, not .ZIP.&nbsp; 
+    If you're modifying your file with new changes you can also open it with 
+    WinRAR and drag and drop the file into the appropriate subfolder.&nbsp; Now simply copy the file into your DATA folder you found the PAKs in at the 
+    start of this tutorial, start the game, and it should now appear under the 
+    multiplayer and skirmish level load screens.&nbsp; Start it like any other 
+    map.<br>
+    <br>
+    Have fun :)</font></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

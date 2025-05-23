@@ -1,0 +1,15 @@
+{
+  "name": "mod_imperial8_portal_main_electron",
+  "version": "0.0.0",
+  "description": "Portal App for Mod Imperial 8+",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Mod Imperial 8+ Dev Team",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^35.0.0"
+  }
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praetorians Config</title>
+    <link href="./dist/output.css" rel="stylesheet" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <div class="w-64 bg-gray-800 p-4">
+        <div class="mb-8">
+          <h1 class="text-2xl font-bold text-center text-white">Praetorians</h1>
+        </div>
+        <nav>
+          <a
+            href="#"
+            class="flex items-center p-3 mb-2 rounded-lg transition-colors bg-blue-600"
+            id="home-link"
+          >
+            <i data-lucide="play-circle" class="mr-3"></i>
+            Launch Game
+          </a>
+          <a
+            href="#"
+            class="flex items-center p-3 mb-2 rounded-lg transition-colors hover:bg-gray-700"
+            id="settings-link"
+          >
+            <i data-lucide="settings" class="mr-3"></i>
+            Settings
+          </a>
+          <a
+            href="#"
+            class="flex items-center p-3 mb-2 rounded-lg transition-colors hover:bg-gray-700"
+            id="multiplayer-link"
+          >
+            <i data-lucide="users" class="mr-3"></i>
+            Multiplayer Manager
+          </a>
+          <a
+            href="#"
+            class="flex items-center p-3 mb-2 rounded-lg transition-colors hover:bg-gray-700"
+            id="install-link"
+          >
+            <i data-lucide="download" class="mr-3"></i>
+            Install Manager
+          </a>
+          <a
+            href="#"
+            class="flex items-center p-3 mb-2 rounded-lg transition-colors hover:bg-gray-700"
+            id="profile-link"
+          >
+            <i data-lucide="user-circle" class="mr-3"></i>
+            Account & Profile
+          </a>
+        </nav>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 overflow-auto">
+        <!-- Dashboard Page -->
+        <div id="dashboard-page" class="p-8">
+          <h1 class="text-4xl font-bold mb-8">
+            Praetorians Mod Imperial Portal
+          </h1>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <button
+              class="bg-blue-600 hover:bg-blue-700 p-6 rounded-lg flex items-center justify-center text-xl font-semibold"
+            >
+              <i data-lucide="play-circle" class="mr-3 h-8 w-8"></i>
+              Launch Game
+            </button>
+          </div>
+        </div>
+
+        <!-- Settings Page -->
+        <div id="settings-page" class="p-8 max-w-4xl mx-auto hidden">
+          <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold">Game Settings</h1>
+            <button
+              class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg flex items-center"
+            >
+              <i data-lucide="save" class="mr-2"></i>
+              Save Changes
+            </button>
+          </div>
+
+          <div class="bg-gray-800 rounded-lg p-6">
+            <!-- Background Section -->
+            <div class="mb-8">
+              <h2 class="text-xl font-semibold mb-4 text-blue-400">
+                Background
+              </h2>
+              <div class="space-y-4">
+                <button
+                  class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded-lg text-left"
+                  id="sgbButt"
+                >
+                  Set Game Background
+                </button>
+                <button
+                  class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded-lg text-left"
+                  id="sguibButt"
+                >
+                  Set GUI Tool's Theme & Background
+                </button>
+              </div>
+            </div>
+
+            <!-- Language Section -->
+            <div class="mb-8">
+              <h2 class="text-xl font-semibold mb-4 text-blue-400">Language</h2>
+              <div class="space-y-4">
+                <button
+                  class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded-lg text-left"
+                  id="sglButt"
+                >
+                  Set Game Language
+                </button>
+                <button
+                  class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded-lg text-left"
+                  id="sguilButt"
+                >
+                  Set GUI Tool's Language
+                </button>
+              </div>
+            </div>
+
+            <!-- Maps Section -->
+            <div class="mb-8">
+              <h2 class="text-xl font-semibold mb-4 text-blue-400">Maps</h2>
+              <div class="space-y-4">
+                <button
+                  class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded-lg text-left"
+                  id="sgvsmButt"
+                >
+                  Set Visible Skirmish Maps
+                </button>
+                <button
+                  class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded-lg text-left"
+                  id="sgvcomButt"
+                >
+                  Set Visible Co-Op Maps
+                </button>
+                <button
+                  class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded-lg text-left"
+                  id="sgvcButt"
+                >
+                  Set Visible Campaigns
+                </button>
+              </div>
+            </div>
+
+            <!-- Camera Section -->
+            <div class="mb-8">
+              <h2 class="text-xl font-semibold mb-4 text-blue-400">Camera</h2>
+              <div class="space-y-2">
+                <label class="block text-sm font-medium"
+                  >Camera Distance: <span id="camera-value">+0%</span></label
+                >
+                <input
+                  type="range"
+                  min="0"
+                  max="50"
+                  value="0"
+                  id="camera-distance"
+                  class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer slider-thumb"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multiplayer Manager Page -->
+        <div id="multiplayer-page" class="p-8 max-w-4xl mx-auto hidden">
+          <h1 class="text-3xl font-bold mb-8">Multiplayer Manager</h1>
+          <div class="bg-gray-800 rounded-lg p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Server Browser -->
+              <div class="bg-gray-700 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold mb-4 text-blue-400">
+                  Server Browser
+                </h2>
+                <div class="space-y-4">
+                  <div class="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Search servers..."
+                      class="flex-1 bg-gray-600 rounded px-3 py-2 text-white"
+                    />
+                    <button class="bg-blue-600 hover:bg-blue-700 px-4 rounded">
+                      <i data-lucide="search" class="h-5 w-5"></i>
+                    </button>
+                  </div>
+                  <div class="bg-gray-600 rounded-lg p-4 space-y-2">
+                    <div
+                      class="flex justify-between items-center p-2 hover:bg-gray-500 rounded cursor-pointer"
+                    >
+                      <span>Server #1</span>
+                      <span class="text-green-400">4/8 Players</span>
+                    </div>
+                    <div
+                      class="flex justify-between items-center p-2 hover:bg-gray-500 rounded cursor-pointer"
+                    >
+                      <span>Server #2</span>
+                      <span class="text-yellow-400">6/8 Players</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Create Server -->
+              <div class="bg-gray-700 p-4 rounded-lg">
+                <h2 class="text-xl font-semibold mb-4 text-blue-400">
+                  Create Server
+                </h2>
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-sm mb-2">Server Name</label>
+                    <input
+                      type="text"
+                      class="w-full bg-gray-600 rounded px-3 py-2"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-2">Max Players</label>
+                    <select class="w-full bg-gray-600 rounded px-3 py-2">
+                      <option>2</option>
+                      <option>4</option>
+                      <option>6</option>
+                      <option>8</option>
+                    </select>
+                  </div>
+                  <button
+                    class="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded-lg"
+                  >
+                    Create Server
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Install Manager Page -->
+        <div id="install-page" class="p-8 max-w-4xl mx-auto hidden">
+          <h1 class="text-3xl font-bold mb-8">Install Manager</h1>
+          <div class="bg-gray-800 rounded-lg p-6">
+            <!-- Available Mods -->
+            <div class="mb-8">
+              <h2 class="text-xl font-semibold mb-4 text-blue-400">
+                Available Mods
+              </h2>
+              <div class="space-y-4">
+                <div
+                  class="bg-gray-700 p-4 rounded-lg flex items-center justify-between"
+                >
+                  <div>
+                    <h3 class="font-semibold">HD Texture Pack</h3>
+                    <p class="text-sm text-gray-400">
+                      High-resolution textures for all units and buildings
+                    </p>
+                  </div>
+                  <button
+                    class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+                  >
+                    Install
+                  </button>
+                </div>
+                <div
+                  class="bg-gray-700 p-4 rounded-lg flex items-center justify-between"
+                >
+                  <div>
+                    <h3 class="font-semibold">Enhanced UI Mod</h3>
+                    <p class="text-sm text-gray-400">
+                      Improved user interface with new features
+                    </p>
+                  </div>
+                  <button
+                    class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded"
+                  >
+                    Installed
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Installation Progress -->
+            <div>
+              <h2 class="text-xl font-semibold mb-4 text-blue-400">
+                Installation Progress
+              </h2>
+              <div class="bg-gray-700 p-4 rounded-lg">
+                <div class="flex justify-between mb-2">
+                  <span>Installing: HD Texture Pack</span>
+                  <span>45%</span>
+                </div>
+                <div class="w-full bg-gray-600 rounded-full h-2">
+                  <div
+                    class="bg-blue-600 h-2 rounded-full"
+                    style="width: 45%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account & Profile Page -->
+        <div id="profile-page" class="p-8 max-w-4xl mx-auto hidden">
+          <h1 class="text-3xl font-bold mb-8">Account & Profile</h1>
+          <div class="bg-gray-800 rounded-lg p-6">
+            <!-- Profile Information -->
+            <div class="mb-8">
+              <h2 class="text-xl font-semibold mb-4 text-blue-400">
+                Profile Information
+              </h2>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm mb-2">Username</label>
+                  <input
+                    type="text"
+                    value="Player123"
+                    class="w-full bg-gray-700 rounded px-3 py-2"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm mb-2">Email</label>
+                  <input
+                    type="email"
+                    value="player@example.com"
+                    class="w-full bg-gray-700 rounded px-3 py-2"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm mb-2">Avatar</label>
+                  <div class="flex items-center space-x-4">
+                    <div
+                      class="w-20 h-20 bg-gray-700 rounded-full flex items-center justify-center"
+                    >
+                      <i data-lucide="user" class="h-12 w-12"></i>
+                    </div>
+                    <button
+                      class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+                    >
+                      Change Avatar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Game Statistics -->
+            <div>
+              <h2 class="text-xl font-semibold mb-4 text-blue-400">
+                Game Statistics
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-700 p-4 rounded-lg text-center">
+                  <div class="text-2xl font-bold">157</div>
+                  <div class="text-sm text-gray-400">Games Played</div>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg text-center">
+                  <div class="text-2xl font-bold">89</div>
+                  <div class="text-sm text-gray-400">Victories</div>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg text-center">
+                  <div class="text-2xl font-bold">56.7%</div>
+                  <div class="text-sm text-gray-400">Win Rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../Logic/home.js"></script>
+    <script src="../Logic/settings.js"></script>
+  </body>
+</html>

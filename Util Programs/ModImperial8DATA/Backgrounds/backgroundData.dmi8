@@ -1,0 +1,10 @@
+{
+    'default': {
+        'starred': {
+            'Original Background': 'original.dds'
+        },
+        'other': {
+            
+        }
+    }
+}

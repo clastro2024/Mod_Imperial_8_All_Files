@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Game Background</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <div class="max-w-4xl mx-auto p-8">
+      <div class="bg-gray-800 rounded-lg p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h1 class="text-2xl font-bold">Set Game Background</h1>
+          <button
+            class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg flex items-center"
+          >
+            <i data-lucide="check" class="mr-2 h-5 w-5"></i>
+            Apply Changes
+          </button>
+        </div>
+
+        <!-- Search Box -->
+        <div class="flex gap-2 mb-6">
+          <div class="flex-1 relative">
+            <i
+              data-lucide="search"
+              class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
+            ></i>
+            <input
+              type="text"
+              placeholder="Search backgrounds..."
+              class="w-full bg-gray-700 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <button
+            class="bg-blue-600 hover:bg-blue-700 px-4 rounded-lg flex items-center"
+          >
+            <i data-lucide="search" class="h-5 w-5"></i>
+          </button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex gap-4 mb-6">
+          <button
+            class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 font-medium"
+          >
+            Default
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 font-medium"
+          >
+            Imported
+          </button>
+        </div>
+
+        <!-- Image Grid - Default Tab -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+          <!-- Default Background 1 -->
+          <div
+            class="bg-gray-700 rounded-lg p-3 hover:bg-gray-600 cursor-pointer"
+          >
+            <div
+              class="aspect-video bg-gray-600 rounded-lg mb-2 overflow-hidden"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1506210727355-2e8b07874569?w=500&q=80"
+                alt="Castle"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-sm font-medium">Medieval Castle</p>
+          </div>
+
+          <!-- Default Background 2 -->
+          <div
+            class="bg-gray-700 rounded-lg p-3 hover:bg-gray-600 cursor-pointer"
+          >
+            <div
+              class="aspect-video bg-gray-600 rounded-lg mb-2 overflow-hidden"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1615671524827-c669d9b75967?w=500&q=80"
+                alt="Battlefield"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-sm font-medium">Ancient Battlefield</p>
+          </div>
+
+          <!-- Default Background 3 -->
+          <div
+            class="bg-gray-700 rounded-lg p-3 hover:bg-gray-600 cursor-pointer"
+          >
+            <div
+              class="aspect-video bg-gray-600 rounded-lg mb-2 overflow-hidden"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1564509143629-e12a5c062806?w=500&q=80"
+                alt="Forest"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-sm font-medium">Mystic Forest</p>
+          </div>
+        </div>
+
+        <!-- Image Grid - Imported Tab (Hidden by default) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6 hidden">
+          <!-- Imported Background 1 -->
+          <div class="bg-gray-700 rounded-lg p-3">
+            <div
+              class="aspect-video bg-gray-600 rounded-lg mb-2 overflow-hidden"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&q=80"
+                alt="Custom"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="flex justify-between items-center">
+              <p class="text-sm font-medium">Custom Background 1</p>
+              <button class="text-red-400 hover:text-red-300">
+                <i data-lucide="trash-2" class="h-4 w-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Import Button -->
+        <div class="flex justify-center">
+          <button
+            class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg flex items-center"
+          >
+            <i data-lucide="upload" class="mr-2 h-5 w-5"></i>
+            Import New Background
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
